@@ -29,4 +29,5 @@
   "files.trimTrailingWhitespace": true,
   "css.validate": false,
   "stylelint.enable": true,
+  "extensions.ignoreRecommendations": false
 }
