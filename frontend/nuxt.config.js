@@ -17,7 +17,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/tailwind.css', '@/assets/css/tailwind-util.css'],
+  css: [
+    '@/assets/css/tailwind.css',
+    '@/assets/css/tailwind-util.css',
+    '@/assets/css/global.css',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
