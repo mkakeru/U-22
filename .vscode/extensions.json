@@ -3,6 +3,12 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "stylelint.vscode-stylelint",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "groksrc.ruby",
+    "rebornix.ruby",
+    "hridoy.rails-snippets",
+    "bung87.rails",
+    "kaiwood.endwise",
+    "jduponchelle.rainbow-end"
   ]
 }
