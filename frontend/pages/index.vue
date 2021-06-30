@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="col-span-4">
     <Title />
   </div>
 </template>
