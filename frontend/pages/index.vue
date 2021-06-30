@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <Title />
   </div>
 </template>
@@ -9,5 +9,6 @@ import Title from '@/container/Title'
 
 export default {
   components: { Title },
+  layout: 'default',
 }
 </script>
