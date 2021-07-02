@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Title from '@/container/Title'
+import Title from '@/containers/Title'
 
 export default {
   components: { Title },

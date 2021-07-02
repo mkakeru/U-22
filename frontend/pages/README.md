@@ -1,6 +1,19 @@
-# PAGES
+# Pages フォルダの扱い方
 
-This directory contains your Application Views and Routes.
-The framework reads all the `*.vue` files inside this directory and creates the router of your application.
+## components は contaners フォルダのコンポーネントを使用する
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/routing).
+```vue
+<template>
+  <Hoge />
+</template>
+
+<script>
+import Hoge from '@/contaners/Hoge'
+
+export default () => {
+  export default {
+  components: { Hoge }
+}
+}
+</script>
+```
