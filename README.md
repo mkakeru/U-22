@@ -30,7 +30,7 @@ windows は wsl の ubuntu の中に clone してください。
 
 ## GitHub の使い方
 
-> エディタは vscode を前提としています
+> エディタは vscode を前提としています    
 > コマンドは terminal 上で実行してください
 
 1. 開発を始める前にすること
@@ -45,7 +45,7 @@ windows は wsl の ubuntu の中に clone してください。
 
 **※main ブランチにいることを確認してから**
 
-> vscode 状の左下に自分が今いるブランチが表示されているので
+> vscode 状の左下に自分が今いるブランチが表示されているので    
 > 違う場合は`git checkout main`
 
 - `git pull origin main`
@@ -66,8 +66,8 @@ Remote repository のブランチの状態を取得する
 
 git で管理されているブランチを表示する
 
-> `-a`：　 all というオプションでローカル、リモート両方のブランチを表示する
-> リモートブランチ： remotes/origin/~
+> `-a`：　 all というオプションでローカル、リモート両方のブランチを表示する   
+> リモートブランチ： remotes/origin/~    
 > ローカルブランチ： branchName
 
 <br>
@@ -94,7 +94,7 @@ git で管理されているブランチを表示する
 
 自分の作業用ブランチを作成する
 
-> `checkout -b` ブランチを作成し、
+> `checkout -b` ブランチを作成し、   
 > そのブランチへ移動する
 
 <br>
@@ -117,27 +117,27 @@ git で管理されているブランチを表示する
 
 ### 4. pullrepuest
 
-`push`は作業の区切りがついたタイミングで行ってください（寝る前や、作業を一時中断する時など）
+`push`は作業の区切りがついたタイミングで行ってください（寝る前や、作業を一時中断する時など）   
 `pullrequest`は一通り終わったときにしてください。（component が出来上がった時など）
 
 - `git push -u origin HEAD`
 
 commit した内容をリモートブランチへ反映する
 
-> `-u` 初めてそのブランチへ push する時だけ付ける
+> `-u` 初めてそのブランチへ push する時だけ付ける   
 > `HEAD` 自分の今いるブランチ名に置き換わる
 
 <br>
 
 - GitHub へアクセスし、pullrequest を送る
 
-`base`は反映させる`branch`、
+`base`は反映させる`branch`、   
 `compare`は反映したい`branch`
 
 <br>
 
 **例**
-`base: main` <- `compare: hoge`
+`base: main` <- `compare: hoge`   
 の場合`main`に`hoge`の内容を反映したいというリクエストになる
 
 > 今の所マージの作業はリーダーがしようと思います。
