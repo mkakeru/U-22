@@ -10,10 +10,10 @@
 <script>
 import Hoge from '@/contaners/Hoge'
 
-export default () => {
-  export default {
-  components: { Hoge }
-}
+export default {
+  components: {
+    Hoge,
+  },
 }
 </script>
 ```
