@@ -6,6 +6,10 @@
   "eslint.options": {
     "configFile": "./.eslintrc.js"
   },
+  "[markdown]": {
+    "editor.defaultFormatter": null,
+    "editor.quickSuggestions": true
+  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
