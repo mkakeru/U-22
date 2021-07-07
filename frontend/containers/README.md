@@ -8,17 +8,20 @@
 
 ```vue
 <template>
-  <AppCompoentsName
-    :hoge="hoge"
-    :hogehoge="hogehoge"
-    :hogege="hogege"
-    @event="event"
-  />
+  <div>
+    <AppCompoentsName
+      :hoge="hoge"
+      :hogehoge="hogehoge"
+      :hogege="hogege"
+      @event="event"
+    />
+    <Component :value="value" />
+   </div>
 </template>
 
 <script>
 import AppComponentName from '@/components/AppComponentName'
-import ComponentName from '@/containers/Compoent'
+import ComponentName from '@/containers/Componentt'
 
 export default {
   name: 'ContainerComponet',
