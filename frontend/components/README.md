@@ -50,7 +50,10 @@ import ComponentName from '@/components/ComponentName'
 // @ = ~/frontend と設定されているため上記のように指定できる
 
 export default {
-  name: 'AppDirectoryName'
+  name: 'AppDirectoryName',
+  components: {
+    ComponentName
+  }
 }
 </script>
 ```
