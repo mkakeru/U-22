@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ title }}</h1>
+  <h1>{{ title }} AppTitle</h1>
 </template>
 
 <script>
