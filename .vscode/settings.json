@@ -33,5 +33,8 @@
   "files.trimTrailingWhitespace": true,
   "css.validate": false,
   "stylelint.enable": true,
-  "extensions.ignoreRecommendations": false
+  "extensions.ignoreRecommendations": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }
