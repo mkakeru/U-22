@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_081242) do
+ActiveRecord::Schema.define(version: 2021_07_09_081720) do
+
+  create_table "emergency_contacts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "emergency_contact_name", null: false
+    t.string "emergency_contact_tel", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index "\"user\"", name: "index_emergency_contacts_on_user"
+    t.index ["user_id"], name: "index_emergency_contacts_on_user_id"
+  end
 
   create_table "helps", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -44,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_081242) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "emergency_contacts", "users"
   add_foreign_key "helps", "users"
   add_foreign_key "user_details", "users"
 end
