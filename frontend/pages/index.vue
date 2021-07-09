@@ -2,7 +2,7 @@
   <div class="col-span-4">
     <Title />
     <AppForm />
-    <AppButton />
+    <AppButton background="primary">利用者として登録</AppButton>
   </div>
 </template>
 
