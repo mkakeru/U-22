@@ -8,6 +8,12 @@
 - 変動する値は`container`の Components から`props`として受け取る
 - `@click`などのイベントも`container`の Components から受け取り`$emit`で発火（実行）する
 
+<br>
+
+`containers`フォルダに存在するcompoentはimportしないでください。
+
+<br>
+
 > サイトの見た目だけを作るイメージ
 > ループ処理や api からの受け取りの処理はここでは書かない
 
@@ -22,22 +28,32 @@
 
 ```
 --- components
-  |---hoge
+  |---Hoge
   |  |---index.vue
   |
-  |---hogehoge
+  |---HogeHoge
   |  |---index.vue
   |
-  |---hogege
+  |---Hogege
   |  |---index.vue
 ```
 
-- `neme`プロパティにフォルダ名を付ける
+- `neme`プロパティにフォルダ名を付ける。    
+
+<br>
+
+> この`name`の値が`component`名になります。
 
 ```js
 <script>
+import ComponentName from '@/components/ComponentName'
+// @ = ~/frontend と設定されているため上記のように指定できる
+
 export default {
-  name: 'AppDirectoryName'
+  name: 'AppDirectoryName',
+  components: {
+    ComponentName
+  }
 }
 </script>
 ```
