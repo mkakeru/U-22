@@ -34,5 +34,8 @@
   "css.validate": false,
   "stylelint.enable": true,
   "extensions.ignoreRecommendations": false,
-
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "vetur.validation.template": false
 }

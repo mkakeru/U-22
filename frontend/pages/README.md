@@ -1,6 +1,6 @@
 # Pages フォルダの扱い方
 
-## components は contaners フォルダのコンポーネントを使用する
+## components は containers フォルダのコンポーネントを使用する
 
 ```vue
 <template>
@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Hoge from '@/contaners/Hoge'
+import Hoge from '@/containers/Hoge'
 
 export default {
   components: {
