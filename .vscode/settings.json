@@ -36,5 +36,6 @@
   "extensions.ignoreRecommendations": false,
   "editor.quickSuggestions": {
     "strings": true
-  }
+  },
+  "vetur.validation.template": false
 }
