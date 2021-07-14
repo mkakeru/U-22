@@ -39,8 +39,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def user_params
-      params.permit(:user_line_id, :user_name, :user_tel,
-                                  :user_helper_flag)
+      params.permit(:user_line_id, :user_name, :user_tel, :user_helper_flag)
     end
 
 end
