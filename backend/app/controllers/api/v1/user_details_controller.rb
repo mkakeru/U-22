@@ -11,8 +11,8 @@ class Api::V1::UserDetailsController < ApplicationController
   end
 
   def create
-    user_dertail = UserDetail.new(user_detail_params)
-    if user.save
+    user_detail = UserDetail.new(user_detail_params)
+    if user_detail.save
       render json: { status: 'SUCCESS', data: user_detail }
     else
       render json: { status: 'ERROR', data: user_detail.errors }
