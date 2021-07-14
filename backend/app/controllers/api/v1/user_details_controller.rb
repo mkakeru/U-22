@@ -23,7 +23,7 @@ class Api::V1::UserDetailsController < ApplicationController
     if @user_detail.update(user_detail_params)
       render json: { status: 'SUCCESS', message: 'Updated the user_detail', data: @user_detail }
     else
-      render json: { status: 'SUCCESS', message: 'Not updated', data: @user_detail.errors }
+      render json: { status: 'ERORR', message: 'Not updated', data: @user_detail.errors }
     end
   end
 

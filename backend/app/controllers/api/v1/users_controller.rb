@@ -23,7 +23,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.update(user_params)
       render json: { status: 'SUCCESS', message: 'Updated the user', data: @user }
     else
-      render json: { status: 'SUCCESS', message: 'Not updated', data: @user.errors }
+      render json: { status: 'ERROR', message: 'Not updated', data: @user.errors }
     end
   end
 
