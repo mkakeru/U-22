@@ -1,0 +1,6 @@
+/assets/**
+/.nuxt/**
+/static/**
+
+*.md
+*.json
