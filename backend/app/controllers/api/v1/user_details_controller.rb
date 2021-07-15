@@ -23,7 +23,7 @@ class Api::V1::UserDetailsController < ApplicationController
     if @user_detail.update(user_detail_params)
       render json: { status: 'SUCCESS', message: 'Updated the user_detail', data: @user_detail }
     else
-      render json: { status: 'SUCCESS', message: 'Not updated', data: @user_detail.errors }
+      render json: { status: 'ERORR', message: 'Not updated', data: @user_detail.errors }
     end
   end
 
@@ -33,6 +33,7 @@ class Api::V1::UserDetailsController < ApplicationController
     end
 
     def user_detail_params
-      params.permit(:user_id, :user_detail_gender, :user_detail_stature, :user_detail_age, :user_detail_features, :user_detail_image_path, :user_detail_notification_flag)
+      params.permit(:user_id, :user_detail_gender, :user_detail_stature, :user_detail_age,
+                    :user_detail_features, :user_detail_image_path, :user_detail_notification_flag)
     end
 end

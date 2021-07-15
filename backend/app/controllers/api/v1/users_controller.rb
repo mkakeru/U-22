@@ -23,7 +23,7 @@ class Api::V1::UsersController < ApplicationController
     if @user.update(user_params)
       render json: { status: 'SUCCESS', message: 'Updated the user', data: @user }
     else
-      render json: { status: 'SUCCESS', message: 'Not updated', data: @user.errors }
+      render json: { status: 'ERROR', message: 'Not updated', data: @user.errors }
     end
   end
 
@@ -39,8 +39,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def user_params
-      params.permit(:user_line_id, :user_name, :user_tel,
-                                  :user_helper_flag)
+      params.permit(:user_line_id, :user_name, :user_tel, :user_helper_flag)
     end
 
 end
