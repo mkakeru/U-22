@@ -1,5 +1,5 @@
 class Api::V1::HelpsController < ApplicationController
-  before_action :set_help, only: [:show, :update]
+  before_action :set_help, only: [:show, :update, :destroy]
 
   def index
     helps = Help.order(created_at: :desc)
@@ -25,6 +25,11 @@ class Api::V1::HelpsController < ApplicationController
     else
       render json: { status: 'ERORR', message: 'Not updated', data: @help.errors }
     end
+  end
+
+  def destroy
+    @help.destroy
+    render json: { status: 'SUCCESS', message: 'Deleted the help', data: @help }
   end
 
   private
