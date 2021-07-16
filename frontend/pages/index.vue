@@ -1,27 +1,24 @@
 <template>
   <div class="col-span-4">
     <Title />
-    <AppForm :title="title" :caption="caption">
-      <AppInput placeholder="山田 太郎" />
-    </AppForm>
+    <AppInputForm
+      title="名前"
+      caption="※名前を入力してください"
+      placeholder="山田 太郎"
+    />
+    <AppRadioForm title="性別" caption="※性別を選んでください" />
     <AppButton background="primary">利用者として登録</AppButton>
   </div>
 </template>
 
 <script>
 import Title from '@/containers/Title'
-import AppForm from '@/components/AppForm'
 import AppButton from '@/components/AppButton'
-import AppInput from '@/components/AppInput'
+import AppInputForm from '@/components/AppInputForm'
+import AppRadioForm from '@/components/AppRadioForm'
 
 export default {
-  components: { Title, AppForm, AppButton, AppInput },
+  components: { Title, AppButton, AppInputForm, AppRadioForm },
   layout: 'default',
-  data() {
-    return {
-      title: '名前',
-      caption: '※名前を入力してください',
-    }
-  },
 }
 </script>
