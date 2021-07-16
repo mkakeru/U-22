@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :users
       resources :user_details, only: %i[index create show update]
       resources :helps,        only: %i[index create show update destroy]
+      resources :emergency_contacts
     end
   end
 end
