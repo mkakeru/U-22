@@ -8,6 +8,7 @@
     />
     <AppRadioForm title="性別" caption="※性別を選んでください" />
     <AppButton background="primary">利用者として登録</AppButton>
+    <AppIconButton :src="plusIcon">項目を増やす</AppIconButton>
   </div>
 </template>
 
@@ -15,10 +16,17 @@
 import Title from '@/containers/Title'
 import AppButton from '@/components/AppButton'
 import AppInputForm from '@/components/AppInputForm'
+import AppIconButton from '@/components/AppIconButton'
+import PlusIcon from '@/assets/svg/plus-icon.svg'
 import AppRadioForm from '@/components/AppRadioForm'
 
 export default {
-  components: { Title, AppButton, AppInputForm, AppRadioForm },
+  components: { Title, AppButton, AppInputForm, AppRadioForm, AppIconButton },
   layout: 'default',
+  data() {
+    return {
+      plusIcon: PlusIcon,
+    }
+  },
 }
 </script>
