@@ -16,6 +16,12 @@ module.exports = {
         primary: '#FF4C4A',
         secondary: '#53B3FF',
         background: '#FAFAFA',
+        'button-primary': '#FFC1C1',
+        'button-secondary': '#C9E2FF',
+      },
+      textColor: {
+        primary: '#2E2E2E',
+        secondary: '#3E3E3E',
       },
     },
   },
