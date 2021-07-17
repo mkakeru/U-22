@@ -4,7 +4,7 @@
   },
   "eslint.format.enable": false,
   "eslint.options": {
-    "configFile": "./frontend/.eslintrc.js"
+    "configFile": "./../frontend/eslintrc.js"
   },
   "[markdown]": {
     "editor.defaultFormatter": null,

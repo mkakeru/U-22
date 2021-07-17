@@ -1,7 +1,7 @@
 <template>
   <button
-    class="w-full h-14 text-base font-bold rounded shadow"
-    :class="customClass"
+    class="h-14 text-base text-primary font-bold rounded shadow"
+    :class="[customClass, { 'w-full': isFullWidth }]"
     @click="handleClick"
   >
     <slot />
@@ -15,6 +15,10 @@ export default {
     background: {
       type: String,
       default: 'white',
+    },
+    isFullWidth: {
+      type: Boolean,
+      default: true,
     },
   },
   computed: {

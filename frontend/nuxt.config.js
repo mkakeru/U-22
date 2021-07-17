@@ -47,9 +47,14 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
-
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000,
+    },
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    hardSource: true,
+    cache: true,
   },
 }

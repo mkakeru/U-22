@@ -1,12 +1,17 @@
 <template>
-  <AppButton>
-    <img :src="src" :alt="alt" />
-    <slot></slot>
+  <AppButton :is-full-width="false" :background="background">
+    <div class="flex box-border pl-3 pr-4">
+      <img class="pr-2" :src="src" :alt="alt" />
+      <span>
+        <slot />
+      </span>
+    </div>
   </AppButton>
 </template>
 
 <script>
 import AppButton from '@/components/AppButton'
+
 export default {
   name: 'AppIconButton',
   components: { AppButton },
@@ -22,12 +27,6 @@ export default {
     background: {
       type: String,
       default: 'white',
-    },
-  },
-  computed: {
-    customClass() {
-      // 'bg-' + this.background
-      return `bg-${this.background}`
     },
   },
   methods: {
