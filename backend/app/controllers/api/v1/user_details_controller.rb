@@ -28,6 +28,7 @@ class Api::V1::UserDetailsController < ApplicationController
   end
 
   private
+
     def set_user_detail
       @user_detail = UserDetail.find(params[:id])
     end
@@ -36,4 +37,5 @@ class Api::V1::UserDetailsController < ApplicationController
       params.permit(:user_id, :user_detail_gender, :user_detail_stature, :user_detail_age,
                     :user_detail_features, :user_detail_image_path, :user_detail_notification_flag)
     end
+
 end

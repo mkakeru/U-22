@@ -5,6 +5,11 @@ Rails.application.routes.draw do
       resources :user_details, only: %i[index create show update]
       resources :helps
       resources :emergency_contacts
+      resources :phones do
+        member do
+          get 'send_sms'
+        end
+      end
     end
   end
 end
