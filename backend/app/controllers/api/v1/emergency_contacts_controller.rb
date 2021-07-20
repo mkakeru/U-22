@@ -41,4 +41,5 @@ class Api::V1::EmergencyContactsController < ApplicationController
 		def emergency_contact_params
 			params.permit(:user_id, :emergency_contact_name, :emergency_contact_tel)
 		end
+
 end
