@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_081720) do
+ActiveRecord::Schema.define(version: 2021_07_21_071613) do
 
   create_table "emergency_contacts", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -46,12 +46,20 @@ ActiveRecord::Schema.define(version: 2021_07_09_081720) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_line_id"
-    t.string "user_name", null: false
-    t.string "user_tel"
     t.boolean "user_helper_flag", null: false
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
+    t.string "name"
+    t.string "nickname"
+    t.string "image"
+    t.string "email"
+    t.text "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
   add_foreign_key "emergency_contacts", "users"
