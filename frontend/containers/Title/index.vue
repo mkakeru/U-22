@@ -1,5 +1,5 @@
 <template>
-  <AppTitle :title="title" />
+  <AppTitle :title="title" :img="img" />
 </template>
 
 <script>
@@ -9,7 +9,11 @@ export default {
   components: { AppTitle },
   data() {
     return {
-      title: 'Hello world',
+      title: 'ヒトコエ',
+      img: {
+        src: '',
+        alt: '',
+      },
     }
   },
 }
