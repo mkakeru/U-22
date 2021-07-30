@@ -1,7 +1,11 @@
 <template>
   <div class="col-span-4">
-    <div>
+    <div class="pt-12 pb-8">
       <Title />
+      <p class="pt-2 text-2xl font-bold text-caption">
+        caption caption caption
+        <span class="block">caption</span>
+      </p>
     </div>
     <div class="mb-4">
       <ContentCardByUserType user-type="client" />
