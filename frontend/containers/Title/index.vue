@@ -6,6 +6,7 @@
 import AppTitle from '@/components/AppTitle'
 
 export default {
+  name: 'Title',
   components: { AppTitle },
   props: {
     titleType: {

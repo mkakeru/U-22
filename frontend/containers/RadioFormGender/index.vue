@@ -11,6 +11,7 @@
 import AppRadioForm from '@/components/AppRadioForm'
 
 export default {
+  name: 'RadioFormGender',
   components: { AppRadioForm },
   data() {
     return {
