@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, path: 'api/v1/auth'
+
+  post '/callback', to: 'line_bots#callback'
+
   namespace :api do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
