@@ -1,7 +1,7 @@
 <template>
   <div class="col-span-4">
     <div class="pt-12 pb-8">
-      <Title />
+      <Title title-type="big" />
       <p class="pt-2 text-2xl font-bold text-caption">
         caption caption caption
         <span class="block">caption</span>
