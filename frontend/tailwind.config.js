@@ -22,6 +22,7 @@ module.exports = {
       textColor: {
         primary: '#2E2E2E',
         secondary: '#3E3E3E',
+        caption: '#4D4D4D',
       },
     },
   },
