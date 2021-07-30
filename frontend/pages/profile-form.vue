@@ -8,11 +8,7 @@
     </div>
 
     <div :class="commonStyle">
-      <AppInputForm
-        title="名前"
-        caption="※名前を入力してください"
-        placeholder="山田 太郎"
-      />
+      <InputFormName />
     </div>
 
     <div :class="commonStyle">
@@ -34,9 +30,9 @@
 <script>
 import Title from '@/containers/Title'
 import AppSectionText from '@/components/AppSectionText'
+import InputFormName from '@/containers/InputFormName'
 import RadioFormGender from '@/containers/RadioFormGender'
 import AppButton from '@/components/AppButton'
-import AppInputForm from '@/components/AppInputForm'
 import AppIconButton from '@/components/AppIconButton'
 import PlusIcon from '@/assets/svg/plus-icon.svg'
 
@@ -44,9 +40,9 @@ export default {
   components: {
     Title,
     AppSectionText,
+    InputFormName,
     RadioFormGender,
     AppButton,
-    AppInputForm,
     AppIconButton,
   },
   layout: 'default',
