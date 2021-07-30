@@ -1,29 +1,38 @@
 <template>
-  <AppRadioForm />
+  <AppRadioForm
+    v-model="selectedRadio"
+    :title="title"
+    :caption="caption"
+    :radio-items="radioItems"
+  />
 </template>
 
 <script>
 import AppRadioForm from '@/components/AppRadioForm'
 
 export default {
+  name: 'RadioFormGender',
   components: { AppRadioForm },
   data() {
     return {
+      title: '性別',
+      caption: '※性別を選んでください',
+      selectedRadio: 0,
       radioItems: [
         {
+          id: 0,
           text: 'その他',
-          isRadio: true,
         },
         {
+          id: 1,
           text: '男性',
-          isRadio: true,
         },
         {
+          id: 2,
           text: '女性',
-          isRadio: true,
         },
-      ]
-    },
+      ],
+    }
   },
 }
 </script>
