@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full box-border rounded-md" :class="customClass.content">
+  <div class="w-full box-border rounded-md shadow" :class="customClass.content">
     <div class="px-4 pb-4">
       <AppButton :background="customClass.button" @buttonClick="handleClick">
         {{ buttonText }}
