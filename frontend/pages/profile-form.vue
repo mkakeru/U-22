@@ -16,7 +16,7 @@
     </div>
 
     <div :class="commonStyle">
-      <AppRadioForm title="性別" caption="※性別を選んでください" />
+      <RadioFormGender />
     </div>
 
     <div :class="commonStyle">
@@ -34,20 +34,20 @@
 <script>
 import Title from '@/containers/Title'
 import AppSectionText from '@/components/AppSectionText'
+import RadioFormGender from '@/containers/RadioFormGender'
 import AppButton from '@/components/AppButton'
 import AppInputForm from '@/components/AppInputForm'
 import AppIconButton from '@/components/AppIconButton'
-import AppRadioForm from '@/components/AppRadioForm'
 import PlusIcon from '@/assets/svg/plus-icon.svg'
 
 export default {
   components: {
     Title,
     AppSectionText,
+    RadioFormGender,
     AppButton,
     AppInputForm,
     AppIconButton,
-    AppRadioForm,
   },
   layout: 'default',
   data() {
