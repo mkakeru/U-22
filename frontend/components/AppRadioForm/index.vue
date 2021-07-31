@@ -32,8 +32,8 @@ export default {
       default: 'caption',
     },
     value: {
-      type: Number,
-      default: 0,
+      type: Object,
+      default: () => {},
     },
     radioItems: {
       type: Array,

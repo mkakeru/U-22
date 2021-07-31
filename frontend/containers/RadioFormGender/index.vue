@@ -1,14 +1,16 @@
 <template>
   <AppRadioForm
-    v-model="selectedRadio"
+    :value="selectedGender"
     :title="title"
     :caption="caption"
     :radio-items="radioItems"
+    @input="setSelectedItem"
   />
 </template>
 
 <script>
 import AppRadioForm from '@/components/AppRadioForm'
+import { STATE_TYPES_OF_USER } from '@/store/user'
 
 export default {
   name: 'RadioFormGender',
@@ -17,7 +19,6 @@ export default {
     return {
       title: '性別',
       caption: '※性別を選んでください',
-      selectedRadio: 0,
       radioItems: [
         {
           id: 0,
@@ -33,6 +34,19 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    selectedGender() {
+      return this.$store.getters['user/gender']
+    },
+  },
+  methods: {
+    setSelectedItem(gender) {
+      this.$store.commit('user/setSelectedItem', {
+        type: STATE_TYPES_OF_USER.gender,
+        payload: gender,
+      })
+    },
   },
 }
 </script>
