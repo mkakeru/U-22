@@ -1,10 +1,13 @@
 <template>
-  <AppInputForm
-    v-model="inputName"
-    :title="title"
-    :caption="caption"
-    :placeholder="placeholder"
-  />
+  <div>
+    <AppInputForm
+      :value="userName"
+      :title="title"
+      :caption="caption"
+      :placeholder="placeholder"
+      @change="handleInput"
+    />
+  </div>
 </template>
 
 <script>
@@ -20,8 +23,17 @@ export default {
       title: '名前',
       caption: '※名前を入力してください',
       placeholder: '山田 太郎',
-      inputName: '',
     }
+  },
+  computed: {
+    userName() {
+      return this.$store.getters['user/userName']
+    },
+  },
+  methods: {
+    handleInput(inputValue) {
+      this.$store.commit('user/setInputValue', inputValue)
+    },
   },
 }
 </script>

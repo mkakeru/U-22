@@ -2,7 +2,7 @@
   <label class="text-sm font-bold flex items-center">
     <input
       v-model="selectedRadio"
-      :value="id"
+      :value="{ id: id, text: text }"
       class="w-6 h-6 mr-2"
       type="radio"
     />
@@ -15,8 +15,8 @@ export default {
   name: 'AppRadio',
   props: {
     value: {
-      type: Number,
-      default: 0,
+      type: Object,
+      default: () => {},
     },
     id: {
       type: Number,
@@ -33,7 +33,7 @@ export default {
         return this.value
       },
       set() {
-        this.$emit('input', this.id)
+        this.$emit('input', { id: this.id, text: this.text })
       },
     },
   },
