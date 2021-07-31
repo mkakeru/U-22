@@ -16,6 +16,7 @@ module.exports = {
         primary: '#FF4C4A',
         secondary: '#53B3FF',
         background: '#FAFAFA',
+        disable: '#A1A1A1',
         'button-primary': '#FFC1C1',
         'button-secondary': '#C9E2FF',
       },
