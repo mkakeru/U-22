@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
         #  :trackable,
          :validatable
   include DeviseTokenAuth::Concerns::User
-  serialize :tokens
+
+  # serialize :tokens
 
   has_one  :user_detail, dependent: :destroy
   has_many :helps, dependent: :destroy
