@@ -4,7 +4,7 @@ const state = () => ({
   accountType: '',
   userName: '',
   gender: { id: 0, text: 'その他' },
-  age: {},
+  age: { id: 6, text: '未選択' },
   height: {},
   helpsList: [],
   emergencyContactsList: [],
