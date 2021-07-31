@@ -6,13 +6,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,
          :omniauthable,
         #  :confirmable,
-         :recoverable,
+        #  :recoverable,
          :registerable,
          :rememberable,
         #  :trackable,
          :validatable
   include DeviseTokenAuth::Concerns::User
-  serialize :tokens
+
+  # serialize :tokens
 
   has_one  :user_detail, dependent: :destroy
   has_many :helps, dependent: :destroy
