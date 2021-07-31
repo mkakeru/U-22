@@ -3,7 +3,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
 
     create_table(:users) do |t|
 
-      t.boolean :user_helper_flag, null: false
+      t.boolean :user_helper_flag
 
       ## Required
       t.string :provider, :null => false, :default => "email"

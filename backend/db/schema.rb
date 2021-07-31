@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_07_21_071613) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.boolean "user_helper_flag", null: false
+    t.boolean "user_helper_flag"
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
     t.string "encrypted_password", default: "", null: false
