@@ -3,13 +3,15 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
 
   def omniauth_success
     get_resource_from_auth_hash
-    # set_token_on_resource
+    @token = @resource.create_token
     create_auth_params
 
     if resource_class.devise_modules.include?(:confirmable)
       # don't send confirmation email!!!
       @resource.skip_confirmation!
     end
+
+    sign_in(:user, @resource, store: false, bypass: false)
 
     # 動作確認用にユーザ情報を保存できたらjsonをそのまま返す処理
     if @resource.save!
