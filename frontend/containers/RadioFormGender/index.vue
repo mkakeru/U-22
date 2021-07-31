@@ -3,7 +3,7 @@
     :value="selectedGender"
     :title="title"
     :caption="caption"
-    :radio-items="radioItems"
+    :radio-items="genderListItems"
     @input="setSelectedItem"
   />
 </template>
@@ -19,7 +19,7 @@ export default {
     return {
       title: '性別',
       caption: '※性別を選んでください',
-      radioItems: [
+      genderListItems: [
         {
           id: 0,
           text: 'その他',
