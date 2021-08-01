@@ -6,7 +6,7 @@ const state = () => ({
   gender: { id: 0, text: 'その他' },
   age: { id: 6, text: '未選択' },
   height: { id: null, text: '未選択' },
-  helpsList: [],
+  helpList: [''],
   emergencyContactsList: [],
   featuresList: [],
 })
@@ -32,7 +32,7 @@ const getters = {
   gender: state => state.gender,
   age: state => state.age,
   height: state => state.height,
-  helpsList: state => state.helpsList,
+  helpList: state => state.helpList,
   emergencyContactsList: state => state.emergencyContactsList,
   featuresList: state => state.featuresList,
 }
@@ -51,11 +51,12 @@ const mutations = {
   },
   setInputValues(state, { type, payload }) {
     if (
-      type === STATE_TYPES_OF_USER.helpsList ||
+      type === STATE_TYPES_OF_USER.helpList ||
       type === STATE_TYPES_OF_USER.emergencyContactsList ||
       type === STATE_TYPES_OF_USER.featuresList
     ) {
-      state[`${type}`] = [...state[`${type}`], { ...payload }]
+      // state[`${type}`] = [...state[`${type}`], { ...payload }]
+      state[`${type}`][payload.i] = payload.text
     }
   },
   setSelectedItem(state, { type, payload }) {
