@@ -5,7 +5,7 @@ const state = () => ({
   userName: '',
   gender: { id: 0, text: 'その他' },
   age: { id: 6, text: '未選択' },
-  height: {},
+  height: { id: null, text: '未選択' },
   helpsList: [],
   emergencyContactsList: [],
   featuresList: [],
