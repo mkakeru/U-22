@@ -2,7 +2,6 @@
   <AppSelectboxForm
     title="年齢"
     caption="※年齢を選択してください"
-    name="test"
     :value="selectedAge"
     :select-items="ageListItems"
     @change="setSelectedItem"
