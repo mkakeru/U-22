@@ -20,6 +20,10 @@
     </div>
 
     <div :class="commonStyle">
+      <SelectboxFormHeight />
+    </div>
+
+    <div :class="commonStyle">
       <AppButton background="primary">利用者として登録</AppButton>
     </div>
 
@@ -37,6 +41,7 @@ import AppSectionText from '@/components/AppSectionText'
 import InputFormName from '@/containers/InputFormName'
 import RadioFormGender from '@/containers/RadioFormGender'
 import SelectboxFormAge from '@/containers/SelectboxFormAge'
+import SelectboxFormHeight from '@/containers/SelectboxFormHeight'
 import AppButton from '@/components/AppButton'
 import AppIconButton from '@/components/AppIconButton'
 import PlusIcon from '@/assets/svg/plus-icon.svg'
@@ -48,6 +53,7 @@ export default {
     InputFormName,
     RadioFormGender,
     SelectboxFormAge,
+    SelectboxFormHeight,
     AppButton,
     AppIconButton,
   },

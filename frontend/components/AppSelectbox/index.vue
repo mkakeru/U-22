@@ -1,10 +1,9 @@
 <template>
   <select
     v-model="currentItem"
-    :class="[{ 'text-disable': currentItem.text === '未選択' }]"
     class="
       font-bold
-      text-base text-primary
+      text-base text-secondary
       px-4
       h-12
       appearance-none
@@ -35,10 +34,6 @@ export default {
     event: 'change',
   },
   props: {
-    name: {
-      type: String,
-      default: '',
-    },
     value: {
       type: Object,
       default: () => {},

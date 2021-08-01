@@ -1,10 +1,6 @@
 <template>
   <AppForm :title="title" :caption="caption">
-    <AppSelectbox
-      v-model="currentItem"
-      :name="name"
-      :select-items="selectItems"
-    />
+    <AppSelectbox v-model="currentItem" :select-items="selectItems" />
   </AppForm>
 </template>
 
@@ -30,10 +26,6 @@ export default {
     caption: {
       type: String,
       default: 'caption',
-    },
-    name: {
-      type: String,
-      default: '',
     },
     value: {
       type: Object,
