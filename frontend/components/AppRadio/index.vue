@@ -1,5 +1,8 @@
 <template>
-  <label class="text-sm font-bold flex items-center">
+  <label
+    :class="[{ 'text-disable': isDisable }]"
+    class="text-sm font-bold text-secondary flex items-center"
+  >
     <input
       v-model="selectedRadio"
       :value="{ id: id, text: text }"
@@ -35,6 +38,9 @@ export default {
       set() {
         this.$emit('input', { id: this.id, text: this.text })
       },
+    },
+    isDisable() {
+      return this.value.id !== this.id
     },
   },
 }
