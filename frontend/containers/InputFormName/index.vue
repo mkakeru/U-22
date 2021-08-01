@@ -5,7 +5,7 @@
       :title="title"
       :caption="caption"
       :placeholder="placeholder"
-      @change="handleInput"
+      @input="handleInput"
     />
   </div>
 </template>

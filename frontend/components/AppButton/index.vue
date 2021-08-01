@@ -2,7 +2,7 @@
   <button
     class="h-14 text-base text-primary font-bold rounded shadow"
     :class="[customClass, { 'w-full': isFullWidth }]"
-    @click="handleClick"
+    @click="buttonClick"
   >
     <slot />
   </button>
@@ -28,7 +28,7 @@ export default {
     },
   },
   methods: {
-    handleClick() {
+    buttonClick() {
       this.$emit('buttonClick')
     },
   },
