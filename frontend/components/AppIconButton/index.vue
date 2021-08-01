@@ -1,5 +1,9 @@
 <template>
-  <AppButton :is-full-width="false" :background="background">
+  <AppButton
+    :is-full-width="false"
+    :background="background"
+    @buttonClick="buttonClick"
+  >
     <div class="flex box-border pl-3 pr-4">
       <img class="pr-2" :src="src" :alt="alt" />
       <span>
@@ -30,7 +34,7 @@ export default {
     },
   },
   methods: {
-    handleClick() {
+    buttonClick() {
       this.$emit('buttonClick')
     },
   },
