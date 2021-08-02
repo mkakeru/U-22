@@ -7,8 +7,8 @@ const state = () => ({
   age: { id: 6, text: '未選択' },
   height: { id: null, text: '未選択' },
   helpList: [''],
-  emergencyContactsList: [],
-  featuresList: [],
+  emergencyContactList: [],
+  featureList: [''],
 })
 // _____________________________________________________________________________
 //

@@ -28,6 +28,10 @@
     </div>
 
     <div :class="commonStyle">
+      <MultipleInputFormFeatureList />
+    </div>
+
+    <div :class="commonStyle">
       <AppButton background="primary">利用者として登録</AppButton>
     </div>
 
@@ -47,6 +51,7 @@ import RadioFormGender from '@/containers/RadioFormGender'
 import SelectboxFormAge from '@/containers/SelectboxFormAge'
 import SelectboxFormHeight from '@/containers/SelectboxFormHeight'
 import MultipleInputFormHelpList from '@/containers/MultipleInputFormHelpList'
+import MultipleInputFormFeatureList from '@/containers/MultipleInputFormFeatureList'
 import AppButton from '@/components/AppButton'
 import AppIconButton from '@/components/AppIconButton'
 import PlusIcon from '@/assets/svg/plus-icon.svg'
@@ -60,6 +65,7 @@ export default {
     SelectboxFormAge,
     SelectboxFormHeight,
     MultipleInputFormHelpList,
+    MultipleInputFormFeatureList,
     AppButton,
     AppIconButton,
   },
