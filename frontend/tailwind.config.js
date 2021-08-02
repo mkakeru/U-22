@@ -25,6 +25,9 @@ module.exports = {
         secondary: '#3E3E3E',
         caption: '#4D4D4D',
       },
+      minWidth: {
+        button: '102px',
+      },
     },
   },
   variants: {
