@@ -1,4 +1,5 @@
 class Api::V1::UserDetailsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user_detail, only: [:show, :update]
 
   def index

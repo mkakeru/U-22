@@ -1,4 +1,5 @@
 class Api::V1::EmergencyContactsController < ApplicationController
+	before_action :authenticate_user!
 	before_action :set_emergency_contact, only: [:show, :update, :destroy]
 
 	def index

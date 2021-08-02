@@ -1,4 +1,5 @@
 class Api::V1::HelpsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_help, only: [:show, :update, :destroy]
 
   def index
