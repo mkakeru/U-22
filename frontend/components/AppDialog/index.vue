@@ -1,11 +1,9 @@
 <template>
   <div>
     <AppDialogFlame :class="{ hidden: isActive }">
-      <template #dialog-head>
-        <h3>助けを求めますか？</h3>
-      </template>
+      <template #dialog-head> 助けを求めますか？ </template>
       <template #dialog-text>
-        <p>周りのヘルパーと緊急連絡先にメッセージを送ります。</p>
+        周りのヘルパーと緊急連絡先にメッセージを送ります。
       </template>
       <div class="flex justify-end pt-12">
         <div class="pr-4">
@@ -31,12 +29,8 @@
       </div>
     </AppDialogFlame>
     <AppDialogFlame :class="{ hidden: !isActive }">
-      <template #dialog-head>
-        <h3>SOSを送信しました！</h3>
-      </template>
-      <template #dialog-text>
-        <p>text text text</p>
-      </template>
+      <template #dialog-head> SOSを送信しました！ </template>
+      <template #dialog-text> text text text </template>
       <div class="pt-12">
         <AppButton
           class="shadow-none"
