@@ -28,6 +28,10 @@
     </div>
 
     <div :class="commonStyle">
+      <MultipleInputFormEmergencyList />
+    </div>
+
+    <div :class="commonStyle">
       <MultipleInputFormFeatureList />
     </div>
 
@@ -52,6 +56,7 @@ import SelectboxFormAge from '@/containers/SelectboxFormAge'
 import SelectboxFormHeight from '@/containers/SelectboxFormHeight'
 import MultipleInputFormHelpList from '@/containers/MultipleInputFormHelpList'
 import MultipleInputFormFeatureList from '@/containers/MultipleInputFormFeatureList'
+import MultipleInputFormEmergencyList from '@/containers/MultipleInputFormEmergencyList'
 import AppButton from '@/components/AppButton'
 import AppIconButton from '@/components/AppIconButton'
 import PlusIcon from '@/assets/svg/plus-icon.svg'
@@ -66,6 +71,7 @@ export default {
     SelectboxFormHeight,
     MultipleInputFormHelpList,
     MultipleInputFormFeatureList,
+    MultipleInputFormEmergencyList,
     AppButton,
     AppIconButton,
   },
