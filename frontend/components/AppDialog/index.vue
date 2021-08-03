@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppDialogFlame :class="{ hidden: helpDialog }">
+    <AppDialogFlame :class="{ hidden: dialogFlag }">
       <template #dialog-head> 助けを求めますか？ </template>
       <template #dialog-text>
         周りのヘルパーと緊急連絡先にメッセージを送ります。
@@ -28,7 +28,7 @@
         </div>
       </div>
     </AppDialogFlame>
-    <AppDialogFlame :class="{ hidden: postSosDialog }">
+    <AppDialogFlame :class="{ hidden: !dialogFlag }">
       <template #dialog-head> SOSを送信しました！ </template>
       <template #dialog-text> text text text </template>
       <div class="pt-12">
@@ -63,8 +63,7 @@ export default {
   },
   data() {
     return {
-      helpDialog: true,
-      postSosDialog: true,
+      dialogFlag: false,
     }
   },
   computed: {
@@ -77,9 +76,10 @@ export default {
   },
   methods: {
     postSosClick() {
-      this.$emit('postSosClick')
+      this.dialogFlag = true
     },
     dialogClose() {
+      this.dialogFlag = false
       this.$emit('dialogClose')
     },
   },
