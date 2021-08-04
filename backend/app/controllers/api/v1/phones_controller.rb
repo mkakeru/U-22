@@ -29,7 +29,7 @@ class Api::V1::PhonesController < ApplicationController
   end
 
   def set_emergency_contacts
-    @emergency_contacts = EmergencyContact.where(user_id: params[:id])
+    @emergency_contacts = EmergencyContact.where(uid: params[:uid])
   end
 
 end
