@@ -40,7 +40,7 @@ class Api::V1::HelpsController < ApplicationController
     end
 
     def help_params
-      params.permit(:user_id, :help_content)
+      params.permit(:uid, :help_content)
     end
 
 end

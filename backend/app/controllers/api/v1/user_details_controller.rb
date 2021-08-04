@@ -35,7 +35,7 @@ class Api::V1::UserDetailsController < ApplicationController
     end
 
     def user_detail_params
-      params.permit(:user_id, :user_detail_gender, :user_detail_stature, :user_detail_age,
+      params.permit(:uid, :user_detail_gender, :user_detail_stature, :user_detail_age,
                     :user_detail_features, :user_detail_image_path, :user_detail_notification_flag)
     end
 
