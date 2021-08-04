@@ -15,7 +15,9 @@ class User < ActiveRecord::Base
 
   # serialize :tokens
 
-  has_one  :user_detail, dependent: :destroy
-  has_many :helps, dependent: :destroy
-  has_many :emergency_contacts, dependent: :destroy
+  self.primary_key = :uid
+
+  has_one  :user_detail, dependent: :destroy, inverse_of: 'user'
+  has_many :helps, dependent: :destroy, inverse_of: 'user'
+  has_many :emergency_contacts, dependent: :destroy, inverse_of: 'user'
 end
