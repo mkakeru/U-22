@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
   has_one  :user_detail, dependent: :destroy, inverse_of: 'user'
   has_many :helps, dependent: :destroy, inverse_of: 'user'
   has_many :emergency_contacts, dependent: :destroy, inverse_of: 'user'
+
+  def is_helper?(user_helper_flag)
+    User.where(user_helper_flag: user_helper_flag).exists?(self.uid)
+  end
 end
