@@ -1,16 +1,14 @@
 class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
   def change
 
-    create_table(:users) do |t|
-
-      t.boolean :user_helper_flag
+    create_table :users, id: false do |t|
 
       ## Required
-      t.string :provider, :null => false, :default => "email"
-      t.string :uid, :null => false, :default => ""
+      t.string :uid, :null => false, primary_key: true
+      t.string :provider, :null => false
 
       ## Database authenticatable
-      t.string :encrypted_password, :null => false, :default => ""
+      t.string :encrypted_password, :null => false
 
       ## Recoverable
       # t.string   :reset_password_token
@@ -36,6 +34,7 @@ class DeviseTokenAuthCreateUsers < ActiveRecord::Migration[6.1]
       # t.string :nickname
       t.string :image
       # t.string :email
+      t.boolean :user_helper_flag, :default => "false"
 
       ## Tokens
       t.text :tokens

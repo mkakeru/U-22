@@ -1,7 +1,7 @@
 class CreateUserDetails < ActiveRecord::Migration[6.1]
   def change
     create_table :user_details do |t|
-      t.references :user, null: false, foreign_key: true
+      t.string     :uid, null: false
       t.integer    :user_detail_gender, null: false
       t.integer    :user_detail_stature, null: false
       t.integer    :user_detail_age, null: false
@@ -11,6 +11,6 @@ class CreateUserDetails < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
-    add_index :user_details, :user
+    add_foreign_key :user_details, :users, column: :uid , primary_key: :uid
   end
 end

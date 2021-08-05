@@ -10,29 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_21_071613) do
+ActiveRecord::Schema.define(version: 2021_07_09_081720) do
 
   create_table "emergency_contacts", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.string "uid", null: false
     t.string "emergency_contact_name", null: false
     t.string "emergency_contact_tel", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"user\"", name: "index_emergency_contacts_on_user"
-    t.index ["user_id"], name: "index_emergency_contacts_on_user_id"
   end
 
   create_table "helps", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.string "uid", null: false
     t.text "help_content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"user\"", name: "index_helps_on_user"
-    t.index ["user_id"], name: "index_helps_on_user_id"
   end
 
   create_table "user_details", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.string "uid", null: false
     t.integer "user_detail_gender", null: false
     t.integer "user_detail_stature", null: false
     t.integer "user_detail_age", null: false
@@ -41,26 +37,22 @@ ActiveRecord::Schema.define(version: 2021_07_21_071613) do
     t.boolean "user_detail_notification_flag", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"user\"", name: "index_user_details_on_user"
-    t.index ["user_id"], name: "index_user_details_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.boolean "user_helper_flag"
-    t.string "provider", default: "email", null: false
-    t.string "uid", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+  create_table "users", primary_key: "uid", id: :string, force: :cascade do |t|
+    t.string "provider", null: false
+    t.string "encrypted_password", null: false
     t.datetime "remember_created_at"
     t.string "name"
     t.string "image"
+    t.boolean "user_helper_flag", default: false
     t.text "tokens"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"reset_password_token\"", name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "emergency_contacts", "users"
-  add_foreign_key "helps", "users"
-  add_foreign_key "user_details", "users"
+  add_foreign_key "emergency_contacts", "users", column: "uid", primary_key: "uid"
+  add_foreign_key "helps", "users", column: "uid", primary_key: "uid"
+  add_foreign_key "user_details", "users", column: "uid", primary_key: "uid"
 end
