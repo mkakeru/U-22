@@ -1,4 +1,5 @@
 class Api::V1::HelpsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_help, only: [:show, :update, :destroy]
 
   def index
@@ -39,7 +40,7 @@ class Api::V1::HelpsController < ApplicationController
     end
 
     def help_params
-      params.permit(:user_id, :help_content)
+      params.permit(:uid, :help_content)
     end
 
 end
