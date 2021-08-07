@@ -5,11 +5,7 @@ import ActionCable from 'actioncable'
 export default class WebSocket {
   constructor(accountType) {
     this.accountType = accountType
-    this.cable = ActionCable.createConsumer(
-      `ws://${process.env.RAILS_IP || '127.0.0.1'}:${
-        process.env.RAILS_PORT || 3000
-      }/cable`
-    )
+    this.cable = ActionCable.createConsumer(`ws://127.0.0.1:3000/cable`)
   }
 
   setChannel(channelData) {
@@ -18,7 +14,17 @@ export default class WebSocket {
     console.log(this.accountType, channelData)
     // eslint-disable-next-line no-console
     console.log(this.cable)
-    return this.cable.subscriptions.create(channelData)
+    this.helpButtonChannel = this.cable.subscriptions.create(
+      'HelpButtonChannel',
+      {
+        received: channelData => {
+          return alert('test!')
+        },
+      }
+    )
+    return this.helpButtonChannel.perform('sendToHelper', {
+      data: channelData,
+    })
   }
 
   disconnectAction() {
