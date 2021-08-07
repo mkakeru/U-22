@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$wsClient._setChannel(this._userId)
+      const channelData = { userId: this._userId, lat: 10, lng: 10 }
+      this.$wsClient._setChannel(channelData)
     },
     disconnectAction() {
       this.$wsClient.socketClose()
