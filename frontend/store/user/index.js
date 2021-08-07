@@ -1,6 +1,7 @@
 // _____________________________________________________________________________
 //
 const state = () => ({
+  userId: 'user-id',
   accountType: '',
   userName: '',
   gender: { id: 0, text: 'その他' },
@@ -29,6 +30,7 @@ export { STATE_TYPES_OF_USER }
 // _____________________________________________________________________________
 //
 const getters = {
+  userId: state => state.userId,
   accountType: state => state.accountType,
   userName: state => state.userName,
   gender: state => state.gender,
