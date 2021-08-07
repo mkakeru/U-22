@@ -53,3 +53,6 @@ gem 'omniauth'
 gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
 gem 'line-bot-api'
+
+# WebSocket通信用
+gem 'redis'
