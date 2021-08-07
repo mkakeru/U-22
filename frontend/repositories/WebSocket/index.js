@@ -13,9 +13,9 @@ export default class WebSocket {
   }
 
   setChannel(channelData) {
+    // if (this.accountType === 'client' || this.accountType === 'helper') return
     // eslint-disable-next-line no-console
     console.log(this.accountType, channelData)
-    // if (this.accountType === 'client' || this.accountType === 'helper') return
     // eslint-disable-next-line no-console
     console.log(this.cable)
     return this.cable.subscriptions.create(channelData)
@@ -24,6 +24,7 @@ export default class WebSocket {
   disconnectAction() {
     // eslint-disable-next-line no-console
     console.log(this.cable)
+    this.cable.disconnect()
   }
 }
 // _____________________________________________________________________________
