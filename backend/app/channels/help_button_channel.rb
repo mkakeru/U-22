@@ -1,10 +1,6 @@
 class HelpButtonChannel < ApplicationCable::Channel
   def subscribed
-    if !params.empty? && current_user.is_helper?(params['user_helper_flag'])
-      stream_from "help_button_channel_#{params['user_helper_flag']}"
-    else
-      reject
-    end
+    stream_from "help_button_channel"
   end
 
   def unsubscribed
@@ -12,7 +8,8 @@ class HelpButtonChannel < ApplicationCable::Channel
   end
 
   def sendToHelper(data)
-    ActionCable.server.broadcast "help_button_channel_#{data.user_helper_flag}", data: data
+    ActionCable.server.broadcast("help_button_channel", data)
     #! SMS送信
   end
+
 end
