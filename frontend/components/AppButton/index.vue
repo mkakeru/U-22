@@ -1,6 +1,6 @@
 <template>
   <button
-    class="h-14 text-base text-primary font-bold rounded shadow"
+    class="h-14 text-base text-primary font-bold rounded shadow min-w-button"
     :class="[customClass, { 'w-full': isFullWidth }]"
     @click="buttonClick"
   >
