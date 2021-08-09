@@ -6,9 +6,34 @@ class Api::V1::HelpButtonsController < ApplicationController
   def send_help_message
     @user_detail = @user.user_detail
     gender = @user_detail.user_detail_gender == 0 ? "その他" : @user_detail.user_detail_gender == 1 ? "女性" : "男性"
+    if @user_detail.user_detail_stature == 0
+      stature = "~130cm"
+    elsif @user_detail.user_detail_stature == 6
+      stature = "180cm~"
+    elsif @user_detail.user_detail_stature >= 1 && @user_detail.user_detail_stature <= 5
+      stature_val = @user_detail.user_detail_stature * 10 + 120
+      stature = "#{stature_val+1}cm~#{stature_val+10}cm"
+    end
+    if @user_detail.user_detail_age == 0
+      age = "10歳未満"
+    elsif @user_detail.user_detail_age == 5
+      age = "50歳以上"
+    elsif @user_detail.user_detail_age >= 1 && @user_detail.user_detail_age <= 4
+      age = "#{@user_detail.user_detail_age * 10}代"
+    end
+    p @user_detail.user_detail_image_path.url
     message = {
-      type: 'text',
-      text: "#{@user.name}さんが助けを求めています。\n性別:#{gender}"
+      type: "text",
+      text: "#{@user.name}さんが助けを求めています。\
+            \n性別:#{gender}\
+            \n身長:#{stature}\
+            \n年齢:#{age}\
+            \n特徴:#{@user_detail.user_detail_features}"
+    },
+    {
+      type: "image",
+      originalContentUrl: @user_detail.user_detail_image_path.url,
+      previewImageUrl: @user_detail.user_detail_image_path.url
     }
     response = client.push_message(@helper.uid, message)
     if response.code == "200"
