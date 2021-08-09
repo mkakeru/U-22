@@ -21,6 +21,7 @@ class Api::V1::HelpButtonsController < ApplicationController
     elsif @user_detail.user_detail_age >= 1 && @user_detail.user_detail_age <= 4
       age = "#{@user_detail.user_detail_age * 10}代"
     end
+    address = Geocoder.search([params[:lat], params[:lng]])
     message = [{
       type: "text",
       text: "#{@user.name}さんが助けを求めています。\
@@ -32,9 +33,9 @@ class Api::V1::HelpButtonsController < ApplicationController
     {
       type: "location",
       title: "#{@user.name}さんはここにいます。",
-      address: "〒160-0004 東京都新宿区四谷一丁目6番1号",
-      latitude: 35.687574,
-      longitude: 139.72922
+      address: address.first.address,
+      latitude: params[:lat],
+      longitude: params[:lng]
     }]
     if !@user_detail.user_detail_image_path.url.nil?
       message.push(    {
