@@ -21,8 +21,7 @@ class Api::V1::HelpButtonsController < ApplicationController
     elsif @user_detail.user_detail_age >= 1 && @user_detail.user_detail_age <= 4
       age = "#{@user_detail.user_detail_age * 10}代"
     end
-    p @user_detail.user_detail_image_path.url
-    message = {
+    message = [{
       type: "text",
       text: "#{@user.name}さんが助けを求めています。\
             \n性別:#{gender}\
@@ -31,10 +30,19 @@ class Api::V1::HelpButtonsController < ApplicationController
             \n特徴:#{@user_detail.user_detail_features}"
     },
     {
-      type: "image",
-      originalContentUrl: @user_detail.user_detail_image_path.url,
-      previewImageUrl: @user_detail.user_detail_image_path.url
-    }
+      type: "location",
+      title: "#{@user.name}さんはここにいます。",
+      address: "〒160-0004 東京都新宿区四谷一丁目6番1号",
+      latitude: 35.687574,
+      longitude: 139.72922
+    }]
+    if !@user_detail.user_detail_image_path.url.nil?
+      message.push(    {
+        type: "image",
+        originalContentUrl: @user_detail.user_detail_image_path.url,
+        previewImageUrl: @user_detail.user_detail_image_path.url
+      })
+    end
     response = client.push_message(@helper.uid, message)
     if response.code == "200"
       render json: { status: 'SUCCESS', message: 'Sent a help message', data: response }
