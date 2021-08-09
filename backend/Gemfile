@@ -56,3 +56,6 @@ gem 'line-bot-api'
 
 # 定数管理用
 gem 'config'
+
+# Geocoding API用
+gem 'geocoder'
