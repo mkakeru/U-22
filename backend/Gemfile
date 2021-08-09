@@ -53,3 +53,6 @@ gem 'omniauth'
 gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
 gem 'line-bot-api'
+
+# 定数管理用
+gem 'config'
