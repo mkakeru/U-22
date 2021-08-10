@@ -9,7 +9,6 @@ class HelpButtonChannel < ApplicationCable::Channel
 
   def sendToHelper(data)
     ActionCable.server.broadcast("help_button_channel", data)
-    #! SMS送信
   end
 
 end
