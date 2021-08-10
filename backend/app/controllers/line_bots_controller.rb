@@ -24,12 +24,16 @@ class LineBotsController < ApplicationController
           # tf.write(response.body)
           client.reply_message(
             event['replyToken'],
-            { type: 'text', text: '画像' }
+            { type: 'text', text: '素敵な画像ですね。' }
           )
         when Line::Bot::Event::MessageType::Sticker #スタンプが送信されたとき
           client.reply_message(
             event['replyToken'],
-            { type: 'text', text: 'スタンプ' }
+            {
+              type: 'sticker',
+              packageId: 789,
+              stickerId: 10855
+            }
           )
         end
       end
@@ -37,17 +41,8 @@ class LineBotsController < ApplicationController
     render status: 200 , json: nil
   end
 
-  def push
-
-    message = {
-        type: 'text',
-        text: "○○さんが助けを求めています。"
-    }
-    user_id =  'U5c5dff22d36437dcbcb5d8e66b3d8c16'
-    response = client.push_message(user_id, message)
-  end
-
   private
+
   def client
     @client ||= Line::Bot::Client.new { |config|
       config.channel_secret  = Rails.application.credentials.line[:LINE_BOT_CHANNEL_SECRET]

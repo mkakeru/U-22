@@ -56,3 +56,9 @@ gem 'line-bot-api'
 
 # WebSocket通信用
 gem 'redis'
+
+# 定数管理用
+gem 'config'
+
+# Geocoding API用
+gem 'geocoder'

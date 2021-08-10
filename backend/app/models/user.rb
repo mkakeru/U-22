@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
 
   self.primary_key = :uid
 
-  has_one  :user_detail, dependent: :destroy, inverse_of: 'user'
-  has_many :helps, dependent: :destroy, inverse_of: 'user'
-  has_many :emergency_contacts, dependent: :destroy, inverse_of: 'user'
+  has_one  :user_detail, dependent: :destroy, inverse_of: 'user', foreign_key: :uid
+  has_many :helps, dependent: :destroy, inverse_of: 'user', foreign_key: :uid
+  has_many :emergency_contacts, dependent: :destroy, inverse_of: 'user', foreign_key: :uid
 
 end

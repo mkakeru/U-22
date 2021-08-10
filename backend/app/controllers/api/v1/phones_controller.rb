@@ -25,11 +25,11 @@ class Api::V1::PhonesController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:uid])
   end
 
   def set_emergency_contacts
-    @emergency_contacts = EmergencyContact.find_by(uid: params[:uid])
+    @emergency_contacts = EmergencyContact.where(uid: params[:uid])
   end
 
 end

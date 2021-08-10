@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           get 'send_sms'
         end
       end
+      post 'help_button', to: 'help_buttons#send_help_message'
     end
   end
 end
