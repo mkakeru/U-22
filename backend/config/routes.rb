@@ -7,9 +7,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         :omniauth_callbacks => "api/v1/omniauth_callbacks",
-        :registrations => 'api/v1/registrations'
+        :registrations => "api/v1/registrations"
       }, via: [:get, :post]
-      resources :users
       resources :user_details, only: %i[index create show update]
       resources :helps
       resources :emergency_contacts
