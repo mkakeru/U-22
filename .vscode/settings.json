@@ -3,9 +3,9 @@
     "source.fixAll.eslint": true
   },
   "eslint.format.enable": false,
-  "eslint.options": {
-    "configFile": "./../frontend/eslintrc.js"
-  },
+  "eslint.workingDirectories": [
+		"./frontend/**",
+	],
   "[markdown]": {
     "editor.defaultFormatter": null,
     "editor.quickSuggestions": true

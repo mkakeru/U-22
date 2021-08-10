@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
+    "actioncable": "^5.2.6",
     "core-js": "^3.9.1",
     "nuxt": "^2.15.3"
   },

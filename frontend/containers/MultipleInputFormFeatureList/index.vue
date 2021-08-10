@@ -1,14 +1,14 @@
 <template>
   <AppMultipleInputForm
-    title="日常生活で助けてほしいこと"
-    caption="※助けてほしいことを入力してください"
+    title="特徴"
+    caption="※見つけてもらうためにあなたの特徴を入力してください"
     @buttonClick="addInputFormCount"
   >
     <template #input>
       <div v-for="n in _inputFormCount" :key="n" class="mt-4">
         <AppInput
-          placeholder="階段を上がるのがつらい"
-          :value="_helpList[n - 1]"
+          placeholder="特徴"
+          :value="_featureList[n - 1]"
           @input="_setInputValues($event, n - 1)"
         />
       </div>
@@ -22,7 +22,7 @@ import AppInput from '@/components/AppInput'
 import { STATE_TYPES_OF_USER } from '@/store/user'
 
 export default {
-  name: 'MultipleInputFormHelpList',
+  name: 'MultipleInputFormFeatureList',
   components: {
     AppMultipleInputForm,
     AppInput,
@@ -36,8 +36,8 @@ export default {
     _inputFormCount() {
       return this.inputFormCount
     },
-    _helpList() {
-      return this.$store.getters['user/helpList']
+    _featureList() {
+      return this.$store.getters['user/featureList']
     },
   },
   methods: {
@@ -46,7 +46,7 @@ export default {
     },
     _setInputValues(payload, index) {
       this.$store.commit('user/setInputValues', {
-        type: STATE_TYPES_OF_USER.helpList,
+        type: STATE_TYPES_OF_USER.featureList,
         index,
         payload,
       })

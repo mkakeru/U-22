@@ -54,6 +54,9 @@ gem 'omniauth-line'
 gem 'omniauth-rails_csrf_protection'
 gem 'line-bot-api'
 
+# WebSocket通信用
+gem 'redis'
+
 # 定数管理用
 gem 'config'
 
