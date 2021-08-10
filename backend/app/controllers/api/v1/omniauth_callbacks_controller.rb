@@ -44,8 +44,8 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
     #    @resource = resource_class.where(
     # to:
     @resource = User.where({
-      uid:      auth_hash['uid'],
-      provider: auth_hash['provider']
+      uid:      auth_hash&.[]('uid'),
+      provider: auth_hash&.[]('provider')
     }).first_or_initialize
 
     if @resource.new_record?
