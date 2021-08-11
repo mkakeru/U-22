@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         :omniauth_callbacks => "api/v1/omniauth_callbacks",
         :registrations => "api/v1/registrations"
       }, via: [:get, :post]
+      resources :users, only: %i[update]
       resources :user_details, only: %i[index create show update]
       resources :helps
       resources :emergency_contacts
