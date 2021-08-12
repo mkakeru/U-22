@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     namespace :v1 do
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
         :omniauth_callbacks => "api/v1/omniauth_callbacks"
-      }, via: [:get, :post]
+      }
+      as :user do
+        delete '/users/sign_out', to: 'sessions#destroy', as: :destroy_user_session
+      end
       resources :users, only: %i[update]
       resources :user_details, only: %i[index create show update]
       resources :helps
