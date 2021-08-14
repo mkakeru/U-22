@@ -13,8 +13,9 @@ class Api::V1::PhonesController < ApplicationController
         result = client.messages.create(
           from: Rails.application.credentials.twilio[:TWILIO_PHONE_NUMBER],
           to:   send_phone_number,
-          body: "#{@user.user_name}さんがヘルプボタンを押しました。"
+          body: "#{@user.name}さんがヘルプボタンを押しました。"
         )
+        render json: { status: 'SUCCESS', message: 'Sent a help message'}
       rescue Twilio::REST::RestError => e
         @messages = "エラーコード[#{e.code}] ：” #{e.message}”"
         render json: { status: 'ERORR', message: "Couldn't send", data: "エラーコード[#{e.code}] ： #{e.message}" }
