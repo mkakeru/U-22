@@ -35,10 +35,10 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$wsClient._setChannel()
+      this.$wsClient.clientChannelLink(this._userId)
     },
     disconnectAction() {
-      this.$wsClient.socketClose()
+      this.$wsClient._disconnectAction()
     },
   },
 }

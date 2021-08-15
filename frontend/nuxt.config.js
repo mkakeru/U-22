@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -26,7 +30,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/axios.js',
-    { src: '@/plugins/webSocket/wsClient.js', mode: 'client' },
+    { src: '@/plugins/webSocket', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -59,5 +63,10 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     cache: true,
+  },
+
+  env: {
+    RAILS_IP: process.env.RAILS_IP,
+    RAILS_PORT: process.env.RAILS_PORT,
   },
 }
