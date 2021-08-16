@@ -1,5 +1,9 @@
 <template>
-  <AppForm title="写真の追加" caption="※写真を1枚追加できます">
+  <AppForm
+    title="写真の追加"
+    caption="※写真を1枚追加できます"
+    :is-required-value="false"
+  >
     <div class="mt-6">
       <p class="font-medium">
         いつも身に着けているものや <br />
