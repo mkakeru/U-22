@@ -14,23 +14,23 @@ export default {
   props: {
     background: {
       type: String,
-      default: 'white',
+      default: 'white'
     },
     isFullWidth: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   computed: {
     customClass() {
       // 'bg-' + this.background
       return `bg-${this.background}`
-    },
+    }
   },
   methods: {
     buttonClick() {
       this.$emit('buttonClick')
-    },
-  },
+    }
+  }
 }
 </script>

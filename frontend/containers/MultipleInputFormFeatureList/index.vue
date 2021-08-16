@@ -25,11 +25,11 @@ export default {
   name: 'MultipleInputFormFeatureList',
   components: {
     AppMultipleInputForm,
-    AppInput,
+    AppInput
   },
   data() {
     return {
-      inputFormCount: 1,
+      inputFormCount: 1
     }
   },
   computed: {
@@ -38,7 +38,7 @@ export default {
     },
     _featureList() {
       return this.$store.getters['user/featureList']
-    },
+    }
   },
   methods: {
     addInputFormCount() {
@@ -48,9 +48,9 @@ export default {
       this.$store.commit('user/setInputValues', {
         type: STATE_TYPES_OF_USER.featureList,
         index,
-        payload,
+        payload
       })
-    },
-  },
+    }
+  }
 }
 </script>

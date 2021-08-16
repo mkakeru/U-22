@@ -3,6 +3,7 @@
     "source.fixAll.eslint": true
   },
   "eslint.format.enable": false,
+  "eslint.nodePath": "./frontend/.eslintrc.js",
   "eslint.workingDirectories": [
 		"./frontend/**",
 	],
@@ -29,6 +30,7 @@
   "files.trimTrailingWhitespace": true,
   "css.validate": false,
   "stylelint.enable": true,
+  "stylelint.configFile": "./frontend/stylelint.config.js",
   "extensions.ignoreRecommendations": false,
   "editor.quickSuggestions": {
     "strings": true

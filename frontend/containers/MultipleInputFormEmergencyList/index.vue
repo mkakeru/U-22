@@ -36,12 +36,12 @@ export default {
   name: 'MultipleInputFormEmergencyList',
   components: {
     AppMultipleInputForm,
-    AppLabeledInput,
+    AppLabeledInput
   },
   data() {
     return {
       inputValue: '',
-      inputFormCount: 1,
+      inputFormCount: 1
     }
   },
   computed: {
@@ -56,7 +56,7 @@ export default {
     },
     _emergencyContactList() {
       return this.$store.getters['user/emergencyContactList']
-    },
+    }
   },
   methods: {
     addInputFormCount() {
@@ -70,11 +70,11 @@ export default {
           {
             ...this._emergencyContactList[index],
             name: payloadType === 'name' ? payload : '',
-            tel: payloadType === 'tel' ? payload : '',
-          },
-        ],
+            tel: payloadType === 'tel' ? payload : ''
+          }
+        ]
       })
-    },
-  },
+    }
+  }
 }
 </script>

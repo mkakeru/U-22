@@ -23,8 +23,8 @@ import ContentCardByUserType from '@/containers/ContentCardByUserType'
 export default {
   components: {
     ContentCardByUserType,
-    Title,
+    Title
   },
-  layout: 'default',
+  layout: 'default'
 }
 </script>

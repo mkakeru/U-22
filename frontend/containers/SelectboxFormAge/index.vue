@@ -15,7 +15,7 @@ import { STATE_TYPES_OF_USER } from '@/store/user'
 export default {
   name: 'SelectboxFormAge',
   components: {
-    AppSelectboxForm,
+    AppSelectboxForm
   },
   data() {
     return {
@@ -26,22 +26,22 @@ export default {
         { id: 2, text: '20代' },
         { id: 3, text: '30代' },
         { id: 4, text: '40代' },
-        { id: 5, text: '50代以上' },
-      ],
+        { id: 5, text: '50代以上' }
+      ]
     }
   },
   computed: {
     selectedAge() {
       return this.$store.getters['user/age']
-    },
+    }
   },
   methods: {
     setSelectedItem(payload) {
       this.$store.commit('user/setSelectedItem', {
         type: STATE_TYPES_OF_USER.age,
-        payload,
+        payload
       })
-    },
-  },
+    }
+  }
 }
 </script>

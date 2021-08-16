@@ -19,16 +19,16 @@ export default {
     titleType: {
       type: String,
       default: 'base',
-      require: true,
+      require: true
     },
     title: {
       type: String,
-      default: '',
+      default: ''
     },
     img: {
       type: Object,
-      default: () => {},
-    },
+      default: () => {}
+    }
   },
   computed: {
     headingStyle() {
@@ -39,9 +39,9 @@ export default {
 
       return {
         imgStyle,
-        textStyle,
+        textStyle
       }
-    },
-  },
+    }
+  }
 }
 </script>

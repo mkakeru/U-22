@@ -14,15 +14,14 @@ export default class WsClient extends WebSocket {
     this.receiveValue = null
   }
 
-  clientChannelLink(_userId) {
+  clientChannelLink() {
     this.reconnectAction()
     if (this.channel !== null) return
     // eslint-disable-next-line no-console
     console.log('setChannel')
     this.channel = this.cable.subscriptions.create(
       {
-        channel: HELP_BUTTON_CHANNEL,
-        room: JSON.stringify({ userId: _userId, lat: 123, lng: 456 }),
+        channel: HELP_BUTTON_CHANNEL
       },
       {
         connected() {
@@ -30,22 +29,28 @@ export default class WsClient extends WebSocket {
           return console.log('nice to meet you websocket')
         },
         received: data => {
-          const _data = JSON.parse(data)
-          return this._received(_data)
-        },
+          return this._received(data)
+        }
       }
     )
   }
 
-  _received(data) {
+  _received({ data }) {
     // eslint-disable-next-line no-console
     return console.log(`
     prop type ${typeof data}
     ${data}
-    ${typeof data.userId}
-    ${typeof data.lat}
+    ${data.userId}
+    ${data.lat}
     ${data.lng}
     `)
+  }
+
+  _sendToHelper(_userId) {
+    if (this.channel === null) return
+    return this.channel.perform('sendToHelper', {
+      data: { userId: _userId, lat: 123, lng: 456 }
+    })
   }
 
   _disconnectAction() {

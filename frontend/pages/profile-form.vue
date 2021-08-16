@@ -36,6 +36,10 @@
     </div>
 
     <div :class="commonStyle">
+      <InputFormFeaturePhoto />
+    </div>
+
+    <div :class="commonStyle">
       <AppButton background="primary">利用者として登録</AppButton>
     </div>
 
@@ -57,6 +61,7 @@ import SelectboxFormHeight from '@/containers/SelectboxFormHeight'
 import MultipleInputFormHelpList from '@/containers/MultipleInputFormHelpList'
 import MultipleInputFormFeatureList from '@/containers/MultipleInputFormFeatureList'
 import MultipleInputFormEmergencyList from '@/containers/MultipleInputFormEmergencyList'
+import InputFormFeaturePhoto from '@/containers/InputFormFeaturePhoto'
 import AppButton from '@/components/AppButton'
 import AppIconButton from '@/components/AppIconButton'
 import PlusIcon from '@/assets/svg/plus-icon.svg'
@@ -72,19 +77,20 @@ export default {
     MultipleInputFormHelpList,
     MultipleInputFormFeatureList,
     MultipleInputFormEmergencyList,
+    InputFormFeaturePhoto,
     AppButton,
-    AppIconButton,
+    AppIconButton
   },
   layout: 'default',
   data() {
     return {
-      plusIcon: PlusIcon,
+      plusIcon: PlusIcon
     }
   },
   computed: {
     commonStyle() {
       return 'mb-6'
-    },
-  },
+    }
+  }
 }
 </script>

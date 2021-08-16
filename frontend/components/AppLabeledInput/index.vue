@@ -13,21 +13,21 @@ import AppInput from '@/components/AppInput'
 export default {
   name: 'AppLabeledInput',
   components: {
-    AppInput,
+    AppInput
   },
   props: {
     inputLabel: {
       type: String,
-      default: 'label',
+      default: 'label'
     },
     value: {
       type: String,
-      default: '',
+      default: ''
     },
     placeholder: {
       type: String,
-      default: 'placeholder',
-    },
+      default: 'placeholder'
+    }
   },
   computed: {
     inputValue: {
@@ -36,8 +36,8 @@ export default {
       },
       set(value) {
         this.$emit('input', value)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>

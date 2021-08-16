@@ -12,12 +12,12 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'title',
+      default: 'title'
     },
     caption: {
       type: String,
-      default: 'caption',
-    },
-  },
+      default: 'caption'
+    }
+  }
 }
 </script>

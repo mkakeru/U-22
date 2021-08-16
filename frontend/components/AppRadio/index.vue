@@ -19,16 +19,16 @@ export default {
   props: {
     value: {
       type: Object,
-      default: () => {},
+      default: () => {}
     },
     id: {
       type: Number,
-      default: 0,
+      default: 0
     },
     text: {
       type: String,
-      default: 'title',
-    },
+      default: 'title'
+    }
   },
   computed: {
     selectedRadio: {
@@ -37,11 +37,11 @@ export default {
       },
       set() {
         this.$emit('input', { id: this.id, text: this.text })
-      },
+      }
     },
     isDisable() {
       return this.value.id !== this.id
-    },
-  },
+    }
+  }
 }
 </script>

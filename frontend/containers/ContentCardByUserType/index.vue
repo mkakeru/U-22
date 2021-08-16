@@ -28,20 +28,20 @@ export default {
     userType: {
       type: String,
       default: 'client',
-      require: true,
-    },
+      require: true
+    }
   },
   data() {
     return {
       clientText: '利用者として始める',
-      helperText: 'ヘルパーとして始める',
+      helperText: 'ヘルパーとして始める'
     }
   },
   methods: {
     handleClick() {
       // eslint-disable-next-line no-console
       console.log('buttontest')
-    },
-  },
+    }
+  }
 }
 </script>

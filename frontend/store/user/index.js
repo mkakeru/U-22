@@ -12,6 +12,8 @@ const state = () => ({
   emergencyTelList: [''],
   emergencyContactList: [{ name: '', tel: '' }],
   featureList: [''],
+  featurePhoto: '',
+  carrierWavePhoto: ''
 })
 // _____________________________________________________________________________
 //
@@ -41,6 +43,8 @@ const getters = {
   emergencyTelList: state => state.emergencyTelList,
   emergencyContactList: state => state.emergencyContactList,
   featureList: state => state.featureList,
+  featurePhoto: state => state.featurePhoto,
+  carrierWaveFormat: state => state.carrierWaveFormat
 }
 // _____________________________________________________________________________
 //
@@ -74,6 +78,10 @@ const mutations = {
       state[`${type}`] = { ...payload }
     }
   },
+  setFeaturePhoto(state, payload) {
+    state.featurePhoto = payload.encodedData
+    state.carrierWaveFormat = payload.carrierWave
+  }
 }
 // _____________________________________________________________________________
 //
@@ -82,7 +90,7 @@ const mutations = {
 const actions = {
   action({ commit }, payload) {
     commit('add', payload)
-  },
+  }
 }
 // _____________________________________________________________________________
 //
@@ -90,5 +98,5 @@ export default {
   state,
   getters,
   mutations,
-  actions,
+  actions
 }

@@ -17,29 +17,29 @@ export default {
   props: {
     buttonText: {
       type: String,
-      default: 'ボタン',
+      default: 'ボタン'
     },
     buttonColor: {
       type: String,
-      default: 'white',
+      default: 'white'
     },
     contentColor: {
       type: String,
-      default: 'white',
-    },
+      default: 'white'
+    }
   },
   computed: {
     customClass() {
       return {
         button: `${this.buttonColor}`,
-        content: `bg-${this.contentColor}`,
+        content: `bg-${this.contentColor}`
       }
-    },
+    }
   },
   methods: {
     handleClick() {
       this.$emit('buttonClick')
-    },
-  },
+    }
+  }
 }
 </script>

@@ -25,22 +25,22 @@ export default {
         { id: 3, text: '151cm~160cm' },
         { id: 4, text: '161cm~170cm' },
         { id: 5, text: '171cm~180cm' },
-        { id: 6, text: '180cm~' },
-      ],
+        { id: 6, text: '180cm~' }
+      ]
     }
   },
   computed: {
     selectedHeight() {
       return this.$store.getters['user/height']
-    },
+    }
   },
   methods: {
     setSelectedItem(payload) {
       this.$store.commit('user/setSelectedItem', {
         type: STATE_TYPES_OF_USER.height,
-        payload,
+        payload
       })
-    },
-  },
+    }
+  }
 }
 </script>
