@@ -20,25 +20,25 @@ export default {
   components: { AppForm, AppRadio },
   model: {
     prop: 'value',
-    event: 'input',
+    event: 'input'
   },
   props: {
     title: {
       type: String,
-      default: 'title',
+      default: 'title'
     },
     caption: {
       type: String,
-      default: 'caption',
+      default: 'caption'
     },
     value: {
       type: Object,
-      default: () => {},
+      default: () => {}
     },
     radioItems: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   computed: {
     selectedRadio: {
@@ -47,8 +47,8 @@ export default {
       },
       set(selectedRadio) {
         this.$emit('input', selectedRadio)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>

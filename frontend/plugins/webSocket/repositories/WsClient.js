@@ -21,7 +21,7 @@ export default class WsClient extends WebSocket {
     console.log('setChannel')
     this.channel = this.cable.subscriptions.create(
       {
-        channel: HELP_BUTTON_CHANNEL,
+        channel: HELP_BUTTON_CHANNEL
       },
       {
         connected() {
@@ -30,7 +30,7 @@ export default class WsClient extends WebSocket {
         },
         received: data => {
           return this._received(data)
-        },
+        }
       }
     )
   }
@@ -49,7 +49,7 @@ export default class WsClient extends WebSocket {
   _sendToHelper(_userId) {
     if (this.channel === null) return
     return this.channel.perform('sendToHelper', {
-      data: { userId: _userId, lat: 123, lng: 456 },
+      data: { userId: _userId, lat: 123, lng: 456 }
     })
   }
 

@@ -22,21 +22,21 @@ export default {
   props: {
     src: {
       type: String,
-      default: 'src',
+      default: 'src'
     },
     alt: {
       type: String,
-      default: 'alt',
+      default: 'alt'
     },
     background: {
       type: String,
-      default: 'white',
-    },
+      default: 'white'
+    }
   },
   methods: {
     buttonClick() {
       this.$emit('buttonClick')
-    },
-  },
+    }
+  }
 }
 </script>

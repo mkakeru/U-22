@@ -30,13 +30,13 @@ import AppButton from '@/components/AppButton'
 export default {
   components: {
     AppSectionText,
-    AppButton,
+    AppButton
   },
   layout: 'default',
   computed: {
     _userId() {
       return this.$store.getters['user/userId']
-    },
+    }
   },
   methods: {
     handleClick() {
@@ -47,7 +47,7 @@ export default {
     },
     disconnectAction() {
       this.$wsClient._disconnectAction()
-    },
-  },
+    }
+  }
 }
 </script>

@@ -22,31 +22,31 @@ export default {
       genderListItems: [
         {
           id: 0,
-          text: 'その他',
+          text: 'その他'
         },
         {
           id: 1,
-          text: '男性',
+          text: '男性'
         },
         {
           id: 2,
-          text: '女性',
-        },
-      ],
+          text: '女性'
+        }
+      ]
     }
   },
   computed: {
     selectedGender() {
       return this.$store.getters['user/gender']
-    },
+    }
   },
   methods: {
     setSelectedItem(gender) {
       this.$store.commit('user/setSelectedItem', {
         type: STATE_TYPES_OF_USER.gender,
-        payload: gender,
+        payload: gender
       })
-    },
-  },
+    }
+  }
 }
 </script>

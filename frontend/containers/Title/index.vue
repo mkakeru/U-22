@@ -11,17 +11,17 @@ export default {
   props: {
     titleType: {
       type: String,
-      default: 'base',
-    },
+      default: 'base'
+    }
   },
   data() {
     return {
       title: 'ヒトコエ',
       img: {
         src: '',
-        alt: '',
-      },
+        alt: ''
+      }
     }
-  },
+  }
 }
 </script>

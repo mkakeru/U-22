@@ -13,20 +13,20 @@ export default {
   props: {
     value: {
       type: String,
-      default: '',
+      default: ''
     },
     title: {
       type: String,
-      default: 'title',
+      default: 'title'
     },
     caption: {
       type: String,
-      default: 'caption',
+      default: 'caption'
     },
     placeholder: {
       type: String,
-      default: 'placeholder',
-    },
+      default: 'placeholder'
+    }
   },
   computed: {
     inputValue: {
@@ -35,8 +35,8 @@ export default {
       },
       set(inputValue) {
         this.$emit('input', inputValue)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>

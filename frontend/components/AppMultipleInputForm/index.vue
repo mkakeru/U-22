@@ -24,27 +24,27 @@ export default {
   components: {
     AppForm,
 
-    AppIconButton,
+    AppIconButton
   },
   props: {
     title: {
       type: String,
-      default: 'title',
+      default: 'title'
     },
     caption: {
       type: String,
-      default: 'caption',
-    },
+      default: 'caption'
+    }
   },
   data() {
     return {
-      plusIcon: PlusIcon,
+      plusIcon: PlusIcon
     }
   },
   methods: {
     buttonClick() {
       this.$emit('buttonClick')
-    },
-  },
+    }
+  }
 }
 </script>

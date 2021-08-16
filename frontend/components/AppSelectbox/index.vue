@@ -31,17 +31,17 @@ export default {
   name: 'AppSelectbox',
   model: {
     prop: 'value',
-    event: 'change',
+    event: 'change'
   },
   props: {
     value: {
       type: Object,
-      default: () => {},
+      default: () => {}
     },
     selectItems: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   computed: {
     currentItem: {
@@ -50,8 +50,8 @@ export default {
       },
       set(e) {
         return this.$emit('change', e)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>

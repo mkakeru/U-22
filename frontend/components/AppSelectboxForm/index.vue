@@ -12,29 +12,29 @@ export default {
   name: 'AppSelectboxForm',
   components: {
     AppForm,
-    AppSelectbox,
+    AppSelectbox
   },
   model: {
     prop: 'value',
-    event: 'change',
+    event: 'change'
   },
   props: {
     title: {
       type: String,
-      default: 'title',
+      default: 'title'
     },
     caption: {
       type: String,
-      default: 'caption',
+      default: 'caption'
     },
     value: {
       type: Object,
-      default: () => {},
+      default: () => {}
     },
     selectItems: {
       type: Array,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
   computed: {
     currentItem: {
@@ -43,8 +43,8 @@ export default {
       },
       set(item) {
         this.$emit('change', item)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>

@@ -2,5 +2,13 @@
   "semi": false,
   "singleQuote": true,
   "arrowParens": "avoid",
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": {
+        "parser": "json-stringify"
+      }
+    }
+  ]
 }

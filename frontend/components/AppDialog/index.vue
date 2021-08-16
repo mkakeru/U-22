@@ -54,25 +54,25 @@ export default {
   props: {
     buttonColor: {
       type: String,
-      default: 'white',
+      default: 'white'
     },
     buttonPrimaryColor: {
       type: String,
-      default: 'button-primary',
-    },
+      default: 'button-primary'
+    }
   },
   data() {
     return {
-      dialogFlag: false,
+      dialogFlag: false
     }
   },
   computed: {
     customClass() {
       return {
         button: `${this.buttonColor}`,
-        buttonPrimary: `${this.buttonPrimaryColor}`,
+        buttonPrimary: `${this.buttonPrimaryColor}`
       }
-    },
+    }
   },
   methods: {
     postSosClick() {
@@ -81,7 +81,7 @@ export default {
     dialogClose() {
       this.dialogFlag = false
       this.$emit('dialogClose')
-    },
-  },
+    }
+  }
 }
 </script>
