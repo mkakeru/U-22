@@ -5,12 +5,17 @@
     @buttonClick="addInputFormCount"
   >
     <template #input>
-      <div v-for="n in _inputFormCount" :key="n" class="mt-4">
+      <div
+        v-for="n in _inputFormCount"
+        :key="n"
+        class="mt-4"
+        :class="{ 'border-t pt-4': n !== 1 }"
+      >
         <div>
           <AppLabeledInput
             input-label="名前"
             placeholder="山田 太郎"
-            :value="_emergencyContactList[n - 1].name || _inputValue"
+            :value="_emergencyNameList[n - 1]"
             @input="_setInputValues($event, n - 1, 'emergencyNameList')"
           />
         </div>
@@ -18,8 +23,8 @@
           <AppLabeledInput
             input-label="電話番号"
             placeholder="090-1234-5678"
-            :value="_emergencyContactList[n - 1].tel || _inputValue"
-            @input="_setInputValues($event, n - 1, 'emergencyContactList')"
+            :value="_emergencyTelList[n - 1]"
+            @input="_setInputValues($event, n - 1, 'emergencyTelList')"
           />
         </div>
       </div>
@@ -40,22 +45,18 @@ export default {
   },
   data() {
     return {
-      inputValue: '',
       inputFormCount: 1
     }
   },
   computed: {
-    _inputValue() {
-      return this.inputValue
-    },
     _inputFormCount() {
       return this.inputFormCount
     },
     _emergencyNameList() {
       return this.$store.getters['user/emergencyNameList']
     },
-    _emergencyContactList() {
-      return this.$store.getters['user/emergencyContactList']
+    _emergencyTelList() {
+      return this.$store.getters['user/emergencyTelList']
     }
   },
   methods: {
@@ -64,15 +65,9 @@ export default {
     },
     _setInputValues(payload, index, payloadType) {
       this.$store.commit('user/setInputValues', {
-        type: STATE_TYPES_OF_USER.payloadType,
+        type: STATE_TYPES_OF_USER[payloadType],
         index,
-        payload: [
-          {
-            ...this._emergencyContactList[index],
-            name: payloadType === 'name' ? payload : '',
-            tel: payloadType === 'tel' ? payload : ''
-          }
-        ]
+        payload
       })
     }
   }
