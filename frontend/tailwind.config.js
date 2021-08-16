@@ -4,12 +4,12 @@ module.exports = {
     './layouts/**/*.vue',
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}',
+    './nuxt.config.{js,ts}'
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
     container: {
-      center: true,
+      center: true
     },
     extend: {
       colors: {
@@ -18,20 +18,20 @@ module.exports = {
         background: '#FAFAFA',
         disable: '#A1A1A1',
         'button-primary': '#FFC1C1',
-        'button-secondary': '#C9E2FF',
+        'button-secondary': '#C9E2FF'
       },
       textColor: {
         primary: '#2E2E2E',
         secondary: '#3E3E3E',
-        caption: '#4D4D4D',
+        caption: '#4D4D4D'
       },
       minWidth: {
-        button: '102px',
-      },
-    },
+        button: '102px'
+      }
+    }
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/aspect-ratio')]
 }
