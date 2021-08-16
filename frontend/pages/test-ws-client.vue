@@ -11,6 +11,11 @@
       </AppButton>
     </div>
     <div class="pt-6">
+      <AppButton background="button-primary" @buttonClick="sendToHelper">
+        SEND DATA
+      </AppButton>
+    </div>
+    <div class="pt-6">
       <AppButton background="button-secondary" @buttonClick="disconnectAction">
         DISCONNECT WEBSOCKET
       </AppButton>
@@ -35,7 +40,10 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$wsClient.clientChannelLink(this._userId)
+      this.$wsClient.clientChannelLink()
+    },
+    sendToHelper() {
+      this.$wsClient._sendToHelper(this._userId)
     },
     disconnectAction() {
       this.$wsClient._disconnectAction()
