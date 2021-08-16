@@ -1,6 +1,6 @@
 <template>
   <label>
-    <span class="block font-bold text-disable text-sm">
+    <span class="block font-bold text-secondary text-sm">
       {{ inputLabel }}
     </span>
     <AppInput v-model="inputValue" :placeholder="placeholder" />

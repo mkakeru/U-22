@@ -5,7 +5,7 @@
     :is-required-value="false"
   >
     <div class="mt-6">
-      <p class="font-medium">
+      <p class="font-medium text-secondary">
         いつも身に着けているものや <br />
         介護道具の写真を追加してください
       </p>
