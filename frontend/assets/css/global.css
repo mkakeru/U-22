@@ -3,3 +3,9 @@
     @apply bg-background;
   }
 }
+
+@variants focus {
+  button {
+    @apply outline-none;
+  }
+}
