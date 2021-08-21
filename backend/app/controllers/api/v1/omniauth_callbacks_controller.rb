@@ -13,25 +13,21 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
 
     sign_in(:user, @resource, store: false, bypass: false)
 
-    # 動作確認用にユーザ情報を保存できたらjsonをそのまま返す処理
-    if @resource.save!
-      # レスポンスヘッダーに認証情報を付与できる。
-      update_auth_header
-      yield @resource if block_given?
-      render json: @resource, status: :ok
-    else
-      render json: { message: "failed to login" }, status: 500
-    end
+    # 動作確認用
+    # if @resource.save!
+    #   update_auth_header
+    #   yield @resource if block_given?
+    #   render json: @resource, status: :ok
+    # else
+    #   render json: { message: "failed to login" }, status: 500
+    # end
 
-    # 本実装時 ========================================
+    @resource.save!
 
-    # @resource.save!
+    yield @resource if block_given?
 
-    # yield @resource if block_given?
+    render_data_or_redirect('deliverCredentials', @auth_params.as_json, @resource.as_json)
 
-    # render_data_or_redirect('deliverCredentials', @auth_params.as_json, @resource.as_json)
-
-    # ================================================
   end
 
   protected
