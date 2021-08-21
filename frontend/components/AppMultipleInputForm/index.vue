@@ -23,7 +23,6 @@ export default {
   name: 'AppMultipleInputForm',
   components: {
     AppForm,
-
     AppIconButton
   },
   props: {

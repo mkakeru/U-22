@@ -40,13 +40,7 @@
     </div>
 
     <div :class="commonStyle">
-      <AppButton background="primary">利用者として登録</AppButton>
-    </div>
-
-    <div>
-      <AppIconButton background="button-secondary" :src="plusIcon">
-        項目を増やす
-      </AppIconButton>
+      <AppButton background="button-primary">登録内容を確認</AppButton>
     </div>
   </div>
 </template>
@@ -63,8 +57,6 @@ import MultipleInputFormFeatureList from '@/containers/MultipleInputFormFeatureL
 import MultipleInputFormEmergencyList from '@/containers/MultipleInputFormEmergencyList'
 import InputFormFeaturePhoto from '@/containers/InputFormFeaturePhoto'
 import AppButton from '@/components/AppButton'
-import AppIconButton from '@/components/AppIconButton'
-import PlusIcon from '@/assets/svg/plus-icon.svg'
 
 export default {
   components: {
@@ -78,15 +70,9 @@ export default {
     MultipleInputFormFeatureList,
     MultipleInputFormEmergencyList,
     InputFormFeaturePhoto,
-    AppButton,
-    AppIconButton
+    AppButton
   },
   layout: 'default',
-  data() {
-    return {
-      plusIcon: PlusIcon
-    }
-  },
   computed: {
     commonStyle() {
       return 'mb-6'

@@ -1,6 +1,6 @@
 <template>
   <AppSelectboxForm
-    v-model="selectedHeight"
+    :value="selectedHeight"
     title="身長"
     caption="※おおよその身長を選択してください"
     :select-items="heightListItems"
