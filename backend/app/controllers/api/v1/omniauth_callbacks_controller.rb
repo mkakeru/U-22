@@ -33,7 +33,11 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
       update_auth_header
       yield @resource if block_given?
 
-      redirect_to "https://localhost:3000"
+      if ＠is_new
+        redirect_to "https://localhost:3000/sign_up"
+      else
+        redirect_to "https://localhost:3000"
+      end
       # render_data_or_redirect('deliverCredentials', @auth_params.as_json, @resource.as_json)
     else
       redirect_to "#{Settings.url}/api/v1/auth/line"
@@ -43,6 +47,7 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
 
   protected
   def get_resource_from_auth_hash
+    ＠is_new = false
     # find or create user by provider and provider uid
 
     # ================================================
@@ -57,6 +62,7 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
 
     if @resource.new_record?
       handle_new_resource
+      ＠is_new = true
     end
 
     # sync user info with provider, update/generate auth token
@@ -68,6 +74,6 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
       @resource.assign_attributes(extra_params) if extra_params
     end
 
-    @resource
+    @resource,@is_new
   end
 end
