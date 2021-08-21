@@ -22,11 +22,22 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
     #   render json: { message: "failed to login" }, status: 500
     # end
 
-    @resource.save!
+    # @resource.save!
 
-    yield @resource if block_given?
+    # yield @resource if block_given?
 
-    render_data_or_redirect('deliverCredentials', @auth_params.as_json, @resource.as_json)
+    # render_data_or_redirect('deliverCredentials', @auth_params.as_json, @resource.as_json)
+
+
+    if @resource.save!
+      update_auth_header
+      yield @resource if block_given?
+
+      redirect_to "https://localhost:3000"
+      # render_data_or_redirect('deliverCredentials', @auth_params.as_json, @resource.as_json)
+    else
+      redirect_to "#{Settings.url}/api/v1/auth/line"
+    end
 
   end
 
