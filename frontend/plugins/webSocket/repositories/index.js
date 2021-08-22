@@ -1,19 +1,23 @@
 import ActionCable from 'actioncable'
+export default function (accountType) {
+  const webSocket = new WebSocket(accountType)
+  return webSocket
+}
 
 // _____________________________________________________________________________
 //
-export default class WebSocket {
+class WebSocket {
   constructor(accountType) {
     this.accountType = accountType
     this.cable = ActionCable.createConsumer(
-      `ws://${process.env.RAILS_IP}:${process.env.RAILS_PORT}/cable`
+      `wss://${process.env.RAILS_DOMAIN}/cable`
     )
   }
 
   reconnectAction() {
     if (this.cable !== null) return
     this.cable = ActionCable.createConsumer(
-      `ws://${process.env.RAILS_IP}:${process.env.RAILS_PORT}/cable`
+      `wss://${process.env.RAILS_DOMAIN}/cable`
     )
   }
 
