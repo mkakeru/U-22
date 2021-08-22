@@ -1,32 +1,39 @@
-import WebSocket from './index'
+import webSocket from '../repositories'
 
+export default function (store) {
+  const clientSocket = webSocket('client')
+  const state = {
+    channel: null,
+    receiveValue: null,
+    resource: 'HelpButtonChannel'
+  }
+  const wsClient = new WsClient(clientSocket, store, state)
+  return wsClient
+}
 // _____________________________________________________________________________
 //
-const HELP_BUTTON_CHANNEL = 'HelpButtonChannel'
-// _____________________________________________________________________________
-//
-// _____________________________________________________________________________
-//
-export default class WsClient extends WebSocket {
-  constructor() {
-    super('client')
-    this.channel = null
-    this.receiveValue = null
+class WsClient {
+  constructor(webSocket, store, state) {
+    this.webSocket = webSocket
+    this.store = store
+    this.channel = state.channel
+    this.receiveValue = state.receiveValue
+    this.resource = state.resource
   }
 
   clientChannelLink() {
-    this.reconnectAction()
+    this.webSocket.reconnectAction()
     if (this.channel !== null) return
     // eslint-disable-next-line no-console
     console.log('setChannel')
-    this.channel = this.cable.subscriptions.create(
+    this.channel = this.webSocket.cable.subscriptions.create(
       {
-        channel: HELP_BUTTON_CHANNEL
+        channel: this.resource
       },
       {
         connected() {
           // eslint-disable-next-line no-console
-          return console.log('nice to meet you websocket')
+          return console.log('nice to meet you webSocket')
         },
         received: data => {
           return this._received(data)
@@ -48,8 +55,10 @@ export default class WsClient extends WebSocket {
 
   _sendToHelper(_userId) {
     if (this.channel === null) return
+    const lat = this.store.getters['userPosition/lat']
+    const lng = this.store.getters['userPosition/lng']
     return this.channel.perform('sendToHelper', {
-      data: { userId: _userId, lat: 123, lng: 456 }
+      data: { userId: _userId, lat, lng }
     })
   }
 
@@ -59,7 +68,7 @@ export default class WsClient extends WebSocket {
     this.channel = null
     // eslint-disable-next-line no-console
     console.log(this.channel)
-    this.disconnectAction()
+    this.webSocket.disconnectAction()
   }
 }
 // _____________________________________________________________________________

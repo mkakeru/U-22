@@ -1,6 +1,8 @@
-import WsClient from './repositories/WsClient'
+import wsClient from './repositories/WsClient'
 
-export default function (context, inject) {
-  const _wsClient = new WsClient()
-  inject('wsClient', _wsClient)
+export default function ({ store }, inject) {
+  const webSocket = {
+    client: wsClient(store)
+  }
+  inject('webSocket', webSocket)
 }
