@@ -29,7 +29,7 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
       if @is_new
         redirect_to "https://localhost:3000/sign_up"
       else
-        redirect_to "https://localhost:3000"
+        redirect_to "https://localhost:3000/omniauth/line/callback"
       end
       # render_data_or_redirect('deliverCredentials', @auth_params.as_json, @resource.as_json)
     else
