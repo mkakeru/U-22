@@ -74,6 +74,6 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
       @resource.assign_attributes(extra_params) if extra_params
     end
 
-    @resource, @is_new
+    return @resource, @is_new
   end
 end
