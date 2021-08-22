@@ -23,12 +23,17 @@ module.exports = {
       textColor: {
         primary: '#2E2E2E',
         secondary: '#3E3E3E',
-        caption: '#4D4D4D'
+        caption: '#4D4D4D',
+        active: '#FF4C4A'
       },
       minWidth: {
         button: '102px'
       }
-    }
+    },
+    fill: theme => ({
+      primary: theme('colors.primary'),
+      disable: theme('colors.disable')
+    })
   },
   variants: {
     extend: {}
