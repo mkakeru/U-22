@@ -3,7 +3,7 @@ class Api::V1::HelpsController < ApplicationController
   before_action :set_help, only: [:show, :update, :destroy]
 
   def index
-    helps = Help.order(created_at: :desc)
+    helps = Help.where(uid: current_user.uid).order(created_at: :desc)
     render json: { status: 'SUCCESS', message: 'Loaded helps', data: helps }
   end
 

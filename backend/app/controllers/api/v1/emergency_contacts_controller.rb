@@ -3,7 +3,7 @@ class Api::V1::EmergencyContactsController < ApplicationController
 	before_action :set_emergency_contact, only: [:show, :update, :destroy]
 
 	def index
-		emergency_contacts = EmergencyContact.order(created_at: :desc)
+		emergency_contacts = EmergencyContact.where(uid: current_user.uid).order(created_at: :desc)
 		render json: { status: 'SUCCESS', message: 'Loaded emergency_contacts', data: emergency_contacts }
 	end
 
