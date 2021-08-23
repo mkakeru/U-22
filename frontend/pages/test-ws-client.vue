@@ -40,13 +40,13 @@ export default {
   },
   methods: {
     handleClick() {
-      this.$wsClient.clientChannelLink()
+      this.$webSocket.client.clientChannelLink()
     },
     sendToHelper() {
-      this.$wsClient._sendToHelper(this._userId)
+      this.$webSocket.client._sendToHelper(this._userId)
     },
     disconnectAction() {
-      this.$wsClient._disconnectAction()
+      this.$webSocket.client._disconnectAction()
     }
   }
 }

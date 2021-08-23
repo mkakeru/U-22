@@ -1,8 +1,7 @@
-export default function ({ $axios, redirect }) {
-  $axios.defaults.baseURL = 'https://hitokoe-backend.herokuapp.com/api/v1'
-  $axios.defaults.withCredentials = 'include'
+export default function ({ $axios }, inject) {
   $axios.onError(error => {
     // eslint-disable-next-line no-console
-    console.error(error.response.data)
+    console.error(error)
   })
+  inject('axios', $axios)
 }

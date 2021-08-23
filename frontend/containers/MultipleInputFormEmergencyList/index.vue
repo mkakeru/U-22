@@ -2,11 +2,11 @@
   <AppMultipleInputForm
     title="緊急連絡先"
     caption="※助けてほしいときにメッセージを送る相手です"
-    @buttonClick="addInputFormCount"
+    @buttonClick="_addListCount"
   >
     <template #input>
       <div
-        v-for="n in _inputFormCount"
+        v-for="n in _emergencyListLength"
         :key="n"
         class="mt-4"
         :class="{ 'border-t pt-4': n !== 1 }"
@@ -43,14 +43,14 @@ export default {
     AppMultipleInputForm,
     AppLabeledInput
   },
-  data() {
-    return {
-      inputFormCount: 1
-    }
-  },
+  // data() {
+  //   return {
+  //     inputFormCount: 1
+  //   }
+  // },
   computed: {
-    _inputFormCount() {
-      return this.inputFormCount
+    _emergencyListLength() {
+      return this.$store.getters['user/emergencyListLength']
     },
     _emergencyNameList() {
       return this.$store.getters['user/emergencyNameList']
@@ -60,8 +60,8 @@ export default {
     }
   },
   methods: {
-    addInputFormCount() {
-      this.inputFormCount += 1
+    _addListCount() {
+      this.$store.commit('user/addListCount', { type: 'emergencyContactList' })
     },
     _setInputValues(payload, index, payloadType) {
       this.$store.commit('user/setInputValues', {

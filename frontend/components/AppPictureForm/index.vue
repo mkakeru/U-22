@@ -2,7 +2,7 @@
   <AppForm
     title="写真の追加"
     caption="※写真を1枚追加できます"
-    :is-required-value="false"
+    :is-required="false"
   >
     <div class="mt-6">
       <p class="font-medium text-secondary">
