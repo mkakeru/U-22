@@ -1,8 +1,16 @@
+import path from 'path'
+import fs from 'fs'
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
 
 export default {
+  server: {
+    https: {
+      key: fs.readFileSync(path.join(__dirname, '/localhost-key.pem')),
+      cert: fs.readFileSync(path.join(__dirname, '/localhost.pem'))
+    }
+  },
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -27,9 +35,14 @@ export default {
     '@/assets/css/global.css'
   ],
 
+  router: {
+    middleware: 'cookie'
+  },
+
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/axios.js',
+    '@/plugins/axios',
+    { src: '@/plugins/api', mode: 'client' },
     { src: '@/plugins/webSocket', mode: 'client' }
   ],
 
@@ -49,17 +62,30 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/proxy',
+    '@nuxtjs/axios',
+    'cookie-universal-nuxt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  proxy: {
+    '/api/': {
+      target: `https://${process.env.RAILS_DOMAIN}`
+    },
+    target: 'https://access.line.me/'
+  },
+
+  axios: {
+    proxy: true
+  },
+
   watchers: {
     webpack: {
       aggregateTimeout: 300,
       poll: 1000
     }
   },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     cache: true
@@ -67,6 +93,8 @@ export default {
 
   env: {
     RAILS_IP: process.env.RAILS_IP,
-    RAILS_PORT: process.env.RAILS_PORT
+    RAILS_PORT: process.env.RAILS_PORT,
+    RAILS_DOMAIN: process.env.RAILS_DOMAIN,
+    GEO_API_KEY: process.env.GEO_API_KEY
   }
 }
