@@ -27,9 +27,9 @@ class Api::V1::OmniauthCallbacksController < DeviseTokenAuth::OmniauthCallbacksC
       yield @resource if block_given?
 
       if @is_new
-        redirect_to "https://localhost:3000/sign_up"
+        redirect_to "https://localhost:3000/sign_up?access-token=#{@token.token}&client=#{@token.client}&uid=#{@resource.uid}"
       else
-        redirect_to "https://localhost:3000"
+        redirect_to "https://localhost:3000?access-token=#{@token.token}&client=#{@token.client}&uid=#{@resource.uid}"
       end
       # render_data_or_redirect('deliverCredentials', @auth_params.as_json, @resource.as_json)
     else
