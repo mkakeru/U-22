@@ -1,12 +1,14 @@
 <template>
   <div class="w-full box-border p-4 bg-white rounded-md shadow">
     <span
-      v-if="isRequiredValue"
+      v-if="isRequired"
       class="text-xs font-bold text-red-600 text-opacity-95 pb-1 block"
       >必須</span
     >
-    <h2 class="text-xl font-bold pb-1">{{ title }}</h2>
-    <p class="text-xm text-gray-600 mb-6">{{ caption }}</p>
+    <h2 class="text-xl text-primary font-bold pb-1">{{ title }}</h2>
+    <p :class="{ hidden: !caption }" class="text-xm text-gray-600 mb-6">
+      {{ caption }}
+    </p>
     <slot />
   </div>
 </template>
@@ -15,7 +17,7 @@
 export default {
   name: 'AppForm',
   props: {
-    isRequiredValue: {
+    isRequired: {
       type: Boolean,
       default: true
     },
@@ -25,7 +27,7 @@ export default {
     },
     caption: {
       type: String,
-      default: 'caption'
+      default: ''
     }
   }
 }
