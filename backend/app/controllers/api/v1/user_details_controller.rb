@@ -3,7 +3,7 @@ class Api::V1::UserDetailsController < ApplicationController
   before_action :set_user_detail, only: [:show, :update]
 
   def index
-    user_details = UserDetail.order(created_at: :desc)
+    user_details = UserDetail.where(uid: current_user.uid).order(created_at: :desc)
     render json: { status: 'SUCCESS', message: 'Loaded user_details', data: user_details }
   end
 
