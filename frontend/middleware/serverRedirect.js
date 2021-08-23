@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-useless-return
-export default async function ({ query, store, $api, app, route }) {
+export default async function ({ query, store, $user, app, route }) {
   if (!query['access-token']) return
   const session = {}
   const authHeaders = {
@@ -11,7 +11,7 @@ export default async function ({ query, store, $api, app, route }) {
   session.tokens = authHeaders
 
   if (route.path === '/omniauth/line/callbakc') {
-    const { data } = await $api.user.getUserInfomation(authHeaders.uid)
+    const { data } = await $user.getUserInfomation(authHeaders.uid)
     session.user = data
   }
 

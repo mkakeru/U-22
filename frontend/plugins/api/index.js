@@ -51,5 +51,6 @@ export default function (context, inject) {
     geolocation: geolocation(geoAxios, store)
   }
   context.$api = api
+  context.$user = api.user
   inject('api', api)
 }
