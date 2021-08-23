@@ -1,5 +1,5 @@
 <template>
-  <div class="col-span-4">
+  <div class="responsive-grid-style">
     <div class="pt-12 pb-8">
       <Title />
     </div>
@@ -40,7 +40,7 @@
     </div>
 
     <div :class="commonStyle">
-      <AppButton background="button-primary">登録内容を確認</AppButton>
+      <ConfirmInputFieldsButton />
     </div>
   </div>
 </template>
@@ -56,7 +56,7 @@ import MultipleInputFormHelpList from '@/containers/MultipleInputFormHelpList'
 import MultipleInputFormFeatureList from '@/containers/MultipleInputFormFeatureList'
 import MultipleInputFormEmergencyList from '@/containers/MultipleInputFormEmergencyList'
 import InputFormFeaturePhoto from '@/containers/InputFormFeaturePhoto'
-import AppButton from '@/components/AppButton'
+import ConfirmInputFieldsButton from '@/containers/ConfirmInputFieldsButton'
 
 export default {
   components: {
@@ -70,12 +70,18 @@ export default {
     MultipleInputFormFeatureList,
     MultipleInputFormEmergencyList,
     InputFormFeaturePhoto,
-    AppButton
+    ConfirmInputFieldsButton
   },
   layout: 'default',
+  middleware: ['serverRedirect'],
   computed: {
     commonStyle() {
       return 'mb-6'
+    }
+  },
+  methods: {
+    goToCheckPage() {
+      this.$router.push({ path: '/sign_up/check' })
     }
   }
 }
