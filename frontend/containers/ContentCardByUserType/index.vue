@@ -2,14 +2,16 @@
   <div>
     <template v-if="userType === 'client'">
       <AppContentCard
+        :is-active-link="true"
         :button-text="clientText"
         content-color="primary"
-        @buttonClick="handleClick"
+        @buttonClick="clientAction"
       />
     </template>
 
     <template v-else-if="userType === 'helper'">
       <AppContentCard
+        :is-active-link="true"
         :button-text="helperText"
         content-color="secondary"
         @buttonClick="handleClick"
@@ -38,9 +40,16 @@ export default {
     }
   },
   methods: {
+    clientAction() {
+      // eslint-disable-next-line no-console
+      console.log('clientAction')
+      // const res = this.$api.user.getAuthentication()
+      // // eslint-disable-next-line no-console
+      // console.log(res)
+    },
     handleClick() {
       // eslint-disable-next-line no-console
-      console.log('buttontest')
+      console.log('handleClick')
     }
   }
 }
