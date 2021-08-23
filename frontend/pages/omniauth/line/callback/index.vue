@@ -1,7 +1,3 @@
-<template>
-  <div>callback content</div>
-</template>
-
 <script>
 export default {
   middleware: ['serverRedirect'],
