@@ -26,6 +26,10 @@ module.exports = {
         caption: '#4D4D4D',
         active: '#FF4C4A'
       },
+      textOpacity: {
+        65: '0.65',
+        85: '0.85'
+      },
       minWidth: {
         button: '102px'
       }
