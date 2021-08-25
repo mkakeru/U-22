@@ -1,6 +1,17 @@
 <template>
   <div>
-    <div class="w-full box-border rounded-md shadow flex h-14 text-disable">
+    <div
+      class="
+        w-full
+        box-border
+        rounded-md
+        shadow
+        flex
+        h-14
+        text-disable
+        bg-white
+      "
+    >
       <button class="w-1/3" @click="profileClick">
         <div class="flex justify-center items-center">
           <div class="pr-2">
