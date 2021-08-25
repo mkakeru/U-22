@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="pt-8 font-bold text-xl">プロフィール編集</h3>
+    <h2 class="pt-8 font-bold text-xl">プロフィール編集</h2>
     <div class="pt-4">
       <InputFormName />
     </div>
