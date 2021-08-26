@@ -1,6 +1,11 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:update, :destroy]
+  before_action :authenticate_user!, only: [:index, :update, :destroy]
   before_action :set_user, only: [:update, :destroy]
+
+  def index
+    users = User.find(current_user.uid)
+    render json: { status: 'SUCCESS', message: 'Loaded users', data: users }
+  end
 
   def update
     if @user.update(user_params)
