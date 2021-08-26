@@ -13,12 +13,6 @@ export default {
     Title,
     AppTabMenu
   },
-  async asyncData({ $api, store }) {
-    const auth = store.getters['authLine/auth']
-
-    const { data } = await $api.user.getUserInfomation(auth.uid)
-    // eslint-disable-next-line no-console
-    console.log(data)
-  }
+  middleware: 'userInfomation'
 }
 </script>
