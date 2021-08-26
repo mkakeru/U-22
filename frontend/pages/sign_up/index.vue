@@ -1,5 +1,5 @@
 <template>
-  <div class="responsive-grid-style">
+  <div class="col-span-4">
     <div class="pt-12 pb-8">
       <Title />
     </div>
