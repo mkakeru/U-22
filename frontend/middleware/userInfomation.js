@@ -17,7 +17,7 @@ export default async function ({ store, $user }) {
       )
       store.commit('user/setSelectedItem', {
         type: _type,
-        payload: { ..._payload }
+        payload: _payload[0]
       })
     })
   }
@@ -57,4 +57,5 @@ export default async function ({ store, $user }) {
   })
   selectItemCommit(userInfo)
   inputArrayCommit(userInfo)
+  store.commit('user/mergeEmergencyList')
 }
