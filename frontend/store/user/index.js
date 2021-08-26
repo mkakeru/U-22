@@ -1,8 +1,6 @@
 // _____________________________________________________________________________
 //
 const initState = {
-  // userId: 'user-id',
-  // accountType: '',
   userName: '',
   gender: { id: 0, text: 'その他' },
   age: { id: 6, text: '未選択' },
@@ -13,7 +11,7 @@ const initState = {
   featureList: ['']
 }
 const state = () => ({
-  userId: 'user-id',
+  userId: false,
   accountType: '',
   requiredState: { ...initState },
   userName: '',
@@ -26,7 +24,7 @@ const state = () => ({
   featureList: [''],
   emergencyContactList: [{ name: '', tel: '' }],
   featurePhoto: '',
-  carrierWavePhoto: '',
+  carrierWaveFormat: '',
   isComplete: { bool: false, errVal: '' }
 })
 // _____________________________________________________________________________
@@ -75,6 +73,10 @@ const getters = {
 // _____________________________________________________________________________
 //
 const mutations = {
+  setUserId(state, payload) {
+    state.userId = payload
+  },
+
   setAccountType(state, type) {
     if (type === 'client' || type === 'helper') {
       state.accountType = type
@@ -92,7 +94,6 @@ const mutations = {
       type === STATE_TYPES_OF_USER.emergencyTelList ||
       type === STATE_TYPES_OF_USER.featureList
     ) {
-      // state[`${type}`] = [...state[`${type}`], { ...payload }]
       state[`${type}`][index] = payload
     }
   },
@@ -137,17 +138,19 @@ const mutations = {
     state.emergencyContactList = mergencyList
   },
 
+  setArrayItem(state, { type, payload }) {
+    if (
+      type === STATE_TYPES_OF_USER.helpList ||
+      type === STATE_TYPES_OF_USER.emergencyNameList ||
+      type === STATE_TYPES_OF_USER.emergencyTelList ||
+      type === STATE_TYPES_OF_USER.featureList
+    ) {
+      state[type] = payload
+    }
+  },
+
   addListCount(state, { type }) {
     state[type] = [...state[type], '']
-  }
-}
-// _____________________________________________________________________________
-//
-// _____________________________________________________________________________
-//
-const actions = {
-  action({ commit }, payload) {
-    commit('add', payload)
   }
 }
 // _____________________________________________________________________________
@@ -155,6 +158,5 @@ const actions = {
 export default {
   state,
   getters,
-  mutations,
-  actions
+  mutations
 }
