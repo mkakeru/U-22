@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     genderListItems() {
-      return this.$store.state['profileItems/genderItems']
+      return this.$store.getters['profileItems/genderItems']
     },
     selectedGender() {
       return this.$store.getters['user/gender']

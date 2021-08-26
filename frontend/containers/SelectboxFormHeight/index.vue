@@ -17,7 +17,7 @@ export default {
   components: { AppSelectboxForm },
   computed: {
     heightListItems() {
-      return this.$store.state['profileItems/heightItems']
+      return this.$store.getters['profileItems/heightItems']
     },
     selectedHeight() {
       return this.$store.getters['user/height']

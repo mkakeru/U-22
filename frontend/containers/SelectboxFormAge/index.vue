@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     ageListItems() {
-      return this.$store.state['profileItems/ageItems']
+      return this.$store.getters['profileItems/ageItems']
     },
     selectedAge() {
       return this.$store.getters['user/age']
