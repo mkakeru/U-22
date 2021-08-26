@@ -78,8 +78,40 @@ class User {
     }
   }
 
-  async updateUserDetails(userId) {
-    return await this.axios.$get(this.routes.USER_DETAILS, userId)
+  async updateUserDetails() {
+    const _store = this.store
+    const id = _store.getters['user/userId']
+    const uid = _store.getters['authLine/auth'].uid
+
+    const user_detail_gender = _store.getters['user/gender'].id
+    const user_detail_stature = _store.getters['user/height'].id
+    const user_detail_age = _store.getters['user/age'].id
+    const user_detail_features = _store.getters['user/featureList']
+    const user_detail_image_path = _store.getters['user/carrierWaveFormat']
+    const user_detail_notification_flag = true
+    await this.axios.$put(`${this.routes.USER_DETAILS}/${id}`, {
+      uid,
+      user_detail_gender,
+      user_detail_stature,
+      user_detail_age,
+      user_detail_features: user_detail_features.join(','),
+      user_detail_image_path,
+      user_detail_notification_flag
+    })
+
+    const help_content = _store.getters['user/helpList']
+    await this.axios.$put(`${this.routes.HELPS}/${id}`, {
+      uid,
+      help_content: help_content.join(',')
+    })
+
+    const emergency_contact_name = _store.getters['user/emergencyNameList']
+    const emergency_contact_tel = _store.getters['user/emergencyTelList']
+    await this.axios.$put(`${this.routes.EMERGENCY_CONTACTS}/${id}`, {
+      uid,
+      emergency_contact_name: emergency_contact_name.join(','),
+      emergency_contact_tel: emergency_contact_tel.join(',')
+    })
   }
 
   async signOut() {
