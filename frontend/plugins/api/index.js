@@ -2,7 +2,7 @@ import user from './repositories/user'
 import geolocation from './repositories/geolocation'
 
 export default function (context, inject) {
-  const { $axios, store, app } = context
+  const { $axios, store } = context
 
   // _____________________________________________________________________________
   //
@@ -16,26 +16,6 @@ export default function (context, inject) {
       uid: headers.uid
     }
   })
-  userAxios.onResponse(res => {
-    // eslint-disable-next-line no-useless-return
-    if (!res.headers['access-token']) return
-
-    const authHeaders = {
-      'access-token': res.headers['access-token'],
-      client: res.headers.client,
-      uid: res.headers.uid
-    }
-    store.commit('authLine/setAuth', authHeaders)
-
-    const session = app.$cookies.get('session')
-    // eslint-disable-next-line no-useless-return
-    if (!session) return
-    session.tokens = authHeaders
-    app.$cookies.set('session', session, {
-      path: '/',
-      maxAge: 60 * 60 * 24 * 7
-    })
-  })
   // _____________________________________________________________________________
   //
   // _____________________________________________________________________________
@@ -47,7 +27,7 @@ export default function (context, inject) {
   // _____________________________________________________________________________
   //
   const api = {
-    user: user(userAxios),
+    user: user(userAxios, store),
     geolocation: geolocation(geoAxios, store)
   }
   context.$api = api
