@@ -12,11 +12,16 @@ export default {
   components: {
     AppButton
   },
+  computed: {
+    _isComplete() {
+      return this.$store.getters['user/isComplete'].bool
+    }
+  },
   methods: {
-    registerAction() {
-      // eslint-disable-next-line no-console
-      console.log('register')
-      // this.$router.this.$router.push()
+    async registerAction() {
+      if (!this._isComplete) return
+      await this.$api.user.postUserRegistory()
+      this.$router.push('/hitokoe')
     }
   }
 }
