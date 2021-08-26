@@ -17,9 +17,7 @@
           <div class="pr-2">
             <svg
               :class="
-                activeComponent === 'TabContentsByProfile'
-                  ? 'fill-primary'
-                  : 'fill-disable'
+                activePath === 'hitokoe' ? 'fill-primary' : 'fill-disable'
               "
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -34,11 +32,7 @@
           </div>
           <p
             class="font-bold text-sm"
-            :class="
-              activeComponent === 'TabContentsByProfile'
-                ? 'text-active'
-                : 'text-disable'
-            "
+            :class="activePath === 'hitokoe' ? 'text-active' : 'text-disable'"
           >
             プロフィール
           </p>
@@ -49,9 +43,7 @@
           <div class="pr-2">
             <svg
               :class="
-                activeComponent === 'TabContentsBySos'
-                  ? 'fill-primary'
-                  : 'fill-disable'
+                activePath === 'hitokoe-sos' ? 'fill-primary' : 'fill-disable'
               "
               xmlns="http://www.w3.org/2000/svg"
               width="18"
@@ -96,9 +88,7 @@
           <p
             class="font-bold text-sm"
             :class="
-              activeComponent === 'TabContentsBySos'
-                ? 'text-active'
-                : 'text-disable'
+              activePath === 'hitokoe-sos' ? 'text-active' : 'text-disable'
             "
           >
             SOS
@@ -110,7 +100,7 @@
           <div class="pr-2">
             <svg
               :class="
-                activeComponent === 'TabContentsBySetting'
+                activePath === 'hitokoe-setting'
                   ? 'fill-primary'
                   : 'fill-disable'
               "
@@ -128,9 +118,7 @@
           <p
             class="font-bold text-sm"
             :class="
-              activeComponent === 'TabContentsBySetting'
-                ? 'text-active'
-                : 'text-disable'
+              activePath === 'hitokoe-setting' ? 'text-active' : 'text-disable'
             "
           >
             設定
@@ -138,37 +126,29 @@
         </div>
       </button>
     </div>
-    <div>
-      <component :is="activeComponent"></component>
-    </div>
   </div>
 </template>
-<script>
-import TabContentsByProfile from '@/containers/TabContentsByProfile'
-import TabContentsBySos from '@/containers/TabContentsBySos'
-import TabContentsBySetting from '@/containers/TabContentsBySetting'
 
+<script>
 export default {
   name: 'AppTabMenu',
-  components: {
-    TabContentsByProfile,
-    TabContentsBySos,
-    TabContentsBySetting
-  },
   data() {
     return {
-      activeComponent: 'TabContentsByProfile'
+      activePath: 'hitokoe'
     }
   },
   methods: {
     profileClick() {
-      this.activeComponent = 'TabContentsByProfile'
+      this.activePath = 'hitokoe'
+      this.$router.push({ name: 'hitokoe' })
     },
     sosClick() {
-      this.activeComponent = 'TabContentsBySos'
+      this.activePath = 'hitokoe-sos'
+      this.$router.push({ name: 'hitokoe-sos' })
     },
     settingClick() {
-      this.activeComponent = 'TabContentsBySetting'
+      this.activePath = 'hitokoe-setting'
+      this.$router.push({ name: 'hitokoe-setting' })
     }
   }
 }
