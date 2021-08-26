@@ -13,9 +13,9 @@
       justify-center
     "
   >
-    <div class="box-border rounded-md shadow bg-white p-4">
+    <div class="box-border rounded-md shadow bg-white min-w-dialog p-4">
       <h3 class="font-bold text-2xl"><slot name="dialog-head" /></h3>
-      <p class="font-bold pt-6">
+      <p class="font-bold pt-6 text-secondary">
         <slot name="dialog-text" />
       </p>
       <slot />
