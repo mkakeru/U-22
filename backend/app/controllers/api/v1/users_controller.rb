@@ -2,6 +2,11 @@ class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user!, only: [:update, :destroy]
   before_action :set_user, only: [:update, :destroy]
 
+  def index
+    users = UserDetail.find(current_user.uid)
+    render json: { status: 'SUCCESS', message: 'Loaded users', data: users }
+  end
+
   def update
     if @user.update(user_params)
       render json: { status: 'SUCCESS', message: 'Updated the user', data: @user }
