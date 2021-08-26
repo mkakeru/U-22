@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:update, :destroy]
 
   def index
-    users = UserDetail.find(current_user.uid)
+    users = User.find(current_user.uid)
     render json: { status: 'SUCCESS', message: 'Loaded users', data: users }
   end
 
