@@ -54,19 +54,21 @@ const getters = {
   helpList: state => state.helpList,
   emergencyNameList: state => state.emergencyNameList,
   emergencyTelList: state => state.emergencyTelList,
-  emergencyListLength: (state, getters) => getters.emergencyContactList.length,
+  emergencyContactList: state => state.emergencyContactList,
   featureList: state => state.featureList,
   featurePhoto: state => state.featurePhoto,
   carrierWaveFormat: state => state.carrierWaveFormat,
   isComplete: state => state.isComplete,
+  helpListLength: (state, getters) => getters.helpList.length,
+  emergencyListLength: (state, getters) => getters.emergencyContactList.length,
+  featureListLength: (state, getters) => getters.featureList.length,
   selectedValue: (state, getters) => {
     return {
       gender: getters.gender.text,
       age: getters.age.text,
       height: getters.height.text
     }
-  },
-  emergencyContactList: state => state.emergencyContactList
+  }
 }
 // _____________________________________________________________________________
 //
