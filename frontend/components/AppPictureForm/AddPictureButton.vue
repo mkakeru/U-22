@@ -10,7 +10,7 @@
       ref="input"
       class="hidden"
       type="file"
-      accept="image/jpeg, image/png"
+      accept="image/jpeg"
       @change="selectedFile"
     />
   </AppIconButton>
@@ -37,7 +37,10 @@ export default {
     },
     selectedFile() {
       const file = this.$refs.input.files[0]
-      this.$emit('selectedFile', file)
+      const fileExtension = file.split('.').pop()
+      if (fileExtension === 'jpeg' || fileExtension === 'jpg') {
+        this.$emit('selectedFile', file)
+      }
     }
   }
 }
