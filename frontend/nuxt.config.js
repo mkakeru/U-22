@@ -1,16 +1,20 @@
-// import path from 'path'
-// import fs from 'fs'
+import path from 'path'
+import fs from 'fs'
+
+const isProd = process.env.NODE_ENV === 'production'
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
 
 export default {
-  // server: {
-  //   https: {
-  //     key: fs.readFileSync(path.join(__dirname, '/localhost-key.pem')),
-  //     cert: fs.readFileSync(path.join(__dirname, '/localhost.pem'))
-  //   }
-  // },
+  server: isProd
+    ? false
+    : {
+        https: {
+          key: fs.readFileSync(path.join(__dirname, '/localhost-key.pem')),
+          cert: fs.readFileSync(path.join(__dirname, '/localhost.pem'))
+        }
+      },
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   ssr: false,
