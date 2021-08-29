@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
 // factory
-export default function ($axios, store) {
-  const version = '/api/v1'
+export default function ($axios, store, version) {
   const routes = {
     LINE_AUTH: `${version}/auth/line`,
     USER_DETAILS: `${version}/user_details`,
     USERS_SIGN_OUT: `${version}/users/sign_out`,
     USERS_UID: `${version}/users`,
     HELPS: `${version}/helps`,
-    EMERGENCY_CONTACTS: `${version}/emergency_contacts`
+    EMERGENCY_CONTACTS: `${version}/emergency_contacts`,
+    PHONES: `${version}/phones`
   }
 
   const user = new User($axios, store, routes)
@@ -126,6 +126,11 @@ class User {
       emergency_contact_name: emergency_contact_name.join(','),
       emergency_contact_tel: emergency_contact_tel.join(',')
     })
+  }
+
+  async sendSMS() {
+    const uid = this.store.getters['authLine/auth'].uid
+    await this.axios.$get(`${this.routes.PHONES}/${uid}/send_sms`)
   }
 
   async deleteAccount() {
