@@ -2,7 +2,7 @@
   <div class="col-span-4">
     <div class="pt-12 pb-8">
       <Title title-type="big" />
-      <p class="pt-2 text-2xl font-bold text-caption">
+      <p class="pt-2 text-xl font-bold text-caption">
         caption caption caption
         <span class="block">caption</span>
       </p>

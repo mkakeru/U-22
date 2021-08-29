@@ -1,5 +1,11 @@
 <template>
   <div class="w-full box-border rounded-md shadow" :class="customClass.content">
+    <div v-if="icon !== ''" class="p-4">
+      <img
+        :src="icon"
+        class="md:w-36 md:h-36 w-24 h-24 mx-auto rounded-full shadow"
+      />
+    </div>
     <div class="px-4 pb-4">
       <AppButton :background="customClass.button" @buttonClick="handleClick">
         <template v-if="!isActiveLink">
@@ -23,6 +29,10 @@ export default {
   name: 'AppContentCard',
   components: { AppButton },
   props: {
+    icon: {
+      type: String,
+      default: ''
+    },
     isActiveLink: {
       type: Boolean,
       default: false

@@ -34,7 +34,7 @@ export default {
     headingStyle() {
       const [imgStyle, textStyle] =
         this.titleType === 'big'
-          ? [['w-16', 'h-16'], ['text-5xl']]
+          ? [['w-14', 'h-14'], ['text-3xl']]
           : [['w-12', 'h-12'], ['text-2xl']]
 
       return {
