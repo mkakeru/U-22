@@ -13,6 +13,7 @@ export default {
   },
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -36,7 +37,7 @@ export default {
   ],
 
   router: {
-    middleware: 'cookie'
+    middleware: ['auth', 'cookie']
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

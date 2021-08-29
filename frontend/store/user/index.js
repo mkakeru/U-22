@@ -1,9 +1,6 @@
 // _____________________________________________________________________________
 //
 const initState = {
-  // userId: 'user-id',
-  // accountType: '',
-  userName: '',
   gender: { id: 0, text: 'その他' },
   age: { id: 6, text: '未選択' },
   height: { id: null, text: '未選択' },
@@ -13,8 +10,8 @@ const initState = {
   featureList: ['']
 }
 const state = () => ({
-  userId: 'user-id',
-  accountType: '',
+  userId: false,
+  accountType: false,
   requiredState: { ...initState },
   userName: '',
   gender: { id: 0, text: 'その他' },
@@ -26,7 +23,7 @@ const state = () => ({
   featureList: [''],
   emergencyContactList: [{ name: '', tel: '' }],
   featurePhoto: '',
-  carrierWavePhoto: '',
+  carrierWaveFormat: '',
   isComplete: { bool: false, errVal: '' }
 })
 // _____________________________________________________________________________
@@ -56,29 +53,33 @@ const getters = {
   helpList: state => state.helpList,
   emergencyNameList: state => state.emergencyNameList,
   emergencyTelList: state => state.emergencyTelList,
-  emergencyListLength: (state, getters) => getters.emergencyContactList.length,
+  emergencyContactList: state => state.emergencyContactList,
   featureList: state => state.featureList,
   featurePhoto: state => state.featurePhoto,
   carrierWaveFormat: state => state.carrierWaveFormat,
   isComplete: state => state.isComplete,
+  helpListLength: (state, getters) => getters.helpList.length,
+  emergencyListLength: (state, getters) => getters.emergencyContactList.length,
+  featureListLength: (state, getters) => getters.featureList.length,
   selectedValue: (state, getters) => {
     return {
       gender: getters.gender.text,
       age: getters.age.text,
       height: getters.height.text
     }
-  },
-  emergencyContactList: state => state.emergencyContactList
+  }
 }
 // _____________________________________________________________________________
 //
 // _____________________________________________________________________________
 //
 const mutations = {
-  setAccountType(state, type) {
-    if (type === 'client' || type === 'helper') {
-      state.accountType = type
-    }
+  setUserId(state, payload) {
+    state.userId = payload
+  },
+
+  setAccountType(state, bool) {
+    state.accountType = bool
   },
 
   setInputValue(state, inputValue) {
@@ -92,7 +93,6 @@ const mutations = {
       type === STATE_TYPES_OF_USER.emergencyTelList ||
       type === STATE_TYPES_OF_USER.featureList
     ) {
-      // state[`${type}`] = [...state[`${type}`], { ...payload }]
       state[`${type}`][index] = payload
     }
   },
@@ -137,17 +137,19 @@ const mutations = {
     state.emergencyContactList = mergencyList
   },
 
+  setArrayItem(state, { type, payload }) {
+    if (
+      type === STATE_TYPES_OF_USER.helpList ||
+      type === STATE_TYPES_OF_USER.emergencyNameList ||
+      type === STATE_TYPES_OF_USER.emergencyTelList ||
+      type === STATE_TYPES_OF_USER.featureList
+    ) {
+      state[type] = payload
+    }
+  },
+
   addListCount(state, { type }) {
     state[type] = [...state[type], '']
-  }
-}
-// _____________________________________________________________________________
-//
-// _____________________________________________________________________________
-//
-const actions = {
-  action({ commit }, payload) {
-    commit('add', payload)
   }
 }
 // _____________________________________________________________________________
@@ -155,6 +157,5 @@ const actions = {
 export default {
   state,
   getters,
-  mutations,
-  actions
+  mutations
 }

@@ -14,7 +14,7 @@
         :is-active-link="true"
         :button-text="helperText"
         content-color="secondary"
-        @buttonClick="handleClick"
+        @buttonClick="helperAction"
       />
     </template>
   </div>
@@ -36,20 +36,20 @@ export default {
   data() {
     return {
       clientText: '利用者として始める',
-      helperText: 'ヘルパーとして始める'
+      helperText: 'ヘルパーとして始める',
+      localStrageKey: 'is_helper'
     }
   },
   methods: {
     clientAction() {
-      // eslint-disable-next-line no-console
-      console.log('clientAction')
-      // const res = this.$api.user.getAuthentication()
-      // // eslint-disable-next-line no-console
-      // console.log(res)
+      // const isHelper = localStorage.getItem(this.localStrageKey)
+      // if (isHelper === null) localStorage.setItem(this.localStrageKey, false)
+      localStorage.setItem(this.localStrageKey, false)
     },
-    handleClick() {
-      // eslint-disable-next-line no-console
-      console.log('handleClick')
+    helperAction() {
+      // const isHelper = localStorage.getItem(this.localStrageKey)
+      // if (isHelper === null) localStorage.setItem(this.localStrageKey, true)
+      localStorage.setItem(this.localStrageKey, true)
     }
   }
 }

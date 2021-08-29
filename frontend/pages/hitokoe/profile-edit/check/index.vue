@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="pt-8 mb-4">
-      <AppSectionText>プロフィール</AppSectionText>
+      <AppSectionText>編集内容確認</AppSectionText>
     </div>
     <template v-for="profileData in requiredProfileData">
       <div :key="profileData.title" :class="commonStyle">
@@ -13,7 +13,12 @@
       </div>
     </template>
     <div class="md:pb-6 pb-4">
-      <ProfileEditButton />
+      <UpdateProfileButton />
+    </div>
+    <div class="md:pb-6 pb-4">
+      <AppButton background="button-secondary" @buttonClick="backPage"
+        >編集画面へ戻る</AppButton
+      >
     </div>
   </div>
 </template>
@@ -21,30 +26,31 @@
 <script>
 import AppSectionText from '@/components/AppSectionText'
 import AppConfirmInputDetail from '@/components/AppConfirmInputDetail'
-import ProfileEditButton from '@/containers/ProfileEditButton'
+import UpdateProfileButton from '@/containers/UpdateProfileButton'
+import AppButton from '@/components/AppButton'
 
 export default {
   components: {
     AppSectionText,
     AppConfirmInputDetail,
-    ProfileEditButton
+    UpdateProfileButton,
+    AppButton
   },
   layout: 'main',
-  middleware: 'userInfomation',
-  asyncData({ redirect }) {
-    const isHelper = localStorage.getItem('is_helper')
-    if (isHelper === 'true') {
-      return redirect('/helper')
-    }
+  asyncData({ store, redirect }) {
+    const isComplete = store.getters['user/isComplete']
+    // eslint-disable-next-line no-useless-return
+    if (isComplete.bool) return
+    redirect(302, '/hitokoe/profile-edit')
   },
   data() {
     return {
       requiredProfileData: [
-        {
-          formType: 'input',
-          title: '名前',
-          getter: 'userName'
-        },
+        // {
+        //   formType: 'input',
+        //   title: '名前',
+        //   getter: 'userName'
+        // },
         {
           formType: 'input',
           title: '性別',
@@ -59,6 +65,11 @@ export default {
           formType: 'input',
           title: '身長',
           getter: 'height'
+        },
+        {
+          formType: 'input',
+          title: '年齢',
+          getter: 'age'
         },
         {
           formType: 'list',
@@ -84,9 +95,9 @@ export default {
     }
   },
   computed: {
-    _userName() {
-      return this.$store.getters['user/userName']
-    },
+    // _userName() {
+    //   return this.$store.getters['user/userName']
+    // },
     _gender() {
       return this.$store.getters['user/selectedValue'].gender
     },
@@ -115,6 +126,9 @@ export default {
   methods: {
     callGetter(getter) {
       return this[`_${getter}`]
+    },
+    backPage() {
+      this.$router.back()
     }
   }
 }

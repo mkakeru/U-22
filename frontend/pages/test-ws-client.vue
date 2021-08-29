@@ -20,6 +20,11 @@
         DISCONNECT WEBSOCKET
       </AppButton>
     </div>
+
+    <div class="pt-12 pb-8">
+      <AppButton @buttonClick="currentPos">GET CURRENT POSITION</AppButton>
+    </div>
+    <div class="pt-6">緯度: {{ _lat }}/経度: {{ _lng }}</div>
   </div>
 </template>
 
@@ -33,17 +38,32 @@ export default {
     AppButton
   },
   layout: 'default',
+  data() {
+    return {
+      lat: '',
+      lng: ''
+    }
+  },
   computed: {
+    _lat() {
+      return this.$store.getters['userLocation/lat']
+    },
+    _lng() {
+      return this.$store.getters['userLocation/lng']
+    },
     _userId() {
       return this.$store.getters['user/userId']
     }
   },
   methods: {
+    currentPos() {
+      this.$api.geolocation.currentPosition()
+    },
     handleClick() {
       this.$webSocket.client.clientChannelLink()
     },
     sendToHelper() {
-      this.$webSocket.client._sendToHelper(this._userId)
+      this.$webSocket.client._sendToHelper(this._lat, this._lng)
     },
     disconnectAction() {
       this.$webSocket.client._disconnectAction()

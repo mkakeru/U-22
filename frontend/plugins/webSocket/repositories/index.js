@@ -1,32 +1,57 @@
+// eslint-disable-next-line no-useless-return
 import ActionCable from 'actioncable'
-export default function (accountType) {
-  const webSocket = new WebSocket(accountType)
+export default function (isHelper, resource) {
+  const webSocket = new WebSocket(isHelper, resource)
   return webSocket
 }
 
 // _____________________________________________________________________________
 //
 class WebSocket {
-  constructor(accountType) {
-    this.accountType = accountType
-    this.cable = ActionCable.createConsumer(
-      `wss://${process.env.RAILS_DOMAIN}/cable`
-    )
+  constructor(isHelper, resource) {
+    this.isHelper = isHelper
+    this.resource = resource
+    this.cable = null
+    this.channel = null
+    this.receiveValue = null
+    this.closure = null
   }
 
-  reconnectAction() {
+  connectAction() {
     if (this.cable !== null) return
     this.cable = ActionCable.createConsumer(
       `wss://${process.env.RAILS_DOMAIN}/cable`
     )
   }
 
-  disconnectAction() {
+  channelLink(options) {
+    this.connectAction()
+    if (this.channel !== null) return
+    this.channel = this.cable.subscriptions.create(
+      {
+        channel: this.resource
+      },
+      options
+    )
+  }
+
+  disconnectChannel() {
+    if (this.channel === null) return
+    this.channel.unsubscribe()
+    this.channel = null
+  }
+
+  disconnectCable() {
     if (this.cable === null) return
     this.cable.disconnect()
     this.cable = null
+  }
+
+  disconnectSocket() {
+    this.disconnectChannel()
+    this.disconnectCable()
     // eslint-disable-next-line no-console
-    console.log(`this.cable = ${this.cable}`)
+    console.log(`this.cable = ${this.cable} this.channel = ${this.channel}`)
   }
 }
 // _____________________________________________________________________________

@@ -1,6 +1,6 @@
 <template>
-  <AppButton background="button-primary" @buttonClick="registerAction"
-    >登録</AppButton
+  <AppButton background="button-primary" @buttonClick="updateAction"
+    >プロフィールを更新</AppButton
   >
 </template>
 
@@ -8,7 +8,7 @@
 import AppButton from '@/components/AppButton'
 
 export default {
-  name: 'AccountRegisterButton',
+  name: 'UpdateProfileButton',
   components: {
     AppButton
   },
@@ -18,10 +18,10 @@ export default {
     }
   },
   methods: {
-    async registerAction() {
+    async updateAction() {
       if (!this._isComplete) return
-      await this.$api.user.postUserRegistory()
-      this.$router.push('/hitokoe')
+      await this.$api.user.updateUserDetails()
+      this.$router.push({ name: 'hitokoe' })
     }
   }
 }

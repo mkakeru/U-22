@@ -43,11 +43,6 @@ export default {
     AppMultipleInputForm,
     AppLabeledInput
   },
-  // data() {
-  //   return {
-  //     inputFormCount: 1
-  //   }
-  // },
   computed: {
     _emergencyListLength() {
       return this.$store.getters['user/emergencyListLength']

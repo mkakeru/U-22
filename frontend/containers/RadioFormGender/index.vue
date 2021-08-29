@@ -18,24 +18,13 @@ export default {
   data() {
     return {
       title: '性別',
-      caption: '※性別を選んでください',
-      genderListItems: [
-        {
-          id: 0,
-          text: 'その他'
-        },
-        {
-          id: 1,
-          text: '男性'
-        },
-        {
-          id: 2,
-          text: '女性'
-        }
-      ]
+      caption: '※性別を選んでください'
     }
   },
   computed: {
+    genderListItems() {
+      return this.$store.getters['profileItems/genderItems']
+    },
     selectedGender() {
       return this.$store.getters['user/gender']
     }

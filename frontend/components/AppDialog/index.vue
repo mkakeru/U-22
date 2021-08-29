@@ -3,7 +3,8 @@
     <AppDialogFlame :class="{ hidden: dialogFlag }">
       <template #dialog-head> 助けを求めますか？ </template>
       <template #dialog-text>
-        周りのヘルパーと緊急連絡先にメッセージを送ります。
+        近くのヘルパーと緊急連絡先へ
+        <span class="block">メッセージを送信します。</span>
       </template>
       <div class="flex justify-end pt-12">
         <div class="pr-4">
@@ -77,6 +78,7 @@ export default {
   methods: {
     postSosClick() {
       this.dialogFlag = true
+      this.$emit('sosAction')
     },
     dialogClose() {
       this.dialogFlag = false

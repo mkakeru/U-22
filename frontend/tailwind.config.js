@@ -31,6 +31,7 @@ module.exports = {
         85: '0.85'
       },
       minWidth: {
+        dialog: '280px',
         button: '102px'
       }
     },

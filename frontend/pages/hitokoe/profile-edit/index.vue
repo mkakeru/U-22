@@ -1,14 +1,7 @@
 <template>
-  <div class="col-span-4">
-    <div class="pt-12 pb-8">
-      <Title />
-    </div>
-    <div class="mb-4">
-      <AppSectionText>プロフィール入力フォーム</AppSectionText>
-    </div>
-
-    <div :class="commonStyle">
-      <AppConfirmInputDetail title="名前" form-type="input" :value="userName" />
+  <div>
+    <div class="pt-8 mb-4">
+      <AppSectionText>プロフィール編集</AppSectionText>
     </div>
 
     <div :class="commonStyle">
@@ -40,15 +33,22 @@
     </div>
 
     <div :class="commonStyle">
-      <ConfirmInputFieldsButton />
+      <ConfirmInputFieldsButton
+        button-text="編集内容を確認"
+        to-router-name="hitokoe-profile-edit-check"
+      />
+    </div>
+
+    <div :class="commonStyle">
+      <AppButton background="button-secondary" @buttonClick="backPage">
+        やめる
+      </AppButton>
     </div>
   </div>
 </template>
 
 <script>
-import Title from '@/containers/Title'
 import AppSectionText from '@/components/AppSectionText'
-import AppConfirmInputDetail from '@/components/AppConfirmInputDetail'
 import RadioFormGender from '@/containers/RadioFormGender'
 import SelectboxFormAge from '@/containers/SelectboxFormAge'
 import SelectboxFormHeight from '@/containers/SelectboxFormHeight'
@@ -57,12 +57,11 @@ import MultipleInputFormFeatureList from '@/containers/MultipleInputFormFeatureL
 import MultipleInputFormEmergencyList from '@/containers/MultipleInputFormEmergencyList'
 import InputFormFeaturePhoto from '@/containers/InputFormFeaturePhoto'
 import ConfirmInputFieldsButton from '@/containers/ConfirmInputFieldsButton'
+import AppButton from '@/components/AppButton'
 
 export default {
   components: {
-    Title,
     AppSectionText,
-    AppConfirmInputDetail,
     RadioFormGender,
     SelectboxFormAge,
     SelectboxFormHeight,
@@ -70,32 +69,19 @@ export default {
     MultipleInputFormFeatureList,
     MultipleInputFormEmergencyList,
     InputFormFeaturePhoto,
-    ConfirmInputFieldsButton
+    ConfirmInputFieldsButton,
+    AppButton
   },
-  layout: 'default',
-  middleware: ['serverRedirect'],
-  asyncData({ redirect }) {
-    const isHelper = localStorage.getItem('is_helper')
-    if (isHelper === 'true') return redirect('/helper')
-  },
-  data() {
-    return {
-      userName: ''
-    }
-  },
+  layout: 'main',
+  middleware: 'userInfomation',
   computed: {
     commonStyle() {
       return 'mb-6'
     }
   },
-  async mounted() {
-    const _user = await this.$api.user.getUserName()
-    this.userName = _user
-    this.$store.commit('user/setInputValue', _user)
-  },
   methods: {
-    goToCheckPage() {
-      this.$router.push({ path: '/sign_up/check' })
+    backPage() {
+      this.$router.back()
     }
   }
 }
