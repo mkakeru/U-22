@@ -64,6 +64,6 @@ export default async function ({ store, $user, redirect }) {
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e.message)
-    redirect('/sign_up')
+    // redirect('/sign_up')
   }
 }
