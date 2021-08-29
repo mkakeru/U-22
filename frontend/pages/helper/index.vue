@@ -4,6 +4,9 @@
 
 <script>
 export default {
-  layout: 'default'
+  layout: 'default',
+  mounted() {
+    this.$webSocket.helper.helperChannelLink()
+  }
 }
 </script>
