@@ -15,11 +15,11 @@ class Helper {
     this.routes = routes
   }
 
-  async sendHelpMessage(helperId, clientLat, clientLng) {
+  async sendHelpMessage(clientUid, clientLat, clientLng) {
     const uid = this.store.getters['authLine/auth'].uid
     await this.axios.$post(this.routes.HELP_BUTTON, {
-      uid,
-      helper_id: helperId,
+      uid: clientUid,
+      helper_id: uid,
       lat: clientLat,
       lng: clientLng
     })

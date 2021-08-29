@@ -32,14 +32,14 @@ class WsClient {
   }
 
   _received(res) {
-    const id = this.store.getters['user/userId']
-    if (res.data.is_helper === true || res.data.clientId !== id) return
+    const uid = this.store.getters['authLine/auth'].uid
+    if (res.data.is_helper === true || res.data.clientUid !== uid) return
     // eslint-disable-next-line no-console
     return console.log(`
     prop type ${typeof res.data}
     ${res.data}
     is_helper = ${res.data.is_helper}
-    userId = ${res.data.clientId}
+    clientUid = ${res.data.clientUid}
     lat = ${res.data.lat}
     lng = ${res.data.lng}
     `)
@@ -47,10 +47,10 @@ class WsClient {
 
   _sendToHelper(_lat, _lng) {
     if (this.webSocket.channel === null || this.webSocket.isHelper) return
-    const userId = this.store.getters['user/userId']
+    const uid = this.store.getters['authLine/auth'].uid
     return this.webSocket.channel.perform('sendToHelper', {
       data: {
-        clientId: userId,
+        clientUid: uid,
         lat: _lat,
         lng: _lng,
         is_helper: this.webSocket.isHelper
