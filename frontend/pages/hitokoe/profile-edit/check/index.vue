@@ -46,11 +46,11 @@ export default {
   data() {
     return {
       requiredProfileData: [
-        {
-          formType: 'input',
-          title: '名前',
-          getter: 'userName'
-        },
+        // {
+        //   formType: 'input',
+        //   title: '名前',
+        //   getter: 'userName'
+        // },
         {
           formType: 'input',
           title: '性別',
@@ -58,8 +58,18 @@ export default {
         },
         {
           formType: 'input',
+          title: '年齢',
+          getter: 'age'
+        },
+        {
+          formType: 'input',
           title: '身長',
           getter: 'height'
+        },
+        {
+          formType: 'input',
+          title: '年齢',
+          getter: 'age'
         },
         {
           formType: 'list',
@@ -85,9 +95,9 @@ export default {
     }
   },
   computed: {
-    _userName() {
-      return this.$store.getters['user/userName']
-    },
+    // _userName() {
+    //   return this.$store.getters['user/userName']
+    // },
     _gender() {
       return this.$store.getters['user/selectedValue'].gender
     },

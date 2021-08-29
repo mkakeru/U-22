@@ -5,10 +5,6 @@
     </div>
 
     <div :class="commonStyle">
-      <InputFormName />
-    </div>
-
-    <div :class="commonStyle">
       <RadioFormGender />
     </div>
 
@@ -39,7 +35,7 @@
     <div :class="commonStyle">
       <ConfirmInputFieldsButton
         button-text="編集内容を確認"
-        to-router-name="hitokoe-profie-edit-check"
+        to-router-name="hitokoe-profile-edit-check"
       />
     </div>
 
@@ -53,7 +49,6 @@
 
 <script>
 import AppSectionText from '@/components/AppSectionText'
-import InputFormName from '@/containers/InputFormName'
 import RadioFormGender from '@/containers/RadioFormGender'
 import SelectboxFormAge from '@/containers/SelectboxFormAge'
 import SelectboxFormHeight from '@/containers/SelectboxFormHeight'
@@ -67,7 +62,6 @@ import AppButton from '@/components/AppButton'
 export default {
   components: {
     AppSectionText,
-    InputFormName,
     RadioFormGender,
     SelectboxFormAge,
     SelectboxFormHeight,
