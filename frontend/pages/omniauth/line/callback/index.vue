@@ -2,7 +2,10 @@
 export default {
   middleware: ['serverRedirect'],
   asyncData({ redirect }) {
-    redirect(301, '/hitokoe')
+    const isHelper = localStorage.getItem('is_helper')
+    if (isHelper !== null) {
+      return isHelper === 'true' ? redirect('/helper') : redirect('/hitokoe')
+    }
   }
 }
 </script>
