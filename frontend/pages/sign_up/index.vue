@@ -74,6 +74,10 @@ export default {
   },
   layout: 'default',
   middleware: ['serverRedirect'],
+  asyncData({ redirect }) {
+    const isHelper = localStorage.getItem('is_helper')
+    if (isHelper === 'true') return redirect('/helper')
+  },
   data() {
     return {
       userName: ''

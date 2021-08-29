@@ -31,6 +31,12 @@ export default {
   },
   layout: 'main',
   middleware: 'userInfomation',
+  asyncData({ redirect }) {
+    const isHelper = localStorage.getItem('is_helper')
+    if (isHelper === 'true') {
+      return redirect('/helper')
+    }
+  },
   data() {
     return {
       requiredProfileData: [
