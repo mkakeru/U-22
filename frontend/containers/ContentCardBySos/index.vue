@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     async sosAction() {
-      await this.$geolocation.currentPosition()
+      await this.$api.geolocation.currentPosition()
       await this.$api.user.sendSMS()
       this.$webSocket.client._sendToHelper(this.lat, this.lng)
     },
