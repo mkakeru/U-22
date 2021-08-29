@@ -1,11 +1,12 @@
 export default async function ({ app, redirect, route }) {
-  if (route.name === 'index') {
-    const isHelper = localStorage.getItem('is_helper')
-    if (isHelper !== null) {
-      return isHelper === 'true' ? redirect('/helper') : redirect('/hitokoe')
-    }
-  }
   if (route.path === '/' || route.path === '/omniauth/line/callback') return
   const session = await app.$cookies.get('session')
   if (!session) return redirect(302, '/')
+
+  const isHelper = localStorage.getItem('is_helper')
+  if (/^hitokoe-?/.test(route.name) && isHelper === 'true') {
+    redirect('/helper')
+  } else if (/^helper-?/.test(route.name) && isHelper === 'false') {
+    redirect('/hitokoe')
+  }
 }
