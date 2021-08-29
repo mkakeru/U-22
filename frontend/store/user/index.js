@@ -1,7 +1,6 @@
 // _____________________________________________________________________________
 //
 const initState = {
-  userName: '',
   gender: { id: 0, text: 'その他' },
   age: { id: 6, text: '未選択' },
   height: { id: null, text: '未選択' },
@@ -12,7 +11,7 @@ const initState = {
 }
 const state = () => ({
   userId: false,
-  accountType: '',
+  accountType: false,
   requiredState: { ...initState },
   userName: '',
   gender: { id: 0, text: 'その他' },
@@ -79,10 +78,8 @@ const mutations = {
     state.userId = payload
   },
 
-  setAccountType(state, type) {
-    if (type === 'client' || type === 'helper') {
-      state.accountType = type
-    }
+  setAccountType(state, bool) {
+    state.accountType = bool
   },
 
   setInputValue(state, inputValue) {
