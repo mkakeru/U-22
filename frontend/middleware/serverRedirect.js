@@ -10,11 +10,6 @@ export default async function ({ query, store, $user, app, route }) {
   store.commit('authLine/setAuth', authHeaders)
   session.tokens = authHeaders
 
-  if (route.path === '/omniauth/line/callbakc') {
-    const { data } = await $user.getUserInfomation(authHeaders.uid)
-    session.user = data
-  }
-
   await app.$cookies.set('session', session, {
     path: '/',
     maxAge: 60 * 60 * 24 * 7
