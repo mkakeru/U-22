@@ -51,7 +51,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def user_params
-      params.permit(:user_helper_flag)
+      params.permit(:name, :user_helper_flag)
     end
 
 end
