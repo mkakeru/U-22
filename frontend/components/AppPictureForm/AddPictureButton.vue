@@ -37,9 +37,11 @@ export default {
     },
     selectedFile() {
       const file = this.$refs.input.files[0]
-      const fileExtension = file.split('.').pop()
+      const fileExtension = file.name.split('.').pop()
       if (fileExtension === 'jpeg' || fileExtension === 'jpg') {
         this.$emit('selectedFile', file)
+      } else {
+        alert('画像ではなく、jpegまたはjpgの写真を選択してください')
       }
     }
   }
