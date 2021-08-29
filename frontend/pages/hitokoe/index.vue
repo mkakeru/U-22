@@ -46,6 +46,11 @@ export default {
         },
         {
           formType: 'input',
+          title: '年齢',
+          getter: 'age'
+        },
+        {
+          formType: 'input',
           title: '身長',
           getter: 'height'
         },
