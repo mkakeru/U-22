@@ -3,6 +3,7 @@
     <AppContentCard
       button-text="助けを呼ぶ"
       content-color="primary"
+      :icon="sosSVG"
       @buttonClick="dialogShow"
     />
     <p class="pt-2 font-bold text-secondary">※注意書きテキスト</p>
@@ -15,6 +16,7 @@
 <script>
 import AppContentCard from '@/components/AppContentCard'
 import AppDialog from '@/components/AppDialog'
+import sosSVG from '@/assets/svg/help-button.svg'
 
 export default {
   name: 'ContentCardBySos',
@@ -24,7 +26,8 @@ export default {
   },
   data() {
     return {
-      dialogFlag: true
+      dialogFlag: true,
+      sosSVG
     }
   },
   computed: {
