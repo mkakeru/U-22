@@ -42,12 +42,14 @@ export default {
   },
   methods: {
     clientAction() {
-      const isHelper = localStorage.getItem(this.localStrageKey)
-      if (isHelper === null) localStorage.setItem(this.localStrageKey, false)
+      // const isHelper = localStorage.getItem(this.localStrageKey)
+      // if (isHelper === null) localStorage.setItem(this.localStrageKey, false)
+      localStorage.setItem(this.localStrageKey, false)
     },
     helperAction() {
-      const isHelper = localStorage.getItem(this.localStrageKey)
-      if (isHelper === null) localStorage.setItem(this.localStrageKey, true)
+      // const isHelper = localStorage.getItem(this.localStrageKey)
+      // if (isHelper === null) localStorage.setItem(this.localStrageKey, true)
+      localStorage.setItem(this.localStrageKey, true)
     }
   }
 }
