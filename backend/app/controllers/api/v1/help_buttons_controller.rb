@@ -5,7 +5,7 @@ class Api::V1::HelpButtonsController < ApplicationController
 
   def send_help_message
     @user_detail = @user.user_detail
-    gender = @user_detail.user_detail_gender == 0 ? "その他" : @user_detail.user_detail_gender == 1 ? "女性" : "男性"
+    gender = @user_detail.user_detail_gender == 0 ? "その他" : @user_detail.user_detail_gender == 1 ? "男性" : "女性"
     if @user_detail.user_detail_stature == 0
       stature = "~130cm"
     elsif @user_detail.user_detail_stature == 6
