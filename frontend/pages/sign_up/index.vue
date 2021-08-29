@@ -8,7 +8,7 @@
     </div>
 
     <div :class="commonStyle">
-      <InputFormName />
+      <AppConfirmInputDetail title="名前" form-type="input" :value="userName" />
     </div>
 
     <div :class="commonStyle">
@@ -48,7 +48,7 @@
 <script>
 import Title from '@/containers/Title'
 import AppSectionText from '@/components/AppSectionText'
-import InputFormName from '@/containers/InputFormName'
+import AppConfirmInputDetail from '@/components/AppConfirmInputDetail'
 import RadioFormGender from '@/containers/RadioFormGender'
 import SelectboxFormAge from '@/containers/SelectboxFormAge'
 import SelectboxFormHeight from '@/containers/SelectboxFormHeight'
@@ -62,7 +62,7 @@ export default {
   components: {
     Title,
     AppSectionText,
-    InputFormName,
+    AppConfirmInputDetail,
     RadioFormGender,
     SelectboxFormAge,
     SelectboxFormHeight,
@@ -74,10 +74,20 @@ export default {
   },
   layout: 'default',
   middleware: ['serverRedirect'],
+  data() {
+    return {
+      userName: ''
+    }
+  },
   computed: {
     commonStyle() {
       return 'mb-6'
     }
+  },
+  async mounted() {
+    const _user = await this.$api.user.getUserName()
+    this.userName = _user
+    this.$store.commit('user/setInputValue', _user)
   },
   methods: {
     goToCheckPage() {
