@@ -57,20 +57,23 @@ class WsHelper {
     const distance = this.store.getters['helper/distance']
 
     if (isHelpDistance === true) {
-      const helperId = this.store.getters['user/userId']
       // eslint-disable-next-line no-console
       console.log(`
-      helperId = ${helperId}
+      clientUid = ${res.data.clientUid}
       client.lat = ${client.lat}
       client.lng = ${client.lng}
       isHelpDistance = ${isHelpDistance}
       distance = ${distance}
       `)
-      await this.$helper.sendHelpMessage(helperId, client.lat, client.lng)
+      await this.$helper.sendHelpMessage(
+        res.data.clientUid,
+        client.lat,
+        client.lng
+      )
     }
 
     const data = {
-      clientId: res.data.clientId,
+      clientUid: res.data.clientUid,
       isHelpDistance: this.store.getters['helper/isHelpDistance']
     }
     this.webSocket.disconnectSocket()
