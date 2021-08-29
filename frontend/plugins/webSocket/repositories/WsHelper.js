@@ -70,14 +70,14 @@ class WsHelper {
         client.lat,
         client.lng
       )
+      this.webSocket.disconnectSocket()
+      this.helperChannelLink()
     }
 
     const data = {
       clientUid: res.data.clientUid,
       isHelpDistance: this.store.getters['helper/isHelpDistance']
     }
-    this.webSocket.disconnectSocket()
-    this.helperChannelLink()
     return data
   }
 }
