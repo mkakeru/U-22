@@ -25,23 +25,23 @@ class WsClient {
         // eslint-disable-next-line no-console
         return console.log('nice to meet you webSocket from client')
       },
-      received: data => {
-        return this._received(data)
+      received: res => {
+        return this._received(res)
       }
     })
   }
 
   _received(res) {
     const uid = this.store.getters['authLine/auth'].uid
-    if (res.data.is_helper === true || res.data.clientUid !== uid) return
+    if (res.message.is_helper === true || res.message.clientUid !== uid) return
     // eslint-disable-next-line no-console
     return console.log(`
-    prop type ${typeof res.data}
-    ${res.data}
-    is_helper = ${res.data.is_helper}
-    clientUid = ${res.data.clientUid}
-    lat = ${res.data.lat}
-    lng = ${res.data.lng}
+    prop type ${typeof res.message}
+    ${res.message}
+    is_helper = ${res.message.is_helper}
+    clientUid = ${res.message.clientUid}
+    lat = ${res.message.lat}
+    lng = ${res.message.lng}
     `)
   }
 
@@ -49,7 +49,7 @@ class WsClient {
     if (this.webSocket.channel === null || this.webSocket.isHelper) return
     const uid = this.store.getters['authLine/auth'].uid
     return this.webSocket.channel.perform('sendToHelper', {
-      data: {
+      message: {
         clientUid: uid,
         lat: _lat,
         lng: _lng,

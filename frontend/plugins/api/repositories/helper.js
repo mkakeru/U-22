@@ -17,6 +17,8 @@ class Helper {
 
   async sendHelpMessage(clientUid, clientLat, clientLng) {
     const uid = this.store.getters['authLine/auth'].uid
+    // eslint-disable-next-line no-console
+    console.log(uid)
     await this.axios.$post(this.routes.HELP_BUTTON, {
       uid: clientUid,
       helper_id: uid,
