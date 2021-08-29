@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     toEditorPage() {
-      this.$router.push({ name: 'hitokoe-profie-edit' })
+      this.$router.push({ name: 'hitokoe-profile-edit' })
     }
   }
 }
