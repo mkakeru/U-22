@@ -67,6 +67,11 @@ class User {
     })
   }
 
+  async getUserName() {
+    const { data } = await this.axios.$get(this.routes.USERS_UID)
+    return data.name
+  }
+
   async getUserInfomation() {
     const user = await this.axios.$get(this.routes.USER_DETAILS)
     const helps = await this.axios.$get(this.routes.HELPS)
@@ -100,18 +105,32 @@ class User {
     })
 
     const help_content = _store.getters['user/helpList']
-    await this.axios.$put(`${this.routes.HELPS}/${id}`, {
+    // await this.axios.$put(`${this.routes.HELPS}/${id}`, {
+    //   uid,
+    //   help_content: help_content.join(',')
+    // })
+    await this.axios.$post(this.routes.HELPS, {
       uid,
       help_content: help_content.join(',')
     })
 
     const emergency_contact_name = _store.getters['user/emergencyNameList']
     const emergency_contact_tel = _store.getters['user/emergencyTelList']
-    await this.axios.$put(`${this.routes.EMERGENCY_CONTACTS}/${id}`, {
+    // await this.axios.$put(`${this.routes.EMERGENCY_CONTACTS}/${id}`, {
+    //   uid,
+    //   emergency_contact_name: emergency_contact_name.join(','),
+    //   emergency_contact_tel: emergency_contact_tel.join(',')
+    // })
+    await this.axios.$post(this.routes.EMERGENCY_CONTACTS, {
       uid,
       emergency_contact_name: emergency_contact_name.join(','),
       emergency_contact_tel: emergency_contact_tel.join(',')
     })
+  }
+
+  async deleteAccount() {
+    const uid = this.store.getters['authLine/auth'].uid
+    await this.axios.$delete(`${this.routes.USERS_UID}/${uid}`)
   }
 
   async signOut() {
