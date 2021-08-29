@@ -78,6 +78,7 @@ export default {
   methods: {
     postSosClick() {
       this.dialogFlag = true
+      this.$emit('sosAction')
     },
     dialogClose() {
       this.dialogFlag = false
