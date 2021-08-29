@@ -1,11 +1,19 @@
 module.exports = {
-  purge: [
-    './components/**/*.{vue,js}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}'
-  ],
+  purge: {
+    content: [
+      './components/**/*.{vue}',
+      './containers/**/*.{vue}',
+      './layouts/**/*.vue',
+      './pages/**/*.vue',
+      './plugins/**/*.{js}',
+      './store/**/*.{js}',
+      './middleware/**/*.{js}',
+      './nuxt.config.{js}'
+    ],
+    options: {
+      safelist: [/^bg-/, /^hover:bg-/, /^text-/, /^hover:text-/, /^rounded/]
+    }
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     container: {
