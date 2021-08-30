@@ -29,7 +29,7 @@ export default {
       dialogFlag: true,
       sosImg: {
         src: sosSVG,
-        alt: 'SOS'
+        alt: 'sos-image'
       }
     }
   },
@@ -46,7 +46,7 @@ export default {
     async sosAction() {
       await this.$api.geolocation.currentPosition()
       // await this.$api.user.sendSMS()
-      this.$webSocket.client._sendToHelper(this.lat, this.lng)
+      await this.$webSocket.client._sendToHelper(this.lat, this.lng)
     },
 
     dialogShow() {

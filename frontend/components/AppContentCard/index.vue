@@ -31,8 +31,8 @@ export default {
   components: { AppButton },
   props: {
     icon: {
-      type: String,
-      default: ''
+      type: Object,
+      default: () => {}
     },
     isActiveLink: {
       type: Boolean,
