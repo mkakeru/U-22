@@ -21,7 +21,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'nuxt-app-u22',
+    title: 'ヒトコエ',
     htmlAttrs: {
       lang: 'ja'
     },
@@ -30,7 +30,7 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -76,8 +76,7 @@ export default {
   proxy: {
     '/api/': {
       target: `https://${process.env.RAILS_DOMAIN}`
-    },
-    target: 'https://access.line.me/'
+    }
   },
 
   axios: {
@@ -96,10 +95,15 @@ export default {
     cache: true
   },
 
-  env: {
-    RAILS_IP: process.env.RAILS_IP,
-    RAILS_PORT: process.env.RAILS_PORT,
-    RAILS_DOMAIN: process.env.RAILS_DOMAIN,
-    GEO_API_KEY: process.env.GEO_API_KEY
-  }
+  env: isProd
+    ? {
+        RAILS_DOMAIN: process.env.RAILS_DOMAIN,
+        GEO_API_KEY: process.env.GEO_API_KEY
+      }
+    : {
+        RAILS_IP: process.env.RAILS_IP,
+        RAILS_PORT: process.env.RAILS_PORT,
+        RAILS_DOMAIN: process.env.RAILS_DOMAIN,
+        GEO_API_KEY: process.env.GEO_API_KEY
+      }
 }
