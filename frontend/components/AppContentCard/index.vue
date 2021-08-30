@@ -1,8 +1,9 @@
 <template>
   <div class="w-full box-border rounded-md shadow" :class="customClass.content">
-    <div v-if="icon !== ''" class="p-4">
+    <div v-if="icon.src !== ''" class="p-4">
       <img
-        :src="icon"
+        :src="icon.src"
+        :alt="icon.alt"
         class="md:w-36 md:h-36 w-24 h-24 mx-auto rounded-full shadow"
       />
     </div>
