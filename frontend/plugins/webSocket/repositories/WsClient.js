@@ -34,14 +34,16 @@ class WsClient {
   _received(res) {
     const uid = this.store.getters['authLine/auth'].uid
     if (res.message.is_helper === true || res.message.clientUid !== uid) return
+    const { message } = res
+    this._disconnectAction()
     // eslint-disable-next-line no-console
     return console.log(`
-    prop type ${typeof res.message}
-    ${res.message}
-    is_helper = ${res.message.is_helper}
-    clientUid = ${res.message.clientUid}
-    lat = ${res.message.lat}
-    lng = ${res.message.lng}
+    prop type ${typeof message}
+    ${message}
+    is_helper = ${message.is_helper}
+    clientUid = ${message.clientUid}
+    lat = ${message.lat}
+    lng = ${message.lng}
     `)
   }
 

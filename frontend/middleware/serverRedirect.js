@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-useless-return
-export default async function ({ query, store, $user, app, route }) {
+export default async function ({ query, store, app }) {
   if (!query['access-token']) return
   const session = {}
   const authHeaders = {

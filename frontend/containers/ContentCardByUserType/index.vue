@@ -3,7 +3,7 @@
     <template v-if="userType === 'client'">
       <AppContentCard
         :is-active-link="true"
-        :icon="clientSVG"
+        :icon="clientImg"
         :button-text="clientText"
         content-color="primary"
         @buttonClick="clientAction"
@@ -13,7 +13,7 @@
     <template v-else-if="userType === 'helper'">
       <AppContentCard
         :is-active-link="true"
-        :icon="helperSVG"
+        :icon="helperImg"
         :button-text="helperText"
         content-color="secondary"
         @buttonClick="helperAction"
@@ -42,8 +42,14 @@ export default {
       clientText: '利用者として始める',
       helperText: 'ヘルパーとして始める',
       localStrageKey: 'is_helper',
-      clientSVG,
-      helperSVG
+      clientImg: {
+        src: clientSVG,
+        alt: '利用者'
+      },
+      helperImg: {
+        src: helperSVG,
+        alt: 'ヘルパー'
+      }
     }
   },
   methods: {

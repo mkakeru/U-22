@@ -3,7 +3,7 @@
     <AppContentCard
       button-text="助けを呼ぶ"
       content-color="primary"
-      :icon="sosSVG"
+      :icon="sosImg"
       @buttonClick="dialogShow"
     />
     <p class="pt-2 font-bold text-secondary">※注意書きテキスト</p>
@@ -27,7 +27,10 @@ export default {
   data() {
     return {
       dialogFlag: true,
-      sosSVG
+      sosImg: {
+        src: sosSVG,
+        alt: 'SOS'
+      }
     }
   },
   computed: {

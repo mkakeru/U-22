@@ -1,8 +1,5 @@
 <template>
-  <div class="col-span-4">
-    <div class="pt-12 pb-8">
-      <Title />
-    </div>
+  <div class="pt-2">
     <div class="mb-4">
       <AppSectionText>入力内容確認</AppSectionText>
     </div>
@@ -27,7 +24,6 @@
 </template>
 
 <script>
-import Title from '@/containers/Title'
 import AppSectionText from '@/components/AppSectionText'
 import AppConfirmInputDetail from '@/components/AppConfirmInputDetail'
 import AccountRegisterButton from '@/containers/AccountRegisterButton'
@@ -35,7 +31,6 @@ import AppButton from '@/components/AppButton'
 
 export default {
   components: {
-    Title,
     AppSectionText,
     AppConfirmInputDetail,
     AccountRegisterButton,

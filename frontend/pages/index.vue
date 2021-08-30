@@ -1,12 +1,9 @@
 <template>
-  <div class="col-span-4">
-    <div class="pt-12 pb-8">
-      <Title title-type="big" />
-      <p class="pt-2 text-xl font-bold text-caption">
-        caption caption caption
-        <span class="block">caption</span>
-      </p>
-    </div>
+  <div>
+    <p class="pb-4 text-xl font-bold text-caption">
+      caption caption caption
+      <span class="block">caption</span>
+    </p>
     <div class="mb-4">
       <ContentCardByUserType user-type="client" />
     </div>
@@ -17,13 +14,11 @@
 </template>
 
 <script>
-import Title from '@/containers/Title'
 import ContentCardByUserType from '@/containers/ContentCardByUserType'
 
 export default {
   components: {
-    ContentCardByUserType,
-    Title
+    ContentCardByUserType
   },
   layout: 'default'
 }
