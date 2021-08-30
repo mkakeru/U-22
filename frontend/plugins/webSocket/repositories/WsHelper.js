@@ -25,19 +25,19 @@ class WsHelper {
         // eslint-disable-next-line no-console
         return console.log('nice to meet you webSocket from helper')
       },
-      received: res => {
-        this.$geolocation.currentPosition()
-        return this._received(res)
+      received: async res => {
+        return await this._received(res)
       }
     })
   }
 
   async _received(res) {
-    if (res.message.is_helper === true) return
+    const { message } = await Promise.resolve(res)
+    if (message.is_helper === true) return
 
     const client = {
-      lat: res.message.lat,
-      lng: res.message.lng
+      lat: message.lat,
+      lng: message.lng
     }
     // eslint-disable-next-line no-console
     console.log(`
@@ -59,14 +59,14 @@ class WsHelper {
     if (isHelpDistance === true) {
       // eslint-disable-next-line no-console
       console.log(`
-      clientUid = ${res.message.clientUid}
+      clientUid = ${message.clientUid}
       client.lat = ${client.lat}
       client.lng = ${client.lng}
       isHelpDistance = ${isHelpDistance}
       distance = ${distance}
       `)
       await this.$helper.sendHelpMessage(
-        res.message.clientUid,
+        message.clientUid,
         client.lat,
         client.lng
       )
@@ -74,11 +74,12 @@ class WsHelper {
       this.helperChannelLink()
     }
 
-    const message = {
-      clientUid: res.message.clientUid,
-      isHelpDistance: this.store.getters['helper/isHelpDistance']
+    return {
+      message: {
+        clientUid: message.clientUid,
+        isHelpDistance: this.store.getters['helper/isHelpDistance']
+      }
     }
-    return message
   }
 }
 // _____________________________________________________________________________
