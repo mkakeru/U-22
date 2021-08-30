@@ -15,7 +15,7 @@
       class="grid grid-cols-4 col-span-4 md:col-start-3 w-full md:gap-6 gap-4"
     >
       <div class="col-span-4">
-        <div class="py-12"><Title /></div>
+        <div class="pt-9 pb-8"><Title /></div>
         <AppTabMenu />
         <Nuxt />
       </div>

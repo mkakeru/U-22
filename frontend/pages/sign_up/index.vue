@@ -1,8 +1,5 @@
 <template>
-  <div class="col-span-4">
-    <div class="pt-12 pb-8">
-      <Title />
-    </div>
+  <div class="pt-2">
     <div class="mb-4">
       <AppSectionText>プロフィール入力フォーム</AppSectionText>
     </div>
@@ -46,7 +43,6 @@
 </template>
 
 <script>
-import Title from '@/containers/Title'
 import AppSectionText from '@/components/AppSectionText'
 import AppConfirmInputDetail from '@/components/AppConfirmInputDetail'
 import RadioFormGender from '@/containers/RadioFormGender'
@@ -60,7 +56,6 @@ import ConfirmInputFieldsButton from '@/containers/ConfirmInputFieldsButton'
 
 export default {
   components: {
-    Title,
     AppSectionText,
     AppConfirmInputDetail,
     RadioFormGender,
