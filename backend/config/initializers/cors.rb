@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://localhost:3000'
+    origins 'https://localhost:3000', 'https://u-22-hitokoe.vercel.app'
     resource '*',
              :headers => :any,
              :expose => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
