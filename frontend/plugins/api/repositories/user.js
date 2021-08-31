@@ -23,14 +23,6 @@ class User {
     this.routes = routes
   }
 
-  // 多分いらない
-  getAuthentication() {
-    const url = `https://${process.env.RAILS_DOMAIN}`
-    const redirectUrl = `https://${process.env.RAILS_DOMAIN}/omniauth/line/callback`
-    const lineLoginURL = `${url}?auth_origin_url=${encodeURI(redirectUrl)}`
-    return lineLoginURL
-  }
-
   async postUserRegistory() {
     const _store = this.store
     const uid = _store.getters['authLine/auth'].uid
@@ -105,10 +97,6 @@ class User {
     })
 
     const help_content = _store.getters['user/helpList']
-    // await this.axios.$put(`${this.routes.HELPS}/${id}`, {
-    //   uid,
-    //   help_content: help_content.join(',')
-    // })
     await this.axios.$post(this.routes.HELPS, {
       uid,
       help_content: help_content.join(',')
@@ -116,11 +104,7 @@ class User {
 
     const emergency_contact_name = _store.getters['user/emergencyNameList']
     const emergency_contact_tel = _store.getters['user/emergencyTelList']
-    // await this.axios.$put(`${this.routes.EMERGENCY_CONTACTS}/${id}`, {
-    //   uid,
-    //   emergency_contact_name: emergency_contact_name.join(','),
-    //   emergency_contact_tel: emergency_contact_tel.join(',')
-    // })
+
     await this.axios.$post(this.routes.EMERGENCY_CONTACTS, {
       uid,
       emergency_contact_name: emergency_contact_name.join(','),

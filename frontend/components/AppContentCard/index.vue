@@ -63,10 +63,6 @@ export default {
         content: `bg-${this.contentColor}`
       }
     }
-    // lineLoginURL() {
-    //   const url = this._getAuthentication()
-    //   return url
-    // }
   },
   methods: {
     handleClick() {

@@ -26,11 +26,6 @@ class Geolocation {
   }
 
   getUserDistance(helper, client) {
-    // eslint-disable-next-line no-console
-    console.log(`
-    helper.lat = ${helper.lat}
-    helper.lng = ${helper.lng}
-    `)
     const helperLat = helper.lat * this.r
     const helperLng = helper.lng * this.r
 
@@ -45,8 +40,6 @@ class Geolocation {
           Math.cos(clientLng - helperLng) +
           Math.sin(helperLat) * Math.sin(clientLat)
       )
-    // eslint-disable-next-line no-console
-    console.log('distance', distance)
     this.store.dispatch('helper/setDistanceAction', distance)
   }
 }

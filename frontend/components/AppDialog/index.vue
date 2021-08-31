@@ -31,7 +31,9 @@
     </AppDialogFlame>
     <AppDialogFlame :class="{ hidden: !dialogFlag }">
       <template #dialog-head> SOSを送信しました！ </template>
-      <template #dialog-text> text text text </template>
+      <template #dialog-text
+        >近くのヘルパーと、<br />緊急連絡先へSOSを送信しました。</template
+      >
       <div class="pt-12">
         <AppButton
           class="shadow-none"

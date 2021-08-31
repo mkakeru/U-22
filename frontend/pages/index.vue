@@ -1,8 +1,7 @@
 <template>
   <div>
-    <p class="pb-4 text-xl font-bold text-caption">
-      caption caption caption
-      <span class="block">caption</span>
+    <p class="pb-6 text-xl font-bold text-caption">
+      たすけてのコエ届いていますか？
     </p>
     <div class="mb-4">
       <ContentCardByUserType user-type="client" />

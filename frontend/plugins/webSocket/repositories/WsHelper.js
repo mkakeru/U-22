@@ -39,11 +39,6 @@ class WsHelper {
       lat: message.lat,
       lng: message.lng
     }
-    // eslint-disable-next-line no-console
-    console.log(`
-    client.lat = ${client.lat}
-    client.lng = ${client.lng}
-    `)
 
     await this.$geolocation.currentPosition()
 
@@ -54,17 +49,8 @@ class WsHelper {
     this.$geolocation.getUserDistance(helper, client)
 
     const isHelpDistance = this.store.getters['helper/isHelpDistance']
-    const distance = this.store.getters['helper/distance']
 
     if (isHelpDistance === true) {
-      // eslint-disable-next-line no-console
-      console.log(`
-      clientUid = ${message.clientUid}
-      client.lat = ${client.lat}
-      client.lng = ${client.lng}
-      isHelpDistance = ${isHelpDistance}
-      distance = ${distance}
-      `)
       await this.$helper.sendHelpMessage(
         message.clientUid,
         client.lat,

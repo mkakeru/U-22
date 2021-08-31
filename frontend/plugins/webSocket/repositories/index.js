@@ -50,8 +50,6 @@ class WebSocket {
   disconnectSocket() {
     this.disconnectChannel()
     this.disconnectCable()
-    // eslint-disable-next-line no-console
-    console.log(`this.cable = ${this.cable} this.channel = ${this.channel}`)
   }
 }
 // _____________________________________________________________________________
