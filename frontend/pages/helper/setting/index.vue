@@ -14,7 +14,7 @@
           :is-full-width="false"
           @buttonClick="deleteAccount"
         >
-          <span class="px-6"> 削除する </span>
+          <span class="px-6">削除する</span>
         </AppButton>
       </AppForm>
     </div>
@@ -32,11 +32,6 @@ export default {
     AppForm,
     AppButton
   },
-  layout: 'hitokoe',
-  methods: {
-    async deleteAccount() {
-      await this.$api.user.deleteAccount()
-    }
-  }
+  layout: 'helper'
 }
 </script>

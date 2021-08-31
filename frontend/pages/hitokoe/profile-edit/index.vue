@@ -72,7 +72,7 @@ export default {
     ConfirmInputFieldsButton,
     AppButton
   },
-  layout: 'main',
+  layout: 'hitokoe',
   middleware: 'userInfomation',
   computed: {
     commonStyle() {

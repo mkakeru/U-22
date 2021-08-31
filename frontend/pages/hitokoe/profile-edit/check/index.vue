@@ -36,7 +36,7 @@ export default {
     UpdateProfileButton,
     AppButton
   },
-  layout: 'main',
+  layout: 'hitokoe',
   asyncData({ store, redirect }) {
     const isComplete = store.getters['user/isComplete']
     // eslint-disable-next-line no-useless-return

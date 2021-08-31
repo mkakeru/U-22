@@ -29,7 +29,7 @@ export default {
     AppConfirmInputDetail,
     ProfileEditButton
   },
-  layout: 'main',
+  layout: 'hitokoe',
   middleware: 'userInfomation',
   data() {
     return {

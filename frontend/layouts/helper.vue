@@ -16,7 +16,7 @@
     >
       <div class="col-span-4">
         <div class="pt-9 pb-8"><Title /></div>
-        <AppTabMenu />
+        <TabMenuWithHelperRoute />
         <Nuxt />
       </div>
     </div>
@@ -25,12 +25,12 @@
 
 <script>
 import Title from '@/containers/Title'
-import AppTabMenu from '@/components/AppTabMenu'
+import TabMenuWithHelperRoute from '@/containers/TabMenuWithHelperRoute'
 
 export default {
   components: {
     Title,
-    AppTabMenu
+    TabMenuWithHelperRoute
   }
 }
 </script>
