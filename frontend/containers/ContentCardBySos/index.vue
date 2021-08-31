@@ -6,7 +6,12 @@
       :icon="sosImg"
       @buttonClick="dialogShow"
     />
-    <p class="pt-2 font-bold text-secondary">※注意書きテキスト</p>
+    <div class="flex">
+      <span class="pt-2 text-sm font-bold text-secondary">※</span>
+      <p class="pt-2 text-sm font-bold text-secondary">
+        近くにいるヘルパーと緊急連絡先に<br />メッセージを送信します
+      </p>
+    </div>
     <div :class="{ hidden: dialogFlag }">
       <AppDialog @dialogClose="dialogClose" @sosAction="sosAction" />
     </div>
