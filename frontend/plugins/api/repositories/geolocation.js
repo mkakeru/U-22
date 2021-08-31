@@ -9,9 +9,7 @@ class Geolocation {
     this.store = store
     this.r = Math.PI / 180
     this.geoOptions = {
-      enableHighAccuracy: true,
-      timeout: 10000,
-      maximumAge: 0
+      enableHighAccuracy: true
     }
   }
 
