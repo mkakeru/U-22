@@ -4,6 +4,7 @@ export default async function ({ app, redirect, route }) {
   if (!session) return redirect('/')
 
   const isHelper = localStorage.getItem('is_helper')
+  if (isHelper === null) return redirect('/')
   if (/^hitokoe-?/.test(route.name) && isHelper === 'true') {
     redirect('/helper')
   } else if (/^helper-?/.test(route.name) && isHelper === 'false') {

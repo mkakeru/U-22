@@ -15,7 +15,7 @@ import ContentCardBySos from '@/containers/ContentCardBySos'
 
 export default {
   components: { AppSectionText, ContentCardBySos },
-  layout: 'main',
+  layout: 'hitokoe',
   middleware: 'userInfomation'
 }
 </script>

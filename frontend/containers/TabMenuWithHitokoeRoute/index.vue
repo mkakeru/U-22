@@ -131,10 +131,10 @@
 
 <script>
 export default {
-  name: 'AppTabMenu',
-  data() {
-    return {
-      activePath: 'hitokoe'
+  name: 'TabMenuWithHitokoeRoute',
+  computed: {
+    activePath() {
+      return this.$route.name
     }
   },
   methods: {

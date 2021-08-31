@@ -32,7 +32,8 @@ module.exports = {
         primary: '#2E2E2E',
         secondary: '#3E3E3E',
         caption: '#4D4D4D',
-        active: '#FF4C4A'
+        active: '#FF4C4A',
+        'active-accent': '#53B3FF'
       },
       textOpacity: {
         65: '0.65',
@@ -45,6 +46,7 @@ module.exports = {
     },
     fill: theme => ({
       primary: theme('colors.primary'),
+      secondary: theme('colors.secondary'),
       disable: theme('colors.disable')
     })
   },
