@@ -10,10 +10,13 @@ class Api::V1::PhonesController < ApplicationController
       # twilioのMessagingAPIを使用してSMSに認証コード送信
       begin
         client = Twilio::REST::Client.new
+        message = "#{@user.name}さんがヘルプボタンを押しました。\n"
+        message += "https://www.google.com/maps?q=#{params[:lat]},#{params[:lng]}"
+
         result = client.messages.create(
           from: Rails.application.credentials.twilio[:TWILIO_PHONE_NUMBER],
           to:   send_phone_number,
-          body: "#{@user.name}さんがヘルプボタンを押しました。"
+          body: message
         )
         render json: { status: 'SUCCESS', message: 'Sent a help message'}
       rescue Twilio::REST::RestError => e
@@ -22,6 +25,7 @@ class Api::V1::PhonesController < ApplicationController
       end
     end
   end
+
 
   private
 
