@@ -112,9 +112,13 @@ class User {
     })
   }
 
-  async sendSMS() {
-    const uid = this.store.getters['authLine/auth'].uid
-    await this.axios.$get(`${this.routes.PHONES}/${uid}/send_sms`)
+  async sendSMS(clientLat, clientLng) {
+    const _uid = this.store.getters['authLine/auth'].uid
+    await this.axios.$post(`${this.routes.PHONES}/${_uid}/send_sms`, {
+      uid: _uid,
+      lat: clientLat,
+      lng: clientLng
+    })
   }
 
   async deleteAccount() {
