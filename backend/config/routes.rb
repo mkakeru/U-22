@@ -15,11 +15,8 @@ Rails.application.routes.draw do
       resources :user_details, only: %i[index create show update]
       resources :helps
       resources :emergency_contacts
-      resources :phones do
-        member do
-          post 'send_sms', to: 'phones#send_sms'
-        end
-      end
+
+      post 'phones/send_sms', to: 'phones#send_sms'
       post 'help_button', to: 'help_buttons#send_help_message'
     end
   end
