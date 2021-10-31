@@ -8,7 +8,7 @@ export default function ($axios, store, version) {
     USERS_UID: `${version}/users`,
     HELPS: `${version}/helps`,
     EMERGENCY_CONTACTS: `${version}/emergency_contacts`,
-    PHONES: `${version}/phones`
+    PHONES: `${version}/phones/send_sms`
   }
 
   const user = new User($axios, store, routes)
@@ -114,7 +114,7 @@ class User {
 
   async sendSMS(clientLat, clientLng) {
     const _uid = this.store.getters['authLine/auth'].uid
-    await this.axios.$post(`${this.routes.PHONES}/${_uid}/send_sms`, {
+    await this.axios.$post(this.routes.PHONES, {
       uid: _uid,
       lat: clientLat,
       lng: clientLng
