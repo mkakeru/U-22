@@ -51,8 +51,8 @@ class Api::V1::HelpButtonsController < ApplicationController
       # })
       message.push(    {
         type: "image",
-        originalContentUrl: "https://lh3.googleusercontent.com/I_xSETWpUP3qVkPW5p0A8rT1d_mEyv0vyvUrDttmUlHLHzY0Zb0tlpbYBHfCqQqHfjxWYDSD_wYK7xMlXdiPszuOyC-j0Uy-fOe4Nsh6pStWBQCv6y1CeCy0xG4hZSQe3ZegyaOSE3kUhS-M1OpbMeGLLtGGhPwEX52RggUV25Nn6pXZxrPyFrJSr9NQHIZXOU2we-Q7kqXohhR_u-ZhD5j7LUdbb6OI6IQEG9Vuaw_Zfmw-59QzRZ9A0Ypq-TuQwUYNaLOuBRbXaC7dI_lPk_b2w-Kvb0jffN1uWZlGGtj3BetlKKAVAIFfaXYWN5TdyXCvqRccDfpedmzlClvd0X25eSmrubWyziagswCUdLgrFYr_rpJpp8461ZRoG8gCpZMBzy0vVQsD74VuAchjqFUGed50b3t7Sqflq_kFBhCywlmyLUpOQ9Bels_oXIplGkzAVhWMnNA2LFEO6vzsyh_0c9I-8ICqm0RMlB-o5vTeDcCTu_ILx0Q7L5I1bm0N7sSBK_cHWca1uYbyLNB1JlviHRASk-8r8EMMxDaM-o2wRd55BPFciYpvU1B9jFUKpkYdA2967cYSHC6d-PWDLdYy3gN_HEjZbNoodRDOGvJsZEYPjdqHarjAZCJodocxTFe8Jm2cEOTjR1BG_83IjbfP37qovgfAwYeredCbxY5xh22Z7VUrN9V3w_hf-gdDJ3p6i6MYI7_rj89ljq2uW6o=s1710-no?authuser=3",
-        previewImageUrl: "https://lh3.googleusercontent.com/I_xSETWpUP3qVkPW5p0A8rT1d_mEyv0vyvUrDttmUlHLHzY0Zb0tlpbYBHfCqQqHfjxWYDSD_wYK7xMlXdiPszuOyC-j0Uy-fOe4Nsh6pStWBQCv6y1CeCy0xG4hZSQe3ZegyaOSE3kUhS-M1OpbMeGLLtGGhPwEX52RggUV25Nn6pXZxrPyFrJSr9NQHIZXOU2we-Q7kqXohhR_u-ZhD5j7LUdbb6OI6IQEG9Vuaw_Zfmw-59QzRZ9A0Ypq-TuQwUYNaLOuBRbXaC7dI_lPk_b2w-Kvb0jffN1uWZlGGtj3BetlKKAVAIFfaXYWN5TdyXCvqRccDfpedmzlClvd0X25eSmrubWyziagswCUdLgrFYr_rpJpp8461ZRoG8gCpZMBzy0vVQsD74VuAchjqFUGed50b3t7Sqflq_kFBhCywlmyLUpOQ9Bels_oXIplGkzAVhWMnNA2LFEO6vzsyh_0c9I-8ICqm0RMlB-o5vTeDcCTu_ILx0Q7L5I1bm0N7sSBK_cHWca1uYbyLNB1JlviHRASk-8r8EMMxDaM-o2wRd55BPFciYpvU1B9jFUKpkYdA2967cYSHC6d-PWDLdYy3gN_HEjZbNoodRDOGvJsZEYPjdqHarjAZCJodocxTFe8Jm2cEOTjR1BG_83IjbfP37qovgfAwYeredCbxY5xh22Z7VUrN9V3w_hf-gdDJ3p6i6MYI7_rj89ljq2uW6o=s1710-no?authuser=3"
+        originalContentUrl: "https://feature-photo.s3.ap-northeast-1.amazonaws.com/profile-mei.png",
+        previewImageUrl: "https://feature-photo.s3.ap-northeast-1.amazonaws.com/profile-mei.png"
       })
     end
     response = client.push_message(@helper.uid, message)
