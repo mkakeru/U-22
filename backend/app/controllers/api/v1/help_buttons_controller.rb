@@ -43,7 +43,7 @@ class Api::V1::HelpButtonsController < ApplicationController
       latitude: params[:lat],
       longitude: params[:lng]
     }]
-    if !user_detail.user_detail_image_path.url.nil?
+    if !user_detail.user_detail_image_path.nil?
       # message.push(    {
       #   type: "image",
       #   originalContentUrl: user_detail.user_detail_image_path.url,
