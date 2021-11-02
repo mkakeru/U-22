@@ -4,31 +4,37 @@ class Api::V1::HelpButtonsController < ApplicationController
   before_action :set_helper
 
   def send_help_message
-    @user_detail = @user.user_detail
-    gender = @user_detail.user_detail_gender == 0 ? "その他" : @user_detail.user_detail_gender == 1 ? "男性" : "女性"
-    if @user_detail.user_detail_stature == 0
+    user_detail = @user.user_detail
+    gender = user_detail.user_detail_gender == 0 ? "その他" : user_detail.user_detail_gender == 1 ? "男性" : "女性"
+    if user_detail.user_detail_stature == 0
       stature = "~130cm"
-    elsif @user_detail.user_detail_stature == 6
+    elsif user_detail.user_detail_stature == 6
       stature = "180cm~"
-    elsif @user_detail.user_detail_stature >= 1 && @user_detail.user_detail_stature <= 5
-      stature_val = @user_detail.user_detail_stature * 10 + 120
+    elsif user_detail.user_detail_stature >= 1 && user_detail.user_detail_stature <= 5
+      stature_val = user_detail.user_detail_stature * 10 + 120
       stature = "#{stature_val+1}cm~#{stature_val+10}cm"
     end
-    if @user_detail.user_detail_age == 0
+    if user_detail.user_detail_age == 0
       age = "10歳未満"
-    elsif @user_detail.user_detail_age == 5
+    elsif user_detail.user_detail_age == 5
       age = "50歳以上"
-    elsif @user_detail.user_detail_age >= 1 && @user_detail.user_detail_age <= 4
-      age = "#{@user_detail.user_detail_age * 10}代"
+    elsif user_detail.user_detail_age >= 1 && user_detail.user_detail_age <= 4
+      age = "#{user_detail.user_detail_age * 10}代"
     end
     address = Geocoder.search([params[:lat], params[:lng]])
+    helps = Help.where(uid: @user.uid).order(created_at: :desc)
+    help_text = ""
+    helps.each do |help|
+      help_text.concat("\n・#{help.help_content}")
+    end
     message = [{
       type: "text",
       text: "#{@user.name}さんが助けを求めています。\
             \n性別:#{gender}\
             \n身長:#{stature}\
             \n年齢:#{age}\
-            \n特徴:#{@user_detail.user_detail_features}"
+            \n特徴:#{user_detail.user_detail_features}\
+            \n助けてほしいこと:#{help_text}"
     },
     {
       type: "location",
@@ -37,11 +43,11 @@ class Api::V1::HelpButtonsController < ApplicationController
       latitude: params[:lat],
       longitude: params[:lng]
     }]
-    if !@user_detail.user_detail_image_path.url.nil?
+    if !user_detail.user_detail_image_path.url.nil?
       message.push(    {
         type: "image",
-        originalContentUrl: @user_detail.user_detail_image_path.url,
-        previewImageUrl: @user_detail.user_detail_image_path.url
+        originalContentUrl: user_detail.user_detail_image_path.url,
+        previewImageUrl: user_detail.user_detail_image_path.url
       })
     end
     response = client.push_message(@helper.uid, message)
