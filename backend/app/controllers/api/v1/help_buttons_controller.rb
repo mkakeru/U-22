@@ -44,10 +44,15 @@ class Api::V1::HelpButtonsController < ApplicationController
       longitude: params[:lng]
     }]
     if !user_detail.user_detail_image_path.url.nil?
+      # message.push(    {
+      #   type: "image",
+      #   originalContentUrl: user_detail.user_detail_image_path.url,
+      #   previewImageUrl: user_detail.user_detail_image_path.url
+      # })
       message.push(    {
         type: "image",
-        originalContentUrl: user_detail.user_detail_image_path.url,
-        previewImageUrl: user_detail.user_detail_image_path.url
+        originalContentUrl: "https://lh3.googleusercontent.com/I_xSETWpUP3qVkPW5p0A8rT1d_mEyv0vyvUrDttmUlHLHzY0Zb0tlpb[…]rN9V3w_hf-gdDJ3p6i6MYI7_rj89ljq2uW6o=s1710-no?authuser=3",
+        previewImageUrl: "https://lh3.googleusercontent.com/I_xSETWpUP3qVkPW5p0A8rT1d_mEyv0vyvUrDttmUlHLHzY0Zb0tlpb[…]rN9V3w_hf-gdDJ3p6i6MYI7_rj89ljq2uW6o=s1710-no?authuser=3"
       })
     end
     response = client.push_message(@helper.uid, message)
