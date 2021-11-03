@@ -43,18 +43,18 @@ class Api::V1::HelpButtonsController < ApplicationController
       latitude: params[:lat],
       longitude: params[:lng]
     }]
-    if !user_detail.user_detail_image_path.nil?
+    # if !user_detail.user_detail_image_path.nil?
       # message.push(    {
       #   type: "image",
       #   originalContentUrl: user_detail.user_detail_image_path.url,
       #   previewImageUrl: user_detail.user_detail_image_path.url
       # })
-      message.push(    {
-        type: "image",
-        originalContentUrl: "https://feature-photo.s3.ap-northeast-1.amazonaws.com/profile-mei.png",
-        previewImageUrl: "https://feature-photo.s3.ap-northeast-1.amazonaws.com/profile-mei.png"
-      })
-    end
+    message.push(    {
+      type: "image",
+      originalContentUrl: "https://feature-photo.s3.ap-northeast-1.amazonaws.com/profile-mei.png",
+      previewImageUrl: "https://feature-photo.s3.ap-northeast-1.amazonaws.com/profile-mei.png"
+    })
+    # end
     response = client.push_message(@helper.uid, message)
     if response.code == "200"
       render json: { status: 'SUCCESS', message: 'Sent a help message', data: response }
