@@ -7,6 +7,9 @@ require('dotenv').config({
 })
 
 export default {
+  vue: {
+    devtools: true
+  },
   server: isProd
     ? false
     : {
