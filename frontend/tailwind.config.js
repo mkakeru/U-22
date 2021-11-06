@@ -39,7 +39,7 @@ module.exports = {
         'button-secondary': '#C9E2FF'
       },
       textColor: {
-        primary: '#2E2E2E',
+        primary: '#3B3B3B',
         secondary: '#3E3E3E',
         caption: '#4D4D4D',
         active: '#FF4C4A',
