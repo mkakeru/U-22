@@ -55,7 +55,7 @@ export default async function ({ store, $user, redirect }) {
     store.commit('user/setInputValue', userName)
     store.commit('user/setUserId', userInfo.id)
     store.commit('user/setFeaturePhoto', {
-      encodedData: userInfo.featurePhoto.url,
+      encodedData: userInfo.featurePhoto,
       carrierWave: null
     })
     selectItemCommit(userInfo)
