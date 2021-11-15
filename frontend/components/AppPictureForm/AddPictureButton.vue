@@ -27,8 +27,7 @@ export default {
   },
   data() {
     return {
-      photoIcon: PhotoIcon,
-      uploadedImage: ''
+      photoIcon: PhotoIcon
     }
   },
   methods: {

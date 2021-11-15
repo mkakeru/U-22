@@ -43,15 +43,16 @@ export default {
     '@/assets/css/global.css'
   ],
 
-  router: {
-    middleware: ['auth', 'cookie']
-  },
+  // router: {
+  //   middleware: ['auth', 'cookie']
+  // },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/axios',
     { src: '@/plugins/api', mode: 'client' },
-    { src: '@/plugins/webSocket', mode: 'client' }
+    { src: '@/plugins/webSocket', mode: 'client' },
+    { src: '@/plugins/handle-s3', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -107,6 +108,7 @@ export default {
         RAILS_IP: process.env.RAILS_IP,
         RAILS_PORT: process.env.RAILS_PORT,
         RAILS_DOMAIN: process.env.RAILS_DOMAIN,
-        GEO_API_KEY: process.env.GEO_API_KEY
+        GEO_API_KEY: process.env.GEO_API_KEY,
+        TEST: process.env.TEST
       }
 }
