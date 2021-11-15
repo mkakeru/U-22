@@ -23,7 +23,8 @@ const state = () => ({
   featureList: [''],
   emergencyContactList: [{ name: '', tel: '' }],
   featurePhoto: '',
-  fileObject: '',
+  featureFile: '',
+  featuerKey: '',
   isComplete: { bool: false, errVal: '' }
 })
 // _____________________________________________________________________________
@@ -56,7 +57,8 @@ const getters = {
   emergencyContactList: state => state.emergencyContactList,
   featureList: state => state.featureList,
   featurePhoto: state => state.featurePhoto,
-  fileObject: state => state.fileObject,
+  featureFile: state => state.featureFile,
+  featuerKey: state => state.featuerKey,
   isComplete: state => state.isComplete,
   helpListLength: (state, getters) => getters.helpList.length,
   emergencyListLength: (state, getters) => getters.emergencyContactList.length,
@@ -107,9 +109,15 @@ const mutations = {
     }
   },
 
+  setFeature(state, payload) {
+    state.featurePhoto = payload.encodedData
+    state.featureFile = payload.featureFile
+  },
   setFeaturePhoto(state, payload) {
     state.featurePhoto = payload.encodedData
-    state.fileObject = payload.fileObject
+  },
+  setFeatureKey(state, payload) {
+    state.featuerKey = payload.featuerKey
   },
 
   checkIsCompleate(state) {

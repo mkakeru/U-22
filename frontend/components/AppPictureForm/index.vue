@@ -41,7 +41,7 @@ export default {
   },
   props: {
     uploadedPhoto: {
-      type: null,
+      type: String,
       default: ''
     }
   },

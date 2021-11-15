@@ -31,7 +31,7 @@ class User {
     const user_detail_stature = _store.getters['user/height'].id
     const user_detail_age = _store.getters['user/age'].id
     const user_detail_features = _store.getters['user/featureList']
-    const user_detail_image_path = _store.getters['user/carrierWaveFormat']
+    const user_detail_image_path = _store.getters['user/featuerKey']
     // ユーザーの通知設定
     const user_detail_notification_flag = true
     await this.axios.$post(this.routes.USER_DETAILS, {
@@ -84,7 +84,7 @@ class User {
     const user_detail_stature = _store.getters['user/height'].id
     const user_detail_age = _store.getters['user/age'].id
     const user_detail_features = _store.getters['user/featureList']
-    const user_detail_image_path = _store.getters['user/carrierWaveFormat']
+    const user_detail_image_path = _store.getters['user/featuerKey']
     const user_detail_notification_flag = true
     await this.axios.$put(`${this.routes.USER_DETAILS}/${id}`, {
       uid,
