@@ -29,30 +29,28 @@ class HandleS3 {
 
   fileUpload() {
     const featureFile = this.store.getters['user/featureFile']
-    // const fileExtension = featureFile.name.split('.').pop()
-    // eslint-disable-next-line no-console
-    console.log(featureFile, featureFile.name)
-    // const key = this.createKey(fileExtension)
-    // this.store.commit('user/setFeatureKey', {
-    //   keyName: key
-    // })
-    // const params = {
-    //   Bucket: process.env.BUCKET_NAME,
-    //   Key: key,
-    //   Body: featureFile,
-    //   ContentType: 'image/jpeg',
-    //   ACL: 'public-read'
-    // }
+    const fileExtension = featureFile.name.split('.').pop()
+    const key = this.createKey(fileExtension)
+    this.store.commit('user/setFeatureKey', {
+      featuerKey: key
+    })
 
-    // this.s3.upload(params, (err, data) => {
-    //   if (err) {
-    //     // eslint-disable-next-line no-console
-    //     console.error(err)
-    //   } else {
-    //     // eslint-disable-next-line no-console
-    //     console.log(data)
-    //   }
-    // })
+    const params = {
+      Bucket: process.env.BUCKET_NAME,
+      Key: key,
+      Body: featureFile,
+      ContentType: 'image/jpeg',
+      ACL: 'public-read'
+    }
+
+    this.s3.upload(params, (err, data) => {
+      if (err) {
+        console.error(err)
+      } else {
+        // eslint-disable-next-line no-restricted-syntax
+        console.log(data)
+      }
+    })
   }
 
   createKey(fileExtension) {
