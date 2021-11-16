@@ -43,9 +43,9 @@ export default {
     '@/assets/css/global.css'
   ],
 
-  // router: {
-  //   middleware: ['auth', 'cookie']
-  // },
+  router: {
+    middleware: ['auth', 'cookie']
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -98,11 +98,14 @@ export default {
   build: {
     cache: true
   },
-
   env: isProd
     ? {
         RAILS_DOMAIN: process.env.RAILS_DOMAIN,
-        GEO_API_KEY: process.env.GEO_API_KEY
+        GEO_API_KEY: process.env.GEO_API_KEY,
+        BUCKET_NAME: process.env.BUCKET_NAME,
+        BUCKET_REGION: process.env.BUCKET_REGION,
+        IDENTIFY_POOL_ID: process.env.IDENTIFY_POOL_ID,
+        OBJECT_URL: process.env.OBJECT_URL
       }
     : {
         RAILS_IP: process.env.RAILS_IP,
@@ -111,6 +114,7 @@ export default {
         GEO_API_KEY: process.env.GEO_API_KEY,
         BUCKET_NAME: process.env.BUCKET_NAME,
         BUCKET_REGION: process.env.BUCKET_REGION,
-        IDENTIFY_POOL_ID: process.env.IDENTIFY_POOL_ID
+        IDENTIFY_POOL_ID: process.env.IDENTIFY_POOL_ID,
+        OBJECT_URL: process.env.OBJECT_URL
       }
 }
