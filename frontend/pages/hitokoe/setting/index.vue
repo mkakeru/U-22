@@ -35,7 +35,12 @@ export default {
   layout: 'hitokoe',
   methods: {
     async deleteAccount() {
-      await this.$api.user.deleteAccount()
+      try {
+        await this.$api.user.deleteAccount()
+        this.$router.push({ name: 'index' })
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 }
