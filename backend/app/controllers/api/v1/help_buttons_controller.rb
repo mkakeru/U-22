@@ -46,8 +46,8 @@ class Api::V1::HelpButtonsController < ApplicationController
     if !user_detail.user_detail_image_path.nil?
       message.push(    {
         type: "image",
-        originalContentUrl: user_detail.user_detail_image_path,
-        previewImageUrl: user_detail.user_detail_image_path
+        originalContentUrl: Rails.application.credentials.s3[:S3_URL] + user_detail.user_detail_image_path,
+        previewImageUrl: Rails.application.credentials.s3[:S3_URL] + user_detail.user_detail_image_path
       })
     end
     response = client.push_message(@helper.uid, message)
