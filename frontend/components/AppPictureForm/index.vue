@@ -31,7 +31,7 @@
 
 <script>
 import AppForm from '@/components/AppForm'
-import AddPictureButton from './AddPictureButton'
+import AddPictureButton from '@/components/AppPictureForm/AddPictureButton'
 
 export default {
   name: 'AppPictureForm',
@@ -41,7 +41,7 @@ export default {
   },
   props: {
     uploadedPhoto: {
-      type: null,
+      type: String,
       default: ''
     }
   },

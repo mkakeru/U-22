@@ -17,6 +17,14 @@ module.exports = {
   plugins: ['vue'],
   // add your custom rules here
   rules: {
+    'no-console': 'off',
+    'no-restricted-syntax': [
+      'error',
+      {
+        selector:
+          "CallExpression[callee.object.name='console'][callee.property.name!=/^(warn|error|info|trace)$/]"
+      }
+    ]
     // 'prettier/prettier': 'error',
     // semi: ['error', 'never', { beforeStatementContinuationChars: 'never' }],
   }

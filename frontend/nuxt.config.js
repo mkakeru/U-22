@@ -51,7 +51,8 @@ export default {
   plugins: [
     '@/plugins/axios',
     { src: '@/plugins/api', mode: 'client' },
-    { src: '@/plugins/webSocket', mode: 'client' }
+    { src: '@/plugins/webSocket', mode: 'client' },
+    '@/plugins/handle-s3'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -97,16 +98,23 @@ export default {
   build: {
     cache: true
   },
-
   env: isProd
     ? {
         RAILS_DOMAIN: process.env.RAILS_DOMAIN,
-        GEO_API_KEY: process.env.GEO_API_KEY
+        GEO_API_KEY: process.env.GEO_API_KEY,
+        BUCKET_NAME: process.env.BUCKET_NAME,
+        BUCKET_REGION: process.env.BUCKET_REGION,
+        IDENTIFY_POOL_ID: process.env.IDENTIFY_POOL_ID,
+        OBJECT_URL: process.env.OBJECT_URL
       }
     : {
         RAILS_IP: process.env.RAILS_IP,
         RAILS_PORT: process.env.RAILS_PORT,
         RAILS_DOMAIN: process.env.RAILS_DOMAIN,
-        GEO_API_KEY: process.env.GEO_API_KEY
+        GEO_API_KEY: process.env.GEO_API_KEY,
+        BUCKET_NAME: process.env.BUCKET_NAME,
+        BUCKET_REGION: process.env.BUCKET_REGION,
+        IDENTIFY_POOL_ID: process.env.IDENTIFY_POOL_ID,
+        OBJECT_URL: process.env.OBJECT_URL
       }
 }
