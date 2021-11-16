@@ -9,6 +9,8 @@
       grid-cols-4
       md:gap-6
       gap-4
+      min-h-screen
+      pb-10
     "
   >
     <div

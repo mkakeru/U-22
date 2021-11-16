@@ -20,6 +20,8 @@ export default {
   methods: {
     async registerAction() {
       if (!this._isComplete) return
+      const handleS3 = this.$handleS3()
+      await handleS3.fileUpload()
       await this.$api.user.postUserRegistory()
       this.$router.push('/hitokoe')
     }

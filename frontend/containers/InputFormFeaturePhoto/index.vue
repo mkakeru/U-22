@@ -18,13 +18,12 @@ export default {
   },
   methods: {
     _selectedFile(file) {
-      const formData = new FormData()
-      formData.append('post[image]', file)
       const reader = new FileReader()
       reader.onload = async () => {
-        await this.$store.commit('user/setFeaturePhoto', {
+        // 実行できてない？
+        await this.$store.commit('user/setFeature', {
           encodedData: reader.result,
-          carrierWave: formData
+          featureFile: file
         })
       }
       reader.readAsDataURL(file)
